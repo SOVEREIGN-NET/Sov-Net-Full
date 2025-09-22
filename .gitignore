@@ -1,0 +1,40 @@
+# Directories to ignore
+lib-dht/
+Sovereign-Network-Site/
+zhtp-dev/
+
+# Build artifacts
+target/
+Cargo.lock
+*.exe
+*.dll
+*.so
+*.dylib
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Node modules (if any)
+node_modules/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Rust specific
+**/*.rs.bk
+*.pdb
