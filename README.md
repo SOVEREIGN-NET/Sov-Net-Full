@@ -28,22 +28,20 @@ This repository contains multiple interconnected libraries and services:
 
 SOVEREIGN_NET supports multiple node types optimized for different use cases:
 
-#### Option 1: Quick Start Script (Recommended)
-```bash
-# Linux/macOS
-./start-node.sh
 
-# Windows
-start-node.bat
-```
-
-#### Option 2: Manual Node Type Selection
+#### Option 1 Manual Node Type Selection
 ```bash
 # Navigate to the ZHTP directory
 cd zhtp
 
 # Build the project
-cargo build --release
+cargo build 
+
+# Start test node****
+
+./target/debug/zhtp.exe node start
+^^^^^^^^^^^^^^^^^^^^^^^
+#"./target/debug/zhtp.exe" this is how you use the cli for now you can use --help to see the current commands.
 
 # Start different node types:
 
@@ -84,39 +82,10 @@ zhtp --node-type validator --mesh-port 33445
 
 The server will start on `http://localhost:9333` with the following endpoints:
 
-#### Identity API
-- `POST /api/identity/create` - Create new identities (human/device/organization)
-- `GET /api/identity/status` - Check identity service status
+#### *****API*****
+go to /zhtp/native_zhtp_api_complete.md those are the 30 apis that should work right now.
 
-#### Blockchain API
-- `GET /api/blockchain/status` - Get blockchain status
-- `GET /api/blockchain/balance/{address}` - Check address balance
-- `GET /api/blockchain/validators` - List active validators
-- `POST /api/blockchain/transaction` - Submit transactions
 
-#### Protocol API
-- `GET /api/protocol/status` - Check protocol handler status
-- `POST /api/protocol/message` - Send protocol messages
-
-#### Storage API
-- `GET /api/storage/status` - Check storage service status
-
-### Testing the API
-
-Test the server with curl or any HTTP client:
-
-```powershell
-# Check server status
-curl http://localhost:9333/api/identity/status
-
-# Create a new identity
-curl -X POST http://localhost:9333/api/identity/create `
-  -H "Content-Type: application/json" `
-  -d '{"identity_type": "human", "name": "Test User"}'
-
-# Check blockchain status
-curl http://localhost:9333/api/blockchain/status
-```
 
 ### Running Individual Components
 
@@ -139,60 +108,3 @@ cargo test
 cd lib-blockchain
 cargo run --example full_consensus_integration
 ```
-## Development Workflow
-
-### Building All Components
-```powershell
-# Build workspace (from root directory)
-cargo build --workspace
-
-# Run all tests
-cargo test --workspace
-```
-
-## Architecture Overview
-
-The SOVEREIGN_NET follows a modular architecture:
-
-1. **ZHTP Server** - Central orchestrator and API gateway
-2. **Core Libraries** - Modular blockchain components
-3. **Post-Quantum Security** - CRYSTALS cryptography throughout
-4. **Zero-Knowledge Proofs** - Privacy-preserving transactions
-5. **Distributed Storage** - Mesh networking with DHT
-6. **Economic Layer** - Token mechanics and governance
-
-## Key Features
-
-- **Post-Quantum Cryptography** - Future-proof security
-- **Zero-Knowledge Proofs** - Privacy-preserving transactions  
-- **Byzantine Fault Tolerance** - Robust consensus mechanisms
-- **DAO Governance** - Decentralized decision making
-- **Multi-Identity Support** - Humans, devices, and organizations
-- **Mesh Networking** - P2P communication with LoRaWAN
-- **Smart Contracts** - Programmable blockchain logic
-
-## Documentation
-
-- Check individual `README.md` files in each library directory
-- See `BUGS.md` files for known issues and solutions
-- Review `examples/` directories for usage patterns
-- Check `docs/` directories for detailed documentation
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests
-5. Submit a pull request
-
-## License
-
-See individual library directories for specific licensing information.
-
-## Support
-
-For issues and questions:
-- Check the `BUGS.md` files in relevant libraries
-- Review existing GitHub issues
-- Create new issues with detailed descriptions
