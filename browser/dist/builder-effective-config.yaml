@@ -1,0 +1,23 @@
+directories:
+  output: dist
+  buildResources: build
+appId: com.zhtp.web4app
+productName: ZHTP Web4 App
+files:
+  - filter:
+      - main.js
+      - preload.js
+      - index.html
+      - src/**/*
+      - assets/**/*
+      - node_modules/**/*
+win:
+  target: nsis
+  icon: assets/icon.ico
+mac:
+  target: dmg
+  icon: assets/icon.icns
+linux:
+  target: AppImage
+  icon: assets/icon.png
+electronVersion: 28.3.3

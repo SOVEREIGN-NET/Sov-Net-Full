@@ -1,7 +1,10 @@
 # Directories to ignore
 lib-dht/
+lib-dns-main/
 Sovereign-Network-Site/
 zhtp-dev/
+hello_world/
+data/
 
 # Build artifacts
 target/

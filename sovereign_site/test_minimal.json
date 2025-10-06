@@ -1,0 +1,15 @@
+{
+  "domain": "test-minimal.zhtp",
+  "owner": "test_owner",
+  "content_mappings": {
+    "/": {
+      "content": "<!DOCTYPE html><html><head><title>Test</title></head><body><h1>Minimal Test</h1></body></html>",
+      "content_type": "text/html"
+    }
+  },
+  "metadata": {
+    "title": "Test Site",
+    "description": "Minimal test",
+    "public": true
+  }
+}

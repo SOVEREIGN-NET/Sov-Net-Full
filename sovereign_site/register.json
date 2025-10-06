@@ -1,0 +1,20 @@
+{
+  "domain": "sovereign-network.zhtp",
+  "owner": "sovereign_network_team",
+  "content_mappings": {
+    "/": "6c6090668521b13a",
+    "/style.css": "fe88257d0d66e96e"
+  },
+  "metadata": {
+    "title": "The Sovereign Network - Official Site",
+    "description": "Decentralized mesh network that pays you for participation",
+    "category": "official",
+    "tags": [
+      "sovereign-network",
+      "mesh",
+      "blockchain",
+      "web4"
+    ],
+    "public": true
+  }
+}
