@@ -5,6 +5,7 @@ Sovereign-Network-Site/
 zhtp-dev/
 hello_world/
 data/
+sovereign_site/
 
 # Build artifacts
 target/
