@@ -3658,7 +3658,23 @@ Web4 Decentralized Internet with Quantum-Resistant Privacy
                 baseElement.href = baseUrl;
                 console.log(`📍 Set base URL to: ${baseUrl} for asset loading`);
                 
+                // Set innerHTML first
                 pageContent.innerHTML = contractContent.content;
+                
+                // Extract and execute script tags (innerHTML doesn't execute scripts for security)
+                const scripts = pageContent.querySelectorAll('script');
+                scripts.forEach(oldScript => {
+                    const newScript = document.createElement('script');
+                    // Copy attributes
+                    Array.from(oldScript.attributes).forEach(attr => {
+                        newScript.setAttribute(attr.name, attr.value);
+                    });
+                    // Copy content
+                    newScript.textContent = oldScript.textContent;
+                    // Replace old script with new one
+                    oldScript.parentNode.replaceChild(newScript, oldScript);
+                });
+                console.log(`✅ Executed ${scripts.length} script tag(s) from Web4 content`);
             } else {
                 pageContent.innerHTML = `
                     <div style="padding: 2rem; text-align: center;">
