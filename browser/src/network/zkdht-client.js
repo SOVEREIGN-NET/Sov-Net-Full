@@ -40,13 +40,7 @@ class ZkDHTClient {
             'zhtp://127.0.0.1:8080'
         ];
         
-        const remoteBootstrapNodes = [
-            'zhtp://bootstrap1.zhtp:7777',
-            'zhtp://bootstrap2.zhtp:7777',
-            'zhtp://bootstrap3.zhtp:7777'
-        ];
-
-        // Try local nodes first (development environment)
+        // Pure mesh mode - only try local nodes (no remote bootstrap)
         for (const node of localNodes) {
             try {
                 console.log(` Connecting to local node: ${node}`);
@@ -59,22 +53,10 @@ class ZkDHTClient {
             }
         }
 
-        // Fallback to remote bootstrap nodes (production environment)
-        for (const node of remoteBootstrapNodes) {
-            try {
-                console.log(` Connecting to bootstrap node: ${node}`);
-                await this.api.connectToPeer(node);
-                this.peers.add(node);
-                break; // Successfully connected to at least one
-            } catch (error) {
-                console.log(`⚠️ Failed to connect to ${node}, trying next...`);
-            }
-        }
-
         if (this.peers.size === 0) {
-            console.log('⚠️ No bootstrap nodes available, operating in standalone mode');
-            // Don't throw error - allow operation with mock data
-            this.peers.add('zhtp://localhost:8080'); // Add dummy local peer
+            console.log('⚠️ No local nodes available, operating in standalone mode (pure mesh only)');
+            // Don't throw error - allow operation with mesh-only connectivity
+            this.peers.add('zhtp://localhost:8080'); // Add dummy local peer for testing
         }
     }
 
@@ -82,17 +64,17 @@ class ZkDHTClient {
         console.log('👥 Discovering zkDHT peers...');
         
         try {
-            // Query bootstrap nodes for more peers
+            // Query local mesh for more peers (no internet bootstrap)
             const discoveredPeers = await this.api.discoverPeers();
             
             for (const peer of discoveredPeers) {
                 this.peers.add(peer);
             }
             
-            console.log(` Discovered ${discoveredPeers.length} peers`);
+            console.log(` Discovered ${discoveredPeers.length} local mesh peers`);
             
         } catch (error) {
-            console.log('⚠️ Peer discovery failed, continuing with bootstrap peers');
+            console.log('⚠️ Local mesh peer discovery failed, continuing with available peers');
         }
     }
 
