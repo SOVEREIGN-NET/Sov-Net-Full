@@ -198,7 +198,7 @@ export class BiometricVerifier {
             const livenessResult = await this.performLivenessDetection(face, imageData);
             
             if (!livenessResult.isLive) {
-                throw new Error('Liveness check failed. Please ensure you are a real person.');
+                throw new Error('Liveness check failed. Please ensure you are a person.');
             }
 
             // Extract biometric features

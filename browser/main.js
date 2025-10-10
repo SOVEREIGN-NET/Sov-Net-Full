@@ -423,7 +423,7 @@ ipcMain.handle('zhtp-connect', async (event, nodeAddress) => {
 
 ipcMain.handle('zhtp-request', async (event, requestData) => {
     try {
-        console.log('📤 Electron: ZHTP request:', requestData);
+        console.log(' Electron: ZHTP request:', requestData);
         
         if (!nativeZhtpClient || !nativeZhtpClient.connected) {
             throw new Error('Not connected to ZHTP network');
@@ -496,7 +496,7 @@ ipcMain.handle('zhtp-request', async (event, requestData) => {
 
 ipcMain.handle('zhtp-disconnect', async (event) => {
     try {
-        console.log('🔌 Electron: Disconnecting from ZHTP...');
+        console.log(' Electron: Disconnecting from ZHTP...');
         
         if (nativeZhtpClient) {
             nativeZhtpClient.connected = false;

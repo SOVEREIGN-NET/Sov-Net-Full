@@ -1,7 +1,7 @@
 {
   "name": "@zhtp/web4-app",
   "version": "1.0.0",
-  "description": "ZHTP Web4 Desktop App with ZK-DID, DAO Integration, and Real API Connectivity",
+  "description": "ZHTP Web4 Desktop App with ZK-DID, DAO Integration, and API Connectivity",
   "main": "main.js",
   "scripts": {
     "start": "electron .",

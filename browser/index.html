@@ -3459,7 +3459,7 @@
                 <button class="nav-btn" id="forwardBtn">Forward →</button>
                 <button class="nav-btn" id="refreshBtn"></button>
                 <button class="nav-btn" id="dhtTestBtn" title="DHT Testing Dashboard"> DHT</button>
-                <button class="nav-btn" onclick="openSettings()">⚙️</button>
+                <button class="nav-btn" onclick="openSettings()"></button>
             </div>
             
             <div id="identityIndicator" class="identity-indicator" onclick="window.browser.handleIdentityClick()" style="cursor: pointer;">
@@ -3489,7 +3489,7 @@
 
                     <!-- Wallet Card -->
                     <div class="dashboard-card" data-action="wallet">
-                        <div class="card-icon">💰</div>
+                        <div class="card-icon"></div>
                         <h3>Quantum Wallet</h3>
                         <p>Manage your ZHTP tokens</p>
                         <div class="card-status">
@@ -3499,7 +3499,7 @@
 
                     <!-- DAO Card -->
                     <div class="dashboard-card" data-action="dao">
-                        <div class="card-icon">🏛️</div>
+                        <div class="card-icon"></div>
                         <h3>DAO Governance</h3>
                         <p>Participate in network decisions</p>
                         <div class="card-status">
@@ -3525,7 +3525,7 @@
 
                     <!-- Whisper Card -->
                     <div class="dashboard-card" data-action="whisper">
-                        <div class="card-icon">💬</div>
+                        <div class="card-icon"></div>
                         <h3>Whisper Messaging</h3>
                         <p>Private encrypted communications</p>
                         <div class="card-status">whisper.zhtp</div>
@@ -3534,7 +3534,7 @@
 
                 <!-- Network Status -->
                 <div class="network-status-panel">
-                    <div class="network-status" id="networkStatus">🔴 Connecting...</div>
+                    <div class="network-status" id="networkStatus"> Connecting...</div>
                     <div class="network-info">
                         <span>Block Height: <span id="blockHeight">-</span></span>
                         <span>Peers: <span id="peerCount">-</span></span>
@@ -3555,8 +3555,8 @@
             <div id="zkDidContent">
                 <!-- Identity Selection Tabs -->
                 <div class="tab-container">
-                    <button class="tab-btn active" onclick="switchZkDidTab('signin')">🔑 Sign In</button>
-                    <button class="tab-btn" onclick="switchZkDidTab('create')">🆕 Create Identity</button>
+                    <button class="tab-btn active" onclick="switchZkDidTab('signin')"> Sign In</button>
+                    <button class="tab-btn" onclick="switchZkDidTab('create')"> Create Identity</button>
                     <button class="tab-btn" onclick="switchZkDidTab('recover')"> Recover</button>
                 </div>
 
@@ -3586,10 +3586,10 @@
                             <p>Alternative authentication methods:</p>
                             <div class="auth-options">
                                 <button class="auth-btn secondary" onclick="signInWithPassphrase()">
-                                    🔑 Passphrase
+                                     Passphrase
                                 </button>
                                 <button class="auth-btn secondary" onclick="signInWithBiometric()">
-                                    📷 Biometric Scan
+                                     Biometric Scan
                                 </button>
                                 <button class="auth-btn secondary" onclick="signInWithQR()">
                                      Mobile QR
@@ -3602,15 +3602,15 @@
                 <!-- Create Identity Tab -->
                 <div id="zkdid-create" class="tab-content">
                     <div class="auth-section">
-                        <h3>🆕 Create New ZK-DID Identity</h3>
+                        <h3> Create New ZK-DID Identity</h3>
                         <p>Generate a quantum-resistant, zero-knowledge identity</p>
                         
                         <div class="form-group">
                             <label class="form-label">Identity Type</label>
                             <select id="identityType" class="form-input">
-                                <option value="citizen">🏛️ Citizen (UBI Eligible)</option>
-                                <option value="organization">🏢 Organization</option>
-                                <option value="developer">👨‍💻 Developer</option>
+                                <option value="citizen"> Citizen (UBI Eligible)</option>
+                                <option value="organization"> Organization</option>
+                                <option value="developer"> Developer</option>
                                 <option value="validator"> Validator</option>
                             </select>
                         </div>
@@ -3632,7 +3632,7 @@
                         <div class="form-group">
                             <label class="form-label">Biometric Setup</label>
                             <button class="btn-secondary" onclick="setupBiometrics()" id="biometricBtn">
-                                📷 Configure Biometric Authentication
+                                 Configure Biometric Authentication
                             </button>
                             <div id="biometricStatus" class="status-indicator"></div>
                         </div>
@@ -3660,13 +3660,13 @@
                             <label class="form-label">Recovery Method</label>
                             <div class="recovery-options">
                                 <button class="recovery-btn" onclick="recoverWithSeed()">
-                                    🌱 Seed Phrase
+                                     Seed Phrase
                                 </button>
                                 <button class="recovery-btn" onclick="recoverWithBackup()">
-                                    💾 Backup File
+                                     Backup File
                                 </button>
                                 <button class="recovery-btn" onclick="recoverWithSocial()">
-                                    👥 Social Recovery
+                                     Social Recovery
                                 </button>
                             </div>
                         </div>
@@ -3728,10 +3728,10 @@
                     
                     <div class="wallet-actions">
                         <button class="wallet-btn primary" onclick="sendTokens()">
-                            📤 Send
+                             Send
                         </button>
                         <button class="wallet-btn secondary" onclick="receiveTokens()">
-                            📥 Receive
+                             Receive
                         </button>
                         <button class="wallet-btn secondary" onclick="swapTokens()">
                              Swap
@@ -3744,7 +3744,7 @@
 
                 <!-- Asset List -->
                 <div class="asset-section">
-                    <h3>📊 Your Assets</h3>
+                    <h3> Your Assets</h3>
                     <div class="asset-list" id="assetList">
                         <div class="asset-item">
                             <div class="asset-icon">🪙</div>
@@ -3777,7 +3777,7 @@
                     <h3> Recent Transactions</h3>
                     <div class="transaction-list" id="transactionList">
                         <div class="transaction-item">
-                            <div class="tx-icon">📤</div>
+                            <div class="tx-icon"></div>
                             <div class="tx-info">
                                 <div class="tx-type">Sent ZHTP</div>
                                 <div class="tx-date">2025-07-28 12:30</div>
@@ -3786,7 +3786,7 @@
                         </div>
                         
                         <div class="transaction-item">
-                            <div class="tx-icon">📥</div>
+                            <div class="tx-icon"></div>
                             <div class="tx-info">
                                 <div class="tx-type">Received ZHTP</div>
                                 <div class="tx-date">2025-07-28 10:15</div>
@@ -3798,7 +3798,7 @@
 
                 <!-- Send Form (Hidden by default) -->
                 <div id="sendForm" class="send-form" style="display: none;">
-                    <h3>📤 Send ZHTP Tokens</h3>
+                    <h3> Send ZHTP Tokens</h3>
                     <div class="form-group">
                         <label class="form-label">Recipient Address</label>
                         <input type="text" id="recipientAddress" class="form-input" 
@@ -3862,17 +3862,17 @@
                             Create Proposal
                         </button>
                         <button class="dao-btn secondary" onclick="delegateVotes()">
-                            🗳️ Delegate Votes
+                             Delegate Votes
                         </button>
                         <button class="dao-btn secondary" onclick="viewTreasury()">
-                            🏛️ Treasury
+                             Treasury
                         </button>
                     </div>
                 </div>
 
                 <!-- Active Proposals -->
                 <div class="proposals-section">
-                    <h3>🗳️ Active Proposals</h3>
+                    <h3> Active Proposals</h3>
                     <div class="proposal-list" id="proposalList">
                         <div class="proposal-item">
                             <div class="proposal-header">
@@ -4010,7 +4010,7 @@
                     <button class="settings-tab active" onclick="switchSettingsTab('general')"> General</button>
                     <button class="settings-tab" onclick="switchSettingsTab('privacy')"> Privacy</button>
                     <button class="settings-tab" onclick="switchSettingsTab('network')"> Network</button>
-                    <button class="settings-tab" onclick="switchSettingsTab('advanced')">⚙️ Advanced</button>
+                    <button class="settings-tab" onclick="switchSettingsTab('advanced')"> Advanced</button>
                 </div>
 
                 <!-- General Settings -->
@@ -4134,7 +4134,7 @@
 
                 <!-- Advanced Settings -->
                 <div id="settings-advanced" class="settings-section">
-                    <h3>⚙️ Advanced Settings</h3>
+                    <h3> Advanced Settings</h3>
                     
                     <div class="setting-item">
                         <div class="setting-info">
@@ -4163,7 +4163,7 @@
                             <div class="setting-title">Export Data</div>
                             <div class="setting-description">Download your data and settings</div>
                         </div>
-                        <button class="btn-secondary" onclick="exportData()">📤 Export</button>
+                        <button class="btn-secondary" onclick="exportData()"> Export</button>
                     </div>
                     
                     <div class="setting-item">
@@ -4177,7 +4177,7 @@
 
                 <!-- Settings Actions -->
                 <div class="settings-actions">
-                    <button class="btn-primary" onclick="saveSettings()">💾 Save Settings</button>
+                    <button class="btn-primary" onclick="saveSettings()"> Save Settings</button>
                     <button class="btn-secondary" onclick="resetSettings()"> Reset to Defaults</button>
                 </div>
             </div>
@@ -4198,8 +4198,8 @@
                     <div class="post-composer">
                         <textarea id="postContent" class="post-input" placeholder="What's happening on Web4?"></textarea>
                         <div class="post-actions">
-                            <button class="post-btn" onclick="addImage()">📷</button>
-                            <button class="post-btn" onclick="addPoll()">📊</button>
+                            <button class="post-btn" onclick="addImage()"></button>
+                            <button class="post-btn" onclick="addPoll()"></button>
                             <button class="post-btn" onclick="addLocation()"></button>
                             <button class="btn-primary" onclick="publishPost()"> Post</button>
                         </div>
@@ -4208,7 +4208,7 @@
                     <div class="feed-posts">
                         <div class="post-item">
                             <div class="post-header">
-                                <div class="post-avatar">👤</div>
+                                <div class="post-avatar"></div>
                                 <div class="post-info">
                                     <div class="post-author">alice.zkdid</div>
                                     <div class="post-time">2 hours ago</div>
@@ -4220,14 +4220,14 @@
                             <div class="post-actions">
                                 <button class="post-action" onclick="likePost('1')">❤️ 24</button>
                                 <button class="post-action" onclick="sharePost('1')"> 7</button>
-                                <button class="post-action" onclick="commentPost('1')">💬 12</button>
-                                <button class="post-action" onclick="tipPost('1')">💰 Tip</button>
+                                <button class="post-action" onclick="commentPost('1')"> 12</button>
+                                <button class="post-action" onclick="tipPost('1')"> Tip</button>
                             </div>
                         </div>
 
                         <div class="post-item">
                             <div class="post-header">
-                                <div class="post-avatar">👨‍💻</div>
+                                <div class="post-avatar"></div>
                                 <div class="post-info">
                                     <div class="post-author">dev.zhtp</div>
                                     <div class="post-time">4 hours ago</div>
@@ -4239,8 +4239,8 @@
                             <div class="post-actions">
                                 <button class="post-action" onclick="likePost('2')">❤️ 89</button>
                                 <button class="post-action" onclick="sharePost('2')"> 23</button>
-                                <button class="post-action" onclick="commentPost('2')">💬 45</button>
-                                <button class="post-action" onclick="tipPost('2')">💰 Tip</button>
+                                <button class="post-action" onclick="commentPost('2')"> 45</button>
+                                <button class="post-action" onclick="tipPost('2')"> Tip</button>
                             </div>
                         </div>
                     </div>
@@ -4263,7 +4263,7 @@
                     <button class="category-btn active" onclick="showCategory('apps')"> Apps</button>
                     <button class="category-btn" onclick="showCategory('nfts')">🎨 NFTs</button>
                     <button class="category-btn" onclick="showCategory('domains')"> Domains</button>
-                    <button class="category-btn" onclick="showCategory('data')">📊 Data</button>
+                    <button class="category-btn" onclick="showCategory('data')"> Data</button>
                 </div>
 
                 <!-- Apps Category -->
@@ -4280,7 +4280,7 @@
                         </div>
 
                         <div class="marketplace-item">
-                            <div class="item-image">💼</div>
+                            <div class="item-image"></div>
                             <div class="item-info">
                                 <div class="item-title">Business Suite</div>
                                 <div class="item-description">Complete business management tools</div>
@@ -4315,7 +4315,7 @@
                 <div id="category-nfts" class="marketplace-category">
                     <div class="marketplace-grid">
                         <div class="marketplace-item">
-                            <div class="item-image">🖼️</div>
+                            <div class="item-image"></div>
                             <div class="item-info">
                                 <div class="item-title">Digital Art #001</div>
                                 <div class="item-description">Unique quantum-verified artwork</div>
@@ -4361,7 +4361,7 @@
                         </div>
                         <div class="contact-list">
                             <div class="contact-item active" onclick="selectChat('alice')">
-                                <div class="contact-avatar">👩</div>
+                                <div class="contact-avatar"></div>
                                 <div class="contact-info">
                                     <div class="contact-name">Alice.zkdid</div>
                                     <div class="contact-message">Hey! How's the Web4 project?</div>
@@ -4369,7 +4369,7 @@
                                 <div class="contact-time">2m</div>
                             </div>
                             <div class="contact-item" onclick="selectChat('bob')">
-                                <div class="contact-avatar">👨</div>
+                                <div class="contact-avatar"></div>
                                 <div class="contact-info">
                                     <div class="contact-name">Bob.zhtp</div>
                                     <div class="contact-message">Check out this new dApp!</div>
@@ -4377,7 +4377,7 @@
                                 <div class="contact-time">1h</div>
                             </div>
                             <div class="contact-item" onclick="selectChat('team')">
-                                <div class="contact-avatar">👥</div>
+                                <div class="contact-avatar"></div>
                                 <div class="contact-info">
                                     <div class="contact-name">Dev Team</div>
                                     <div class="contact-message">Meeting in 5 minutes</div>
@@ -4389,15 +4389,15 @@
 
                     <div class="chat-main">
                         <div class="chat-header">
-                            <div class="chat-avatar">👩</div>
+                            <div class="chat-avatar"></div>
                             <div class="chat-info">
                                 <div class="chat-name">Alice.zkdid</div>
-                                <div class="chat-status">🟢 Online</div>
+                                <div class="chat-status"> Online</div>
                             </div>
                             <div class="chat-actions">
                                 <button class="chat-btn" onclick="voiceCall()">📞</button>
                                 <button class="chat-btn" onclick="videoCall()">📹</button>
-                                <button class="chat-btn" onclick="chatSettings()">⚙️</button>
+                                <button class="chat-btn" onclick="chatSettings()"></button>
                             </div>
                         </div>
 
@@ -4419,7 +4419,7 @@
                         <div class="chat-input">
                             <input type="text" id="messageInput" class="form-input" placeholder="Type a message..." 
                                    onkeypress="handleMessageKeyPress(event)">
-                            <button class="chat-btn" onclick="attachFile()">📎</button>
+                            <button class="chat-btn" onclick="attachFile()"></button>
                             <button class="chat-btn" onclick="sendEmoji()">😊</button>
                             <button class="btn-primary" onclick="sendMessage()">Send</button>
                         </div>

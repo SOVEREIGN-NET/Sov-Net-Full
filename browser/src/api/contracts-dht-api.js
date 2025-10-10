@@ -166,7 +166,7 @@ class ContractsDhtApi {
      * Find smart contract in DHT network
      */
     async findContract(contractId, options = {}) {
-        console.log(`🔎 Finding contract ${contractId} via DHT...`);
+        console.log(` Finding contract ${contractId} via DHT...`);
 
         const contractData = {
             contract_id: contractId,
@@ -202,7 +202,7 @@ class ContractsDhtApi {
                 reject(new Error('DHT response timeout'));
             }, timeout);
 
-            // Poll for responses (in a real implementation, this would use WebSocket)
+            // Poll for responses (in a implementation, this would use WebSocket)
             const pollInterval = setInterval(async () => {
                 try {
                     const response = await fetch(`${this.zhtpNodeUrl}/api/dht/response/${messageId}`);

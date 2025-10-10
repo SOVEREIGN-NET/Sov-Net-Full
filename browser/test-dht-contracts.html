@@ -222,7 +222,7 @@
                     <input type="text" id="query-function" placeholder="e.g., get_count">
                 </div>
                 <button class="button" onclick="queryContract()"> Query Contract</button>
-                <button class="button" onclick="findContract()">🔎 Find Contract</button>
+                <button class="button" onclick="findContract()"> Find Contract</button>
             </div>
         </div>
         
@@ -249,7 +249,7 @@
             <h2> Quick Actions</h2>
             <button class="button" onclick="deployAndExecute()"> Deploy & Execute</button>
             <button class="button" onclick="runFullDemo()">🎬 Run Full Demo</button>
-            <button class="button" onclick="clearLogs()">🧹 Clear Logs</button>
+            <button class="button" onclick="clearLogs()"> Clear Logs</button>
         </div>
         
         <div class="section">
@@ -260,7 +260,7 @@
         </div>
         
         <div class="section">
-            <h2>📊 Operation Logs</h2>
+            <h2> Operation Logs</h2>
             <div id="logs" class="log-area"></div>
             <div class="progress">
                 <div id="progress-bar" class="progress-bar"></div>
@@ -373,7 +373,7 @@
                 setTimeout(async () => {
                     try {
                         const response = await contractsApi.listenForContractResponses(result.message_id, 10000);
-                        log(`📥 Query response: ${JSON.stringify(response)}`);
+                        log(` Query response: ${JSON.stringify(response)}`);
                     } catch (error) {
                         log(`⏱️ Query response timeout (this is normal in test environment)`);
                     }
@@ -405,7 +405,7 @@
         async function findContract() {
             const contractId = document.getElementById('query-contract-id').value || 'test_counter';
             
-            log(`🔎 Finding contract ${contractId} in DHT network...`);
+            log(` Finding contract ${contractId} in DHT network...`);
             
             try {
                 const result = await contractsApi.findContract(contractId);
@@ -540,7 +540,7 @@
             document.getElementById('logs').innerHTML = '';
             operationCount = 0;
             document.getElementById('progress-bar').style.width = '0%';
-            log('🧹 Logs cleared');
+            log(' Logs cleared');
         }
         
         // Initialize the page

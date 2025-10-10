@@ -17,17 +17,16 @@ This repository contains multiple interconnected libraries and services:
 - **`lib-protocols/`** - Communication protocols and message handling
 - **`lib-storage/`** - Distributed storage with mesh networking capabilities
 
+For a full list of features that need implementing/fixing, as well as things that we already have,
+go to BLOCKCHAIN_FEATURE_MATRIX.md in /zhtp
+
 ## Quick Start
 
 ### Prerequisites
 - Rust (latest stable)
 - Node.js (for web interface)
 - Git
-
-### Running Different Node Types
-
-SOVEREIGN_NET supports multiple node types optimized for different use cases:
-
+- openssl/tls
 
 #### Option 1 Manual Node Type Selection
 ```bash
@@ -39,48 +38,12 @@ cargo build
 
 # Start test node****
 
-./target/debug/zhtp.exe node start
+./target/debug/zhtp.exe node start #windows
+# or
+./target/debug/zhtp node start #macos/linux
 ^^^^^^^^^^^^^^^^^^^^^^^
 #"./target/debug/zhtp.exe" this is how you use the cli for now you can use --help to see the current commands.
 
-# Start different node types:
-
-# Full Node (complete functionality)
-zhtp --node-type full
-
-# Validator Node (consensus participation)
-zhtp --node-type validator
-
-# Storage Node (distributed storage)
-zhtp --node-type storage
-
-# Edge Node (mesh networking)
-zhtp --node-type edge
-
-# Development Node (testing)
-zhtp --node-type dev
-```
-
-#### Option 3: Custom Configuration
-```bash
-# Use custom config file
-zhtp --config ./my-custom-config.toml
-
-# Override specific settings
-zhtp --node-type validator --mesh-port 33445
-```
-
-### Node Type Overview
-
-| Node Type | Purpose | Resources | Special Features |
-|-----------|---------|-----------|------------------|
-| **Full** | Complete blockchain functionality | 4GB RAM, 1TB storage | All components, API endpoints |
-| **Validator** | Consensus participation | 8GB RAM, 2TB storage | Block validation, staking required |
-| **Storage** | Distributed storage services | 2GB RAM, 10TB storage | High storage capacity, DHT focus |
-| **Edge** | Mesh networking, ISP bypass | 1GB RAM, 200GB storage | Pure mesh mode, long-range relays |
-| **Dev** | Development and testing | 512MB RAM, 50GB storage | Fast blocks, relaxed security |
-
-The server will start on `http://localhost:9333` with the following endpoints:
 
 #### *****API*****
 go to /zhtp/native_zhtp_api_complete.md those are the 30 apis that should work right now.

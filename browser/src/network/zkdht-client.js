@@ -61,7 +61,7 @@ class ZkDHTClient {
     }
 
     async discoverPeers() {
-        console.log('👥 Discovering zkDHT peers...');
+        console.log(' Discovering zkDHT peers...');
         
         try {
             // Query local mesh for more peers (no internet bootstrap)
@@ -88,7 +88,7 @@ class ZkDHTClient {
             // Check cache first
             const cacheKey = `${parsed.domain}:${parsed.path}`;
             if (this.cache.has(cacheKey)) {
-                console.log('📦 Loading from cache...');
+                console.log(' Loading from cache...');
                 return this.cache.get(cacheKey);
             }
 
@@ -154,7 +154,7 @@ class ZkDHTClient {
     }
 
     async fetchContent(contentHash) {
-        console.log(`📥 Fetching content: ${contentHash.substring(0, 16)}...`);
+        console.log(` Fetching content: ${contentHash.substring(0, 16)}...`);
         
         try {
             // Fetch content from multiple peers for redundancy
@@ -212,7 +212,7 @@ class ZkDHTClient {
                 // For local development, simulate DHT response using the local node
                 console.log('🏠 Using local node for DHT query simulation...');
                 
-                // Generate mock hash for content (would be real in production)
+                // Generate mock hash for content (would be in production)
                 const contentId = `${query.domain}${query.path}`.replace(/[^a-zA-Z0-9]/g, '_');
                 const mockHash = await this.generateMockHash(contentId);
                 
@@ -264,7 +264,7 @@ class ZkDHTClient {
 
     // Development fallback: Generate mock content for ZHTP URLs
     generateMockContent(zhtpUrl) {
-        console.log(`🧪 Generating mock content for ${zhtpUrl}`);
+        console.log(` Generating mock content for ${zhtpUrl}`);
         
         const domain = zhtpUrl.split('//')[1]?.split('/')[0];
         
@@ -405,7 +405,7 @@ class ZkDHTClient {
                             {
                                 id: 'post_1',
                                 author: 'alice.zkdid',
-                                avatar: '👩‍💻',
+                                avatar: '',
                                 content: 'Just deployed my first Web4 dApp! The zero-knowledge privacy is incredible!  #Web4 #ZHTP',
                                 timestamp: '2 hours ago',
                                 likes: 47,
@@ -415,7 +415,7 @@ class ZkDHTClient {
                             {
                                 id: 'post_2',
                                 author: 'dev.zhtp',
-                                avatar: '👨‍💻',
+                                avatar: '',
                                 content: 'New protocol update is live! Quantum-resistant signatures now 40% faster. Upgrade your nodes! ',
                                 timestamp: '4 hours ago',
                                 likes: 156,
@@ -470,7 +470,7 @@ class ZkDHTClient {
                                 description: 'Unique quantum-verified artwork by renowned artist',
                                 price: '100 ZHTP',
                                 rarity: 'Ultra Rare',
-                                image: '🖼️'
+                                image: ''
                             },
                             {
                                 id: 'domain_mycompany',
@@ -508,9 +508,9 @@ class ZkDHTClient {
                     {
                         type: 'contact-sidebar',
                         contacts: [
-                            { id: 'alice', name: 'Alice.zkdid', avatar: '👩', status: 'online', lastMessage: 'How\'s the Web4 project?', time: '2m' },
-                            { id: 'bob', name: 'Bob.zhtp', avatar: '👨', status: 'online', lastMessage: 'Check out this dApp!', time: '1h' },
-                            { id: 'team', name: 'Dev Team', avatar: '👥', status: 'active', lastMessage: 'Meeting in 5 minutes', time: '5m' }
+                            { id: 'alice', name: 'Alice.zkdid', avatar: '', status: 'online', lastMessage: 'How\'s the Web4 project?', time: '2m' },
+                            { id: 'bob', name: 'Bob.zhtp', avatar: '', status: 'online', lastMessage: 'Check out this dApp!', time: '1h' },
+                            { id: 'team', name: 'Dev Team', avatar: '', status: 'active', lastMessage: 'Meeting in 5 minutes', time: '5m' }
                         ]
                     },
                     {

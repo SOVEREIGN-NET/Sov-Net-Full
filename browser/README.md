@@ -1,6 +1,6 @@
 # 🖥️ ZHTP Web4 Desktop App
 
-A complete Web4 desktop application built with Electron, featuring built-in ZK-DID identity management, quantum-resistant cryptography, and real ZHTP blockchain integration.
+A complete Web4 desktop application built with Electron, featuring built-in ZK-DID identity management, quantum-resistant cryptography, and ZHTP blockchain integration.
 
 ##  Features
 
@@ -11,14 +11,14 @@ A complete Web4 desktop application built with Electron, featuring built-in ZK-D
 - **One Identity Per Human**: Soulbound identity with citizen onboarding
 - **Credential Management**: Verifiable credentials with ZK proofs
 
-### 💰 Quantum Wallet System
+###  Quantum Wallet System
 - **Post-Quantum Cryptography**: Quantum-resistant key generation and signatures
 - **Multi-Wallet Support**: Multiple wallets per identity with different purposes
 - **Real-time Balance**: Live ZHTP token balance and transaction history
 - **UBI Integration**: Automatic Universal Basic Income claiming
 - **Staking Support**: Participate in network consensus and earn rewards
 
-### 🏛️ DAO Governance
+###  DAO Governance
 - **Zero-Knowledge Voting**: Private voting with verifiable results
 - **One Citizen One Vote**: Equal representation for all verified citizens
 - **Proposal System**: Create and vote on network governance proposals
@@ -59,7 +59,7 @@ A complete Web4 desktop application built with Electron, featuring built-in ZK-D
 - **Secure Storage**: Encrypted local storage for sensitive data
 
 ### Integration
-- **ZHTP Blockchain**: Real API integration with ZHTP node
+- **ZHTP Blockchain**: API integration with ZHTP node
 - **WebRTC**: Peer-to-peer communication for mesh networking
 - **Biometric APIs**: Camera access for identity verification
 - **Native OS**: Platform-specific features and notifications
@@ -256,7 +256,7 @@ Access via **ZHTP → Preferences**:
 - AppImage format for universal compatibility
 - Linux desktop environment integration
 
-## 🧪 Development
+##  Development
 
 ### Project Structure
 
@@ -373,14 +373,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **One Identity Per Human**: Soulbound identity with citizen onboarding
 - **Credential Management**: Verifiable credentials with ZK proofs
 
-### 💰 Quantum Wallet System
+###  Quantum Wallet System
 - **Post-Quantum Cryptography**: Quantum-resistant key generation and signatures
 - **Multi-Wallet Support**: Multiple wallets per identity with different purposes
 - **Real-time Balance**: Live ZHTP token balance and transaction history
 - **UBI Integration**: Automatic Universal Basic Income claiming
 - **Staking Support**: Participate in network consensus and earn rewards
 
-### 🏛️ DAO Governance
+###  DAO Governance
 - **Zero-Knowledge Voting**: Private voting with verifiable results
 - **One Citizen One Vote**: Equal representation for all verified citizens
 - **Proposal System**: Create and vote on network governance proposals
@@ -416,7 +416,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Secure Storage**: Encrypted local storage for sensitive data
 
 ### Integration
-- **ZHTP Blockchain**: Real API integration with ZHTP node
+- **ZHTP Blockchain**: API integration with ZHTP node
 - **WebRTC**: Peer-to-peer communication for mesh networking
 - **Biometric APIs**: Camera access for identity verification
 - **Service Workers**: Offline functionality and caching
@@ -534,7 +534,7 @@ VITE_ENABLE_BIOMETRICS=true
 
 ### Browser Settings
 
-Access via settings menu (⚙️):
+Access via settings menu ():
 - **Network Configuration**: ZHTP node URL and connection settings
 - **Privacy Settings**: ZK privacy defaults and data handling
 - **Notification Settings**: Real-time update preferences
@@ -579,7 +579,7 @@ Access via settings menu (⚙️):
 - `dao://vote/proposal123` - Vote on proposal
 - `dao://treasury` - View treasury status
 
-## 🧪 Development
+##  Development
 
 ### Project Structure
 
@@ -609,7 +609,7 @@ packages/browser/
 
 ### API Integration
 
-The browser integrates with real ZHTP APIs:
+The browser integrates with ZHTP APIs:
 
 ```javascript
 // Example API calls

@@ -46,9 +46,9 @@ class Web4Browser {
             
             this.updateLoadingProgress(40, 'Establishing blockchain connection...');
             
-            // Get real network status from ZHTP node using native protocol
+            // Get network status from ZHTP node using native protocol
             const networkStatus = await this.api.getNetworkStats();
-            console.log('📊 ZHTP Network Status (Native):', networkStatus);
+            console.log(' ZHTP Network Status (Native):', networkStatus);
             this.updateLoadingProgress(50, `Connected to ZHTP network (${networkStatus.peers || networkStatus.connectedPeers || 0} peers)`);
             
             // Check for existing identity using native identity system
@@ -57,9 +57,9 @@ class Web4Browser {
                 this.currentIdentity = savedIdentity;
                 this.updateIdentityIndicator();
                 
-                // Get real wallet balance using native protocol
+                // Get wallet balance using native protocol
                 const balance = await this.api.getBalance();
-                console.log('💰 ZHTP Wallet Balance (Native):', balance);
+                console.log(' ZHTP Wallet Balance (Native):', balance);
             }
             this.updateLoadingProgress(70, 'Loading identity system...');
             
@@ -67,11 +67,11 @@ class Web4Browser {
             await this.wallet.initialize(this.currentIdentity);
             this.updateLoadingProgress(85, 'Preparing quantum wallet...');
             
-            // Get real blockchain info using native protocol
+            // Get blockchain info using native protocol
             const blockchainInfo = await this.api.getBlockchainStatus();
-            console.log('⛓️ ZHTP Blockchain Info (Native):', blockchainInfo);
+            console.log(' ZHTP Blockchain Info (Native):', blockchainInfo);
             
-            // Load dashboard with real data
+            // Load dashboard with data
             await this.loadDashboard();
             this.updateLoadingProgress(100, `Web4 browser ready! (${this.useNativeProtocol ? 'Native ZHTP' : 'Legacy Bridge'})`);
             
@@ -99,11 +99,11 @@ class Web4Browser {
                 if (this.currentIdentity) {
                     // Update wallet balance using native protocol
                     const balance = await this.api.getBalance();
-                    console.log('💰 Updated ZHTP balance (Native):', balance);
+                    console.log(' Updated ZHTP balance (Native):', balance);
                     
                     // Update network stats using native protocol
                     const networkStats = await this.api.getNetworkStats();
-                    console.log('📊 Network stats update (Native):', networkStats);
+                    console.log(' Network stats update (Native):', networkStats);
                     
                     // Trigger UI updates
                     this.updateNetworkIndicators(networkStats);
@@ -308,7 +308,7 @@ class Web4Browser {
                 enabled: true
             },
             {
-                icon: '💬',
+                icon: '',
                 title: 'Whisper Messaging',
                 description: 'Send end-to-end encrypted messages with whisper.zhtp - quantum-resistant communication',
                 action: () => this.navigateToAddress('whisper.zhtp'),
@@ -322,14 +322,14 @@ class Web4Browser {
                 enabled: true
             },
             {
-                icon: '🏛️',
+                icon: '',
                 title: 'DAO Governance',
                 description: 'Participate in ZHTP DAO decisions - one citizen, one vote with zero-knowledge voting',
                 action: () => this.openDaoModal(),
                 enabled: true
             },
             {
-                icon: '💰',
+                icon: '',
                 title: 'Quantum Wallet',
                 description: `Your quantum-resistant wallet - ${this.currentIdentity ? 'manage your ZHTP tokens and UBI' : 'create identity to access'}`,
                 action: () => this.openWalletModal(),
@@ -343,7 +343,7 @@ class Web4Browser {
                 enabled: true
             },
             {
-                icon: '📊',
+                icon: '',
                 title: 'Network Stats',
                 description: 'View ZHTP network statistics, node performance, and economic metrics',
                 action: () => this.navigateToAddress('stats.zhtp'),
@@ -440,7 +440,7 @@ class Web4Browser {
         }
 
         try {
-            // Get real social network data via native ZHTP
+            // Get social network data via native ZHTP
             const socialData = await this.api.sendZhtpRequest('GET', 'zhtp://social/feed', {
                 did: this.currentIdentity.did
             });
@@ -477,7 +477,7 @@ class Web4Browser {
             if (pageContent) {
                 pageContent.innerHTML = `
                     <div class="whisper-messaging">
-                        <h2>💬 Whisper Messaging</h2>
+                        <h2> Whisper Messaging</h2>
                         <p>Quantum-resistant private messaging</p>
                         <div class="messages">
                             ${JSON.stringify(messages, null, 2)}
@@ -519,7 +519,7 @@ class Web4Browser {
             if (pageContent) {
                 pageContent.innerHTML = `
                     <div class="network-stats">
-                        <h2>📊 ZHTP Network Statistics</h2>
+                        <h2> ZHTP Network Statistics</h2>
                         <p>Real-time network performance via ${this.useNativeProtocol ? 'Native ZHTP' : 'Legacy Bridge'}</p>
                         <pre>${JSON.stringify(stats, null, 2)}</pre>
                     </div>
@@ -593,12 +593,12 @@ class Web4Browser {
     }
 
     openWalletModal() {
-        console.log('💰 Opening wallet modal...');
+        console.log(' Opening wallet modal...');
         // Implement modal opening logic
     }
 
     openDaoModal() {
-        console.log('🏛️ Opening DAO modal...');
+        console.log(' Opening DAO modal...');
         // Implement modal opening logic
     }
 

@@ -216,7 +216,7 @@ class ZhtpUrlUtils {
         const testId = Math.random().toString(36).substring(7);
 
         if (logResults) {
-            console.log(`🧪 Starting DHT routing test [${testId}] for: ${url}`);
+            console.log(` Starting DHT routing test [${testId}] for: ${url}`);
         }
 
         try {
@@ -416,7 +416,7 @@ class ZhtpUrlUtils {
      * Log test suite results summary
      */
     logTestSuiteResults(results) {
-        console.log('\n📊 DHT Routing Test Suite Results:');
+        console.log('\n DHT Routing Test Suite Results:');
         console.log('=' .repeat(50));
         
         const successful = results.filter(r => !r.error);

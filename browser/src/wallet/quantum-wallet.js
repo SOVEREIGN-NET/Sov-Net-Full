@@ -13,7 +13,7 @@ export class QuantumWallet {
     }
 
     async initialize(identity) {
-        console.log('💰 Initializing quantum wallet system...');
+        console.log(' Initializing quantum wallet system...');
         
         try {
             if (identity) {
@@ -47,7 +47,7 @@ export class QuantumWallet {
                 for (const wallet of walletData) {
                     this.wallets.set(wallet.id, wallet);
                 }
-                console.log(`📂 Loaded ${walletData.length} saved wallets`);
+                console.log(` Loaded ${walletData.length} saved wallets`);
             }
 
             // Verify wallets with blockchain
@@ -87,7 +87,7 @@ export class QuantumWallet {
     }
 
     async createWallet(config) {
-        console.log(`🔑 Creating new quantum wallet: ${config.name}`);
+        console.log(` Creating new quantum wallet: ${config.name}`);
         
         try {
             // Generate quantum-resistant key pair
@@ -224,7 +224,7 @@ export class QuantumWallet {
             throw new Error('No active wallet');
         }
 
-        console.log(`💸 Sending ${amount} ZHTP to ${toAddress}`);
+        console.log(` Sending ${amount} ZHTP to ${toAddress}`);
         
         try {
             // Validate amount
@@ -371,7 +371,7 @@ export class QuantumWallet {
             throw new Error('No active wallet');
         }
 
-        console.log(`💰 Receiving ${amount} ZHTP from ${from}`);
+        console.log(` Receiving ${amount} ZHTP from ${from}`);
         
         try {
             // Update balance
@@ -557,7 +557,7 @@ export class QuantumWallet {
         try {
             const walletsArray = Array.from(this.wallets.values());
             localStorage.setItem(`zhtp_wallets_${ownerDid}`, JSON.stringify(walletsArray));
-            console.log('💾 Wallets saved to local storage');
+            console.log(' Wallets saved to local storage');
 
         } catch (error) {
             console.error(' Failed to save wallets:', error);

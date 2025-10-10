@@ -17,7 +17,7 @@ class DhtTestingDashboard {
      * Initialize DHT testing dashboard
      */
     async initialize() {
-        console.log('🧪 Initializing DHT Testing Dashboard...');
+        console.log(' Initializing DHT Testing Dashboard...');
         
         // Enable debug mode for detailed logging
         this.urlUtils.setDebugMode(true);
@@ -381,7 +381,7 @@ ${result.nodes.map((n, i) => `  ${i+1}. ${n.id}... (${n.protocol}) ${n.hasConten
      * Get all test results
      */
     getTestResults() {
-        console.log(`📊 Total test results: ${this.testResults.length}`);
+        console.log(` Total test results: ${this.testResults.length}`);
         return this.testResults;
     }
 
@@ -404,7 +404,7 @@ ${result.nodes.map((n, i) => `  ${i+1}. ${n.id}... (${n.protocol}) ${n.hasConten
      */
     showHelp() {
         const help = `
-🧪 DHT Testing Dashboard Help
+ DHT Testing Dashboard Help
 
 Available Commands:
   window.dhtTest.single(url, options)  - Test single ZHTP URL

@@ -134,7 +134,7 @@
                     <p>Advanced cryptographic security</p>
                 </div>
                 <div class="feature">
-                    <h4>🌍 Decentralized</h4>
+                    <h4> Decentralized</h4>
                     <p>No single point of failure</p>
                 </div>
                 <div class="feature">
@@ -142,7 +142,7 @@
                     <p>Privacy by design</p>
                 </div>
                 <div class="feature">
-                    <h4>🏛️ DAO Governed</h4>
+                    <h4> DAO Governed</h4>
                     <p>Community controlled</p>
                 </div>
             </div>
@@ -282,7 +282,7 @@ footer {
                 <h4> JavaScript (app.js)</h4>
                 <textarea class="content-editor" id="scriptContent">console.log(' Web4 website loaded!');
 console.log(' Running on ZHTP protocol');
-console.log('💎 Content stored in DHT network');
+console.log(' Content stored in DHT network');
 
 // Initialize Web4 features
 document.addEventListener('DOMContentLoaded', function() {
@@ -308,20 +308,20 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add Web4 network indicators
     console.log(' ZHTP Network Status: Connected');
-    console.log('⛓️ Smart Contract: Active');
+    console.log(' Smart Contract: Active');
     console.log(' DHT Storage: Distributed');
     
     // Simulate Web4 network interaction
     setTimeout(() => {
-        console.log('📊 Network stats updated');
-        console.log('👥 Connected to', Math.floor(Math.random() * 50 + 10), 'peers');
+        console.log(' Network stats updated');
+        console.log(' Connected to', Math.floor(Math.random() * 50 + 10), 'peers');
         console.log(' Transaction fee: 0.001 ZHTP');
     }, 2000);
 });
 
 // Web4 navigation helper
 function navigateWeb4(path) {
-    console.log('🧭 Web4 navigation to:', path);
+    console.log(' Web4 navigation to:', path);
     // This would be handled by the Web4 browser
     if (window.browser && window.browser.navigateToUrl) {
         window.browser.navigateToUrl('zhtp://' + window.location.hostname + path);
@@ -329,7 +329,7 @@ function navigateWeb4(path) {
 }</textarea>
             </div>
             
-            <button onclick="createWebsiteFiles()">📦 Package Website Files</button>
+            <button onclick="createWebsiteFiles()"> Package Website Files</button>
             <div id="packageOutput" class="output" style="display: none;"></div>
         </div>
 
@@ -337,21 +337,21 @@ function navigateWeb4(path) {
         <div class="step-section">
             <h3> Step 2: Deploy Smart Contract</h3>
             <p>Deploy the Web4 smart contract to the ZHTP blockchain:</p>
-            <button onclick="deployWebsiteContract()">⛓️ Deploy Smart Contract</button>
+            <button onclick="deployWebsiteContract()"> Deploy Smart Contract</button>
             <div id="deployOutput" class="output" style="display: none;"></div>
         </div>
 
         <!-- Step 3: Store Content in DHT -->
         <div class="step-section">
-            <h3>💾 Step 3: Store Content in DHT</h3>
+            <h3> Step 3: Store Content in DHT</h3>
             <p>Upload website files to the DHT network:</p>
-            <button onclick="storeInDHT()" id="storeBtn" disabled>📤 Store in DHT</button>
+            <button onclick="storeInDHT()" id="storeBtn" disabled> Store in DHT</button>
             <div id="storeOutput" class="output" style="display: none;"></div>
         </div>
 
         <!-- Step 4: Test Website -->
         <div class="step-section">
-            <h3>🧪 Step 4: Test Your Website</h3>
+            <h3> Step 4: Test Your Website</h3>
             <p>Navigate to your deployed Web4 website:</p>
             <input type="text" id="testUrl" value="mysite.zhtp" placeholder="yoursite.zhtp">
             <button onclick="testWebsite()" id="testBtn" disabled> Visit Website</button>
@@ -378,7 +378,7 @@ function navigateWeb4(path) {
         function createWebsiteFiles() {
             const output = document.getElementById('packageOutput');
             output.style.display = 'block';
-            output.innerHTML = '<span class="info">📦 Packaging website files...</span>\n';
+            output.innerHTML = '<span class="info"> Packaging website files...</span>\n';
 
             // Collect website data
             websiteData = {
@@ -492,12 +492,12 @@ function navigateWeb4(path) {
         async function storeInDHT() {
             const output = document.getElementById('storeOutput');
             output.style.display = 'block';
-            output.innerHTML = '<span class="info">💾 Storing content in DHT network...</span>\n';
+            output.innerHTML = '<span class="info"> Storing content in DHT network...</span>\n';
 
             try {
                 // Simulate storing each file in DHT
                 for (const [filename, content] of Object.entries(websiteData.files)) {
-                    output.innerHTML += `<span class="info">📤 Uploading ${filename}...</span>\n`;
+                    output.innerHTML += `<span class="info"> Uploading ${filename}...</span>\n`;
                     
                     // Simulate DHT storage delay
                     await new Promise(resolve => setTimeout(resolve, 500));
@@ -519,7 +519,7 @@ function navigateWeb4(path) {
             const testUrl = document.getElementById('testUrl').value;
             
             output.style.display = 'block';
-            output.innerHTML = '<span class="info">🧪 Testing Web4 website...</span>\n';
+            output.innerHTML = '<span class="info"> Testing Web4 website...</span>\n';
 
             if (!contractId) {
                 output.innerHTML = '<span class="error"> Please deploy smart contract first!</span>\n';
@@ -529,11 +529,11 @@ function navigateWeb4(path) {
             output.innerHTML += `<span class="info"> Resolving: zhtp://${testUrl}</span>\n`;
             output.innerHTML += `<span class="info"> Looking up smart contract...</span>\n`;
             output.innerHTML += `<span class="success"> Contract found: ${contractId}</span>\n`;
-            output.innerHTML += `<span class="info">📦 Fetching content from DHT...</span>\n`;
+            output.innerHTML += `<span class="info"> Fetching content from DHT...</span>\n`;
             output.innerHTML += `<span class="success"> Content retrieved successfully!</span>\n`;
             output.innerHTML += `<span class="success"> Website is live and accessible!</span>\n`;
             output.innerHTML += `\n<span class="info"> Access your website at: zhtp://${testUrl}</span>\n`;
-            output.innerHTML += `<span class="info">📊 Smart Contract: Active on blockchain</span>\n`;
+            output.innerHTML += `<span class="info"> Smart Contract: Active on blockchain</span>\n`;
             output.innerHTML += `<span class="info"> DHT Storage: Distributed across network</span>\n`;
         }
 

@@ -1,6 +1,6 @@
 /**
  * ZK-DID Identity Manager - Zero-Knowledge Decentralized Identity
- * Real integration with ZHTP identity system and quantum-resistant cryptography
+ * integration with ZHTP identity system and quantum-resistant cryptography
  */
 
 // Helper function for BLAKE3 hashing (simplified for web)
@@ -492,7 +492,7 @@ class ZkCryptoUtils {
     }
 
     async generateQuantumKeyPair() {
-        console.log('🔑 Generating quantum-resistant key pair...');
+        console.log(' Generating quantum-resistant key pair...');
         
         try {
             // In production, this would use CRYSTALS-Dilithium

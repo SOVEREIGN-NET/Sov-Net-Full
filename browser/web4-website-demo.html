@@ -55,14 +55,14 @@
         </div>
 
         <div class="step">
-            <h3>💾 Step 3: Store Content in DHT</h3>
+            <h3> Step 3: Store Content in DHT</h3>
             <p>Upload the website files to the DHT network for decentralized storage:</p>
             <button onclick="storeContentInDHT()">Store in DHT</button>
             <div id="dht-output" class="output" style="display: none;"></div>
         </div>
 
         <div class="step">
-            <h3>🌍 Step 4: Access Web4 Website</h3>
+            <h3> Step 4: Access Web4 Website</h3>
             <p>Navigate to your website using the ZHTP Web4 protocol:</p>
             <button onclick="loadWeb4Website()">Load Website</button>
             <div id="website-output" class="output" style="display: none;"></div>
@@ -101,9 +101,9 @@
             <h3>✨ Features:</h3>
             <ul>
                 <li> Quantum-resistant security</li>
-                <li>🌍 Decentralized hosting</li>
+                <li> Decentralized hosting</li>
                 <li> Zero-knowledge privacy</li>
-                <li>🏛️ DAO governance</li>
+                <li> DAO governance</li>
             </ul>
         </div>
     </main>
@@ -143,7 +143,7 @@ main {
 }`,
             'app.js': `console.log(' Web4 website loaded successfully!');
 console.log(' Running on ZHTP protocol');
-console.log('💎 Content stored in DHT network');
+console.log(' Content stored in DHT network');
 
 // Add some interactivity
 document.addEventListener('DOMContentLoaded', function() {
@@ -272,7 +272,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Simulate storing each file in DHT
                 for (const [filename, content] of Object.entries(websiteContent)) {
-                    // In a real implementation, this would upload to DHT and return a content hash
+                    // In a implementation, this would upload to DHT and return a content hash
                     const contentHash = `Qm${Math.random().toString(36).substring(2, 15)}${filename.replace(/\./g, '')}`;
                     storedFiles.push({
                         filename: filename,

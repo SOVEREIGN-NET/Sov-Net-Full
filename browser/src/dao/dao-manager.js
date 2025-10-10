@@ -13,7 +13,7 @@ export class DaoManager {
     }
 
     async initialize(identity) {
-        console.log('🏛️ Initializing DAO management system...');
+        console.log(' Initializing DAO management system...');
         
         try {
             // Load DAO data
@@ -36,7 +36,7 @@ export class DaoManager {
     async loadDaoData() {
         try {
             this.currentDaoData = await this.api.getDaoData();
-            console.log('📊 DAO data loaded successfully');
+            console.log(' DAO data loaded successfully');
             return this.currentDaoData;
 
         } catch (error) {
@@ -62,11 +62,11 @@ export class DaoManager {
 
     async calculateVotingPower(identity) {
         try {
-            console.log('🗳️ Calculating voting power for identity:', identity.did);
+            console.log(' Calculating voting power for identity:', identity.did);
             
-            // Get real voting power from blockchain
+            // Get voting power from blockchain
             const votingData = await this.api.getVotingPower(identity.did);
-            console.log('📊 Real voting power data:', votingData);
+            console.log(' voting power data:', votingData);
             
             return votingData.totalPower || votingData.voting_power || 0;
 
@@ -184,7 +184,7 @@ export class DaoManager {
     }
 
     async vote(proposalId, voteChoice, voterDid) {
-        console.log(`🗳️ Casting vote on proposal ${proposalId}: ${voteChoice}`);
+        console.log(` Casting vote on proposal ${proposalId}: ${voteChoice}`);
         
         try {
             // Validate voting eligibility
@@ -332,7 +332,7 @@ export class DaoManager {
 
     async executeParameterChange(implementation) {
         // Execute network parameter changes
-        console.log('⚙️ Executing parameter change:', implementation.parameters);
+        console.log(' Executing parameter change:', implementation.parameters);
         
         // This would call the actual network parameter update APIs
         await this.api.updateNetworkParameters(implementation.parameters);
@@ -340,7 +340,7 @@ export class DaoManager {
 
     async executeFundAllocation(implementation) {
         // Execute treasury fund allocation
-        console.log('💰 Executing fund allocation:', implementation.allocation);
+        console.log(' Executing fund allocation:', implementation.allocation);
         
         // This would call the treasury management APIs
         await this.api.allocateTreasuryFunds(
@@ -364,7 +364,7 @@ export class DaoManager {
 
     async executeValidatorAction(implementation) {
         // Execute validator-related actions
-        console.log('👥 Executing validator action:', implementation.action);
+        console.log(' Executing validator action:', implementation.action);
         
         switch (implementation.action.type) {
             case 'add_validator':
@@ -536,7 +536,7 @@ class ZkVotingSystem {
     }
 
     async createVoteProof(voteData) {
-        console.log('🗳️ Creating ZK proof for vote...');
+        console.log(' Creating ZK proof for vote...');
         
         try {
             // Create proof that:

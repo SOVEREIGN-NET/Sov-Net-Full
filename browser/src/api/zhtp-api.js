@@ -23,7 +23,7 @@ class PureZhtpConnection {
     }
 
     async connect() {
-        console.log(`🔌 Connecting to ZHTP mesh node via pure ZHTP protocol...`);
+        console.log(` Connecting to ZHTP mesh node via pure ZHTP protocol...`);
         
         try {
             // Create UDP socket for ZHTP mesh communication
@@ -58,13 +58,13 @@ class PureZhtpConnection {
 
     async sendMeshRequest(zhtpRequest) {
         try {
-            console.log(`📤 Sending NATIVE ZHTP mesh request to: zhtp://${this.host}:${this.port}`);
+            console.log(` Sending NATIVE ZHTP mesh request to: zhtp://${this.host}:${this.port}`);
             console.log(' ZHTP mesh protocol packet:', zhtpRequest);
 
             // Use pure ZHTP mesh protocol for native communication
             const response = await this.sendNativeZhtpMeshRequest(zhtpRequest);
 
-            console.log('📥 Received native ZHTP mesh response:', response);
+            console.log(' Received native ZHTP mesh response:', response);
             return response;
         } catch (error) {
             console.error(' ZHTP mesh request failed:', error);
@@ -93,7 +93,7 @@ class PureZhtpConnection {
                 if (responseReceived) return;
                 responseReceived = true;
                 
-                console.log('📥 Received ZHTP mesh response');
+                console.log(' Received ZHTP mesh response');
                 try {
                     const response = this.deserializeZhtpResponse(msg);
                     resolve(response);
@@ -123,7 +123,7 @@ class PureZhtpConnection {
             try {
                 // Send ZHTP mesh request packet
                 const zhtpPacket = this.serializeZhtpMeshRequest(zhtpRequest);
-                console.log('📤 Sending ZHTP mesh packet:', zhtpPacket.length, 'bytes');
+                console.log(' Sending ZHTP mesh packet:', zhtpPacket.length, 'bytes');
                 
                 this.meshSocket.send(zhtpPacket, this.port, this.host, (err) => {
                     if (err) {
@@ -148,7 +148,7 @@ class PureZhtpConnection {
     // Serialize ZHTP mesh request to native protocol format
     serializeZhtpMeshRequest(request) {
         // TEMPORARY: Create simple test ZHTP mesh protocol packet for UDP connectivity debugging
-        console.log('🧪 Creating simple test ZHTP request for UDP connectivity verification');
+        console.log(' Creating simple test ZHTP request for UDP connectivity verification');
         const zhtpMessage = {
             ZhtpRequest: {
                 requester: {
@@ -295,7 +295,7 @@ class ZhtpApi {
                         method: 'GET',
                         headers: { 'User-Agent': 'ZHTP-Browser/1.0' }
                     });
-                    console.log('📊 ZHTP Node Status:', nodeStatus);
+                    console.log(' ZHTP Node Status:', nodeStatus);
                 } catch (statusError) {
                     console.warn(' Could not get node status:', statusError.message);
                 }
@@ -364,7 +364,7 @@ class ZhtpApi {
         }
     }
 
-    // ZK-DID Management - Updated to match real ZHTP identity API
+    // ZK-DID Management - Updated to match ZHTP identity API
     async createZkDid(didData = {}) {
         console.log(' Creating ZK-DID via ZHTP identity API...');
         
@@ -704,7 +704,7 @@ class ZhtpApi {
     // Get comprehensive DAO data (combines all DAO endpoints)
     async getDaoData() {
         try {
-            console.log('🏛️ Fetching comprehensive DAO data from blockchain...');
+            console.log(' Fetching comprehensive DAO data from blockchain...');
             
             // Fetch all DAO data in parallel
             const [treasury, proposals] = await Promise.all([
@@ -723,7 +723,7 @@ class ZhtpApi {
             const daoMembers = treasury.dao_members || 
                 Math.max(150, totalProposals * 10); // Estimate based on proposals
 
-            console.log('📊 Real DAO data fetched:', { activeProposals, totalProposals, daoMembers });
+            console.log(' DAO data fetched:', { activeProposals, totalProposals, daoMembers });
 
             return {
                 // Treasury information
@@ -776,7 +776,7 @@ class ZhtpApi {
             
             if (response.status === 200) {
                 const treasuryData = JSON.parse(response.data);
-                console.log('💰 Real treasury data:', treasuryData);
+                console.log(' treasury data:', treasuryData);
                 return treasuryData;
             } else {
                 console.warn(' Treasury API returned status:', response.status);
@@ -793,7 +793,7 @@ class ZhtpApi {
         try {
             await this.ensureConnection();
             
-            // For now, return mock data - can be replaced with real API call later
+            // For now, return mock data - can be replaced with API call later
             return [
                 {
                     proposalId: 'proposal-1',
@@ -821,7 +821,7 @@ class ZhtpApi {
                 voter_id: voterDid.startsWith('did:zhtp:') ? voterDid.replace('did:zhtp:', '') : voterDid
             };
             
-            console.log('🗳️ Submitting vote:', voteData);
+            console.log(' Submitting vote:', voteData);
             
             // Send vote request to ZHTP node
             const response = await this.sendZhtpRequest('/dao/vote', {
@@ -829,7 +829,7 @@ class ZhtpApi {
                 body: voteData
             });
             
-            console.log('📥 Vote submission response:', response);
+            console.log(' Vote submission response:', response);
             
             if (response.status === 200 || response.status === 201) {
                 // Handle empty response body for successful vote submission
@@ -872,7 +872,7 @@ class ZhtpApi {
             
             if (response.status === 200) {
                 const delegatesData = JSON.parse(response.data);
-                console.log('👥 Real delegates data:', delegatesData);
+                console.log(' delegates data:', delegatesData);
                 return delegatesData;
             } else {
                 console.warn(' Delegates API returned status:', response.status);
@@ -895,7 +895,7 @@ class ZhtpApi {
             
             if (response.status === 200) {
                 const profileData = JSON.parse(response.data);
-                console.log('👤 Real delegate profile:', profileData);
+                console.log(' delegate profile:', profileData);
                 return profileData;
             } else {
                 console.warn(' Delegate profile API returned status:', response.status);
@@ -977,7 +977,7 @@ class ZhtpApi {
             
             if (response.status === 200) {
                 const proposalData = JSON.parse(response.data);
-                console.log(' Real proposal details:', proposalData);
+                console.log(' proposal details:', proposalData);
                 return proposalData;
             } else {
                 console.warn(' Proposal details API returned status:', response.status);
@@ -1000,7 +1000,7 @@ class ZhtpApi {
             
             if (response.status === 200) {
                 const historyData = JSON.parse(response.data);
-                console.log('📊 Real treasury history:', historyData);
+                console.log(' treasury history:', historyData);
                 return historyData;
             } else {
                 console.warn(' Treasury history API returned status:', response.status);
@@ -1027,7 +1027,7 @@ class ZhtpApi {
             
             if (response.status === 200) {
                 const result = JSON.parse(response.data);
-                console.log('💸 Spending proposal result:', result);
+                console.log(' Spending proposal result:', result);
                 return result;
             } else {
                 console.warn(' Spending proposal API returned status:', response.status);
@@ -1258,7 +1258,7 @@ class ZhtpApi {
     
     // Get contract information by blockchain hash
     async getContractByHash(blockchainHash) {
-        console.log(`⛓️ Fetching contract by blockchain hash: ${blockchainHash}`);
+        console.log(` Fetching contract by blockchain hash: ${blockchainHash}`);
         
         try {
             await this.ensureConnection();
@@ -1448,10 +1448,10 @@ class ZhtpApi {
             <h3>✨ Web4 Features:</h3>
             <ul>
                 <li> Quantum-resistant security</li>
-                <li>🌍 Decentralized hosting via smart contracts</li>
-                <li>💾 Content stored in DHT network</li>
+                <li> Decentralized hosting via smart contracts</li>
+                <li> Content stored in DHT network</li>
                 <li> Zero-knowledge privacy protection</li>
-                <li>🏛️ DAO governance integration</li>
+                <li> DAO governance integration</li>
                 <li> Blockchain verification</li>
             </ul>
         </div>
@@ -1464,7 +1464,7 @@ class ZhtpApi {
     <script>
         console.log(' Web4 website loaded successfully!');
         console.log(' Running on ZHTP protocol');
-        console.log('💎 Content served from smart contract + DHT');
+        console.log(' Content served from smart contract + DHT');
         console.log('Domain: ${domain}');
         console.log('Path: ${path}');
     </script>
@@ -1528,14 +1528,14 @@ class ZhtpApi {
             await this.ensureConnection();
             
             console.log(' Creating ZK-DID identity via ZHTP...');
-            console.log('📤 Identity data being sent:', identityData);
+            console.log(' Identity data being sent:', identityData);
             
             const response = await this.sendZhtpRequest('/api/v1/identity/create', {
                 method: 'POST',
                 body: identityData
             });
             
-            console.log('📥 Raw identity creation response:', response);
+            console.log(' Raw identity creation response:', response);
             
             // Return the full response - don't try to parse data again since sendZhtpRequest already handles it
             return response;
@@ -1596,7 +1596,7 @@ class ZhtpApi {
         try {
             await this.ensureConnection();
             
-            console.log(`💰 Getting wallet balance for DID: ${did}`);
+            console.log(` Getting wallet balance for DID: ${did}`);
             
             const response = await this.sendZhtpRequest(`/wallet/balance?address=${encodeURIComponent(did)}`, {
                 method: 'GET'
@@ -1684,7 +1684,7 @@ class ZhtpApi {
                     symbol: 'ZHTP',
                     balance: 105.0000,
                     usdPrice: 1.00,
-                    icon: '💎',
+                    icon: '',
                     change24h: 0
                 }
             ];
@@ -1711,7 +1711,7 @@ class ZhtpApi {
                 body: signinData
             });
             
-            console.log('📥 Raw signin response:', response);
+            console.log(' Raw signin response:', response);
             
             // Return the full response - don't try to parse data again
             return response;
@@ -1738,4 +1738,4 @@ if (typeof module !== 'undefined' && module.exports) {
 export { ZhtpApi, PureZhtpConnection };
 export default ZhtpApi;
 
-console.log('📦 ZHTP API Pure Mesh Protocol loaded successfully');
+console.log(' ZHTP API Pure Mesh Protocol loaded successfully');

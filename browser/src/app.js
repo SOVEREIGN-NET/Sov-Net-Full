@@ -1,8 +1,8 @@
 /**
  * ZHTP Web4 Desktop App - Complete Native Protocol Application
  *  PURE ZHTP PROTOCOL - NO HTTP, NO WASM, NO OLD PROTOCOLS 
- * Real Web4 integration with native ZHTP blockchain and ZK-DID system
- * 🧪 DHT TESTING ENABLED - Test mesh network and content routing
+ * Web4 integration with native ZHTP blockchain and ZK-DID system
+ *  DHT TESTING ENABLED - Test mesh network and content routing
  */
 
 // Import DHT testing utilities
@@ -27,7 +27,7 @@ window.switchDaoTab = function(tabName) {
         // Use the browser instance method if available
         window.browser.switchDaoTab(tabName);
     } else {
-        console.log('⏳ Browser not ready, queuing DAO tab switch for:', tabName);
+        console.log(' Browser not ready, queuing DAO tab switch for:', tabName);
         // Store the requested tab to switch to when browser is ready
         window.pendingDaoTab = tabName;
         
@@ -54,13 +54,13 @@ window.switchDaoTab = function(tabName) {
 
 // Load DAO data for specific tab type (early global definition)
 window.loadDaoDataForType = function(daoType) {
-    console.log(`📊 Loading ${daoType} DAO data...`);
+    console.log(` Loading ${daoType} DAO data...`);
     
     if (window.browser && window.browser.isInitialized && window.browser.loadDaoDataForType) {
         // Use the browser instance method if available
         window.browser.loadDaoDataForType(daoType);
     } else {
-        console.log('⏳ Browser not ready, DAO data loading will occur when initialized');
+        console.log(' Browser not ready, DAO data loading will occur when initialized');
         // Store the requested data type to load when browser is ready
         window.pendingDaoDataType = daoType;
     }
@@ -72,7 +72,7 @@ window.createProposal = function() {
     if (window.browser && window.browser.isInitialized) {
         window.browser.showCreateProposalModal();
     } else {
-        console.log('⏳ Browser not ready, showing preparation message');
+        console.log(' Browser not ready, showing preparation message');
         alert('Please wait for the Web4 Browser to finish loading before creating proposals.');
     }
 };
@@ -83,7 +83,7 @@ window.submitProposal = function() {
     
     if (window.browser && window.browser.isInitialized) {
         console.log(' Browser instance found, checking identity...');
-        console.log('👤 Current identity:', window.browser.currentIdentity);
+        console.log(' Current identity:', window.browser.currentIdentity);
         
         if (!window.browser.currentIdentity) {
             console.error(' No identity found - user must sign in first');
@@ -120,7 +120,7 @@ window.handleProposalTypeChange = function(selectedType) {
             const treasuryFields = document.getElementById('treasuryFields');
             if (treasuryFields) {
                 treasuryFields.style.display = 'block';
-                console.log('📊 Treasury fields shown');
+                console.log(' Treasury fields shown');
             }
             break;
             
@@ -128,7 +128,7 @@ window.handleProposalTypeChange = function(selectedType) {
             const ubiFields = document.getElementById('ubiFields');
             if (ubiFields) {
                 ubiFields.style.display = 'block';
-                console.log('💰 UBI fields shown');
+                console.log(' UBI fields shown');
             }
             break;
             
@@ -153,22 +153,22 @@ window.cancelProposal = function() {
 };
 
 window.voteOnProposals = function() {
-    console.log('🗳️ Viewing active proposals for voting...');
+    console.log(' Viewing active proposals for voting...');
     window.switchDaoTab('proposals');
 };
 
 window.delegateVotes = function() {
-    console.log('🗳️ Switching to delegates tab...');
+    console.log(' Switching to delegates tab...');
     window.switchDaoTab('delegates');
 };
 
 window.viewTreasury = function() {
-    console.log('🏛️ Switching to treasury tab...');
+    console.log(' Switching to treasury tab...');
     window.switchDaoTab('treasury');
 };
 
 window.viewTreasurySafeguards = function() {
-    console.log('🛡️ Viewing treasury safeguards...');
+    console.log(' Viewing treasury safeguards...');
     if (window.browser && window.browser.isInitialized) {
         window.browser.showTreasurySafeguardsModal();
     } else {
@@ -206,7 +206,7 @@ window.viewProposal = function(proposalId) {
 
 // Treasury functions
 window.proposeSpending = function() {
-    console.log('💰 Opening treasury spending proposal...');
+    console.log(' Opening treasury spending proposal...');
     if (window.browser && window.browser.isInitialized) {
         window.browser.showSpendingProposalModal();
     } else {
@@ -215,7 +215,7 @@ window.proposeSpending = function() {
 };
 
 window.viewTreasuryHistory = function() {
-    console.log('📊 Loading treasury transaction history...');
+    console.log(' Loading treasury transaction history...');
     if (window.browser && window.browser.isInitialized) {
         window.browser.loadTreasuryHistory();
     } else {
@@ -225,7 +225,7 @@ window.viewTreasuryHistory = function() {
 
 // Delegate functions  
 window.becomeDeligate = function() {
-    console.log('👤 Starting delegate registration...');
+    console.log(' Starting delegate registration...');
     if (window.browser && window.browser.isInitialized) {
         window.browser.showDelegateModal();
     } else {
@@ -243,7 +243,7 @@ window.revokeDelegation = function() {
 };
 
 window.voteOnProposal = function(proposalId, voteChoice) {
-    console.log(`🗳️ Voting ${voteChoice ? 'FOR' : 'AGAINST'} proposal ${proposalId}...`);
+    console.log(` Voting ${voteChoice ? 'FOR' : 'AGAINST'} proposal ${proposalId}...`);
     if (window.browser && window.browser.isInitialized) {
         window.browser.voteOnProposal(proposalId, voteChoice);
     } else {
@@ -252,7 +252,7 @@ window.voteOnProposal = function(proposalId, voteChoice) {
 };
 
 window.delegateVotingPower = function(delegateId) {
-    console.log(`👥 Delegating voting power to ${delegateId}...`);
+    console.log(` Delegating voting power to ${delegateId}...`);
     if (window.browser && window.browser.isInitialized) {
         window.browser.delegateVotingPower(delegateId);
     } else {
@@ -266,7 +266,7 @@ console.log(' Global DAO functions defined and ready for HTML onclick handlers')
 
 // ZK-DID Management Functions
 window.signInWithZkDid = async function() {
-    console.log('🔑 Global signInWithZkDid called from HTML...');
+    console.log(' Global signInWithZkDid called from HTML...');
     
     if (!window.browser || !window.browser.isInitialized) {
         alert('Please wait for the Web4 Browser to finish loading.');
@@ -304,7 +304,7 @@ window.signInWithZkDid = async function() {
 };
 
 window.createNewZkDid = async function() {
-    console.log('🆕 Global createNewZkDid called from HTML...');
+    console.log(' Global createNewZkDid called from HTML...');
     
     if (!window.browser || !window.browser.isInitialized) {
         alert('Please wait for the Web4 Browser to finish loading.');
@@ -353,7 +353,7 @@ window.createNewZkDid = async function() {
         if (identity.citizenship_result) {
             setTimeout(() => {
                 window.browser.showNotification(
-                    '🏛️ Citizen identity created with UBI and governance access!', 
+                    ' Citizen identity created with UBI and governance access!', 
                     'success'
                 );
             }, 2000);
@@ -386,7 +386,7 @@ window.executeRecovery = async function() {
     }
     
     try {
-        window.browser.showNotification('🌱 Recovering identity from seed phrase...', 'info');
+        window.browser.showNotification(' Recovering identity from seed phrase...', 'info');
         
         const identity = await window.browser.zkDid.recoverFromSeedPhrase(seedPhrase, newPassphrase);
         
@@ -407,7 +407,7 @@ window.executeRecovery = async function() {
 
 // Recovery method selectors
 window.recoverWithSeed = function() {
-    console.log('🌱 Showing seed phrase recovery...');
+    console.log(' Showing seed phrase recovery...');
     
     // Hide all recovery sections
     const sections = document.querySelectorAll('.recovery-section');
@@ -421,7 +421,7 @@ window.recoverWithSeed = function() {
 };
 
 window.recoverWithBackup = function() {
-    console.log('💾 Showing backup file recovery...');
+    console.log(' Showing backup file recovery...');
     
     // Hide all recovery sections
     const sections = document.querySelectorAll('.recovery-section');
@@ -435,7 +435,7 @@ window.recoverWithBackup = function() {
 };
 
 window.recoverWithSocial = function() {
-    console.log('👥 Showing social recovery...');
+    console.log(' Showing social recovery...');
     
     // Hide all recovery sections
     const sections = document.querySelectorAll('.recovery-section');
@@ -474,7 +474,7 @@ window.checkUsernameAvailability = function(username) {
         return;
     }
     
-    // TODO: Implement real username availability checking
+    // TODO: Implement username availability checking
     const statusElements = document.querySelectorAll('.validation-status');
     statusElements.forEach(element => {
         element.textContent = ' Username available';
@@ -503,7 +503,7 @@ console.log(' Global identity functions defined and ready for HTML onclick handl
 
 // Wallet tab switching
 window.switchWalletTab = function(walletType) {
-    console.log('💰 Switching to wallet tab:', walletType);
+    console.log(' Switching to wallet tab:', walletType);
     
     // Remove active class from all wallet tabs and content
     document.querySelectorAll('.wallet-tab').forEach(tab => tab.classList.remove('active'));
@@ -528,58 +528,58 @@ window.switchWalletTab = function(walletType) {
 
 // Wallet action functions
 window.sendTokens = function(walletType) {
-    console.log('📤 Send tokens from wallet:', walletType);
+    console.log(' Send tokens from wallet:', walletType);
     if (window.browser && window.browser.isInitialized) {
-        window.browser.showNotification('🚧 Send tokens functionality coming soon', 'info');
+        window.browser.showNotification(' Send tokens functionality coming soon', 'info');
     }
 };
 
 window.receiveTokens = function(walletType) {
-    console.log('📥 Receive tokens to wallet:', walletType);
+    console.log(' Receive tokens to wallet:', walletType);
     if (window.browser && window.browser.isInitialized) {
-        window.browser.showNotification('🚧 Receive tokens functionality coming soon', 'info');
+        window.browser.showNotification(' Receive tokens functionality coming soon', 'info');
     }
 };
 
 window.swapTokens = function(walletType) {
     console.log(' Swap tokens in wallet:', walletType);
     if (window.browser && window.browser.isInitialized) {
-        window.browser.showNotification('🚧 Token swap functionality coming soon', 'info');
+        window.browser.showNotification(' Token swap functionality coming soon', 'info');
     }
 };
 
 window.stakeTokens = function(walletType) {
     console.log('🏦 Stake tokens from wallet:', walletType);
     if (window.browser && window.browser.isInitialized) {
-        window.browser.showNotification('🚧 Token staking functionality coming soon', 'info');
+        window.browser.showNotification(' Token staking functionality coming soon', 'info');
     }
 };
 
 window.transferBetweenWallets = function(fromWalletType) {
     console.log('🔀 Transfer between wallets from:', fromWalletType);
     if (window.browser && window.browser.isInitialized) {
-        window.browser.showNotification('🚧 Inter-wallet transfer functionality coming soon', 'info');
+        window.browser.showNotification(' Inter-wallet transfer functionality coming soon', 'info');
     }
 };
 
 window.claimUBI = function() {
-    console.log('💰 Claiming UBI payment...');
+    console.log(' Claiming UBI payment...');
     if (window.browser && window.browser.isInitialized) {
-        window.browser.showNotification('💰 UBI claimed! Check your balance.', 'success');
+        window.browser.showNotification(' UBI claimed! Check your balance.', 'success');
     }
 };
 
 window.viewUbiHistory = function() {
-    console.log('📊 Viewing UBI history...');
+    console.log(' Viewing UBI history...');
     if (window.browser && window.browser.isInitialized) {
-        window.browser.showNotification('🚧 UBI history functionality coming soon', 'info');
+        window.browser.showNotification(' UBI history functionality coming soon', 'info');
     }
 };
 
 window.viewStakingRewards = function() {
-    console.log('💎 Viewing staking rewards...');
+    console.log(' Viewing staking rewards...');
     if (window.browser && window.browser.isInitialized) {
-        window.browser.showNotification('🚧 Staking rewards functionality coming soon', 'info');
+        window.browser.showNotification(' Staking rewards functionality coming soon', 'info');
     }
 };
 
@@ -589,7 +589,7 @@ console.log(' Global wallet functions defined and ready for HTML onclick handler
 import ZhtpApi from './api/zhtp-api.js';
 import ZkDHTClient from './network/zkdht-client.js';
 
-// ZK-DID Identity Manager - Uses real ZHTP identity API
+// ZK-DID Identity Manager - Uses ZHTP identity API
 class ZkDidManager {
     constructor(api) {
         this.api = api;
@@ -600,7 +600,7 @@ class ZkDidManager {
         try {
             console.log(' Creating ZK-DID via ZHTP API...', identityData);
             
-            // Call the real ZHTP identity creation API
+            // Call the ZHTP identity creation API
             const response = await this.api.sendZhtpRequest('/api/v1/identity/create', {
                 method: 'POST',
                 body: {
@@ -647,7 +647,7 @@ class ZkDidManager {
     
     async signInWithDid(did, passphrase) {
         try {
-            console.log('🔑 Signing in with DID:', did);
+            console.log(' Signing in with DID:', did);
             
             // Normalize DID format first
             const normalizedDid = window.browser.normalizeDid(did);
@@ -656,7 +656,7 @@ class ZkDidManager {
             // Extract identity ID from normalized DID
             const identityId = normalizedDid.replace('did:zhtp:', '');
             
-            // Call the real ZHTP identity retrieval API
+            // Call the ZHTP identity retrieval API
             const response = await this.api.sendZhtpRequest(`/api/v1/identity/${identityId}`, {
                 method: 'GET'
             });
@@ -694,7 +694,7 @@ class ZkDidManager {
     
     async recoverFromSeedPhrase(seedPhrase, newPassphrase) {
         try {
-            console.log('🌱 Recovering DID from seed phrase...');
+            console.log(' Recovering DID from seed phrase...');
             
             // TODO: Implement seed phrase recovery via ZHTP API
             // This would call a recovery endpoint that uses lib-identity's recover_did function
@@ -803,7 +803,7 @@ class Web4Browser {
             // Check for existing identity but don't auto-load it
             const savedIdentity = await this.zkDid.loadSavedIdentity();
             if (savedIdentity) {
-                console.log('💾 Found saved identity:', savedIdentity.displayName, '- requires manual sign in');
+                console.log(' Found saved identity:', savedIdentity.displayName, '- requires manual sign in');
                 // Don't automatically set currentIdentity - require manual sign in
                 // this.currentIdentity = savedIdentity;
             }
@@ -833,9 +833,9 @@ class Web4Browser {
                 this.showMainInterface();
                 this.isInitialized = true;
                 console.log(' Native ZHTP Web4 Desktop App initialized successfully!');
-                console.log('🌍 Connected to Web4 via native ZHTP protocol');
-                console.log(' Quantum-resistant •  Zero-knowledge • 💰 UBI-enabled');
-                console.log('🧪 DHT testing available: window.dhtTest.*');
+                console.log(' Connected to Web4 via native ZHTP protocol');
+                console.log(' Quantum-resistant •  Zero-knowledge •  UBI-enabled');
+                console.log(' DHT testing available: window.dhtTest.*');
             }, 1000);
             
         } catch (error) {
@@ -849,7 +849,7 @@ class Web4Browser {
      */
     async initializeDhtTesting() {
         try {
-            console.log('🧪 Initializing DHT testing dashboard...');
+            console.log(' Initializing DHT testing dashboard...');
             
             // Initialize DHT utilities
             window.dhtUtils = new ZhtpUrlUtils();
@@ -897,7 +897,7 @@ class Web4Browser {
         if (devMenu) {
             const dhtTestingItem = document.createElement('div');
             dhtTestingItem.className = 'menu-item';
-            dhtTestingItem.innerHTML = '🧪 DHT Testing';
+            dhtTestingItem.innerHTML = ' DHT Testing';
             dhtTestingItem.onclick = () => this.showDhtTestingInterface();
             devMenu.appendChild(dhtTestingItem);
         }
@@ -987,7 +987,7 @@ class Web4Browser {
             // Test contract discovery via DHT
             find: async (tags = [], limit = 10) => {
                 try {
-                    console.log('🔎 Testing smart contract discovery via DHT...');
+                    console.log(' Testing smart contract discovery via DHT...');
                     const result = await window.contractsDht.findContracts(tags, limit);
                     console.log(' Contract discovery successful:', result);
                     return result;
@@ -1000,7 +1000,7 @@ class Web4Browser {
             // Simple test with sample WASM contract
             deploySimpleTest: async () => {
                 try {
-                    console.log('🧪 Deploying simple test contract via DHT...');
+                    console.log(' Deploying simple test contract via DHT...');
                     // Create a minimal WASM contract (just basic structure)
                     const simpleWasm = new Uint8Array([
                         0x00, 0x61, 0x73, 0x6d, 0x01, 0x00, 0x00, 0x00  // WASM magic + version
@@ -1061,7 +1061,7 @@ Examples:
             
             // Identity indicator click handler
             if (e.target.id === 'identityIndicator' || e.target.id === 'identityStatus' || e.target.closest('#identityIndicator')) {
-                console.log('🔑 Identity indicator clicked');
+                console.log(' Identity indicator clicked');
                 if (this.currentIdentity && this.currentIdentity.did) {
                     // Already signed in, navigate to identity page
                     this.navigateToUrl('zhtp://identity.zhtp');
@@ -1161,7 +1161,7 @@ Examples:
             progressText.textContent = message;
         }
         
-        console.log(`📊 Progress: ${progress}% - ${message}`);
+        console.log(` Progress: ${progress}% - ${message}`);
     }
 
     showMainInterface() {
@@ -1269,7 +1269,7 @@ Examples:
 
     // Handle identity indicator click
     handleIdentityClick() {
-        console.log('👤 Identity indicator clicked');
+        console.log(' Identity indicator clicked');
         
         if (this.currentIdentity && (this.currentIdentity.authenticated || this.currentIdentity.did)) {
             // User is signed in - show user menu with logout option
@@ -1293,7 +1293,7 @@ Examples:
         menu.innerHTML = `
             <div class="user-menu-content">
                 <div class="user-info">
-                    <div class="user-avatar">👤</div>
+                    <div class="user-avatar"></div>
                     <div class="user-details">
                         <div class="user-name">${this.currentIdentity.display_name || this.currentIdentity.displayName || 'User'}</div>
                         <div class="user-did">${this.currentIdentity.did?.substring(0, 30)}...</div>
@@ -1305,10 +1305,10 @@ Examples:
                          Identity Profile
                     </div>
                     <div class="menu-item" onclick="window.browser.navigateToUrl('zhtp://wallet.zhtp')">
-                        💰 Wallet
+                         Wallet
                     </div>
                     <div class="menu-item" onclick="window.browser.openSettings()">
-                        ⚙️ Settings
+                         Settings
                     </div>
                     <div class="menu-divider"></div>
                     <div class="menu-item logout" onclick="window.browser.logout(); document.querySelector('.user-menu').remove();">
@@ -1349,7 +1349,7 @@ Examples:
 
     // Open settings modal
     openSettings() {
-        console.log('⚙️ Opening settings...');
+        console.log(' Opening settings...');
         this.openModal('settingsModal');
     }
 
@@ -1379,7 +1379,7 @@ Examples:
         const modal = document.getElementById(modalId);
         if (modal) {
             modal.style.display = 'flex';
-            console.log('📂 Modal opened:', modalId);
+            console.log(' Modal opened:', modalId);
         } else {
             console.warn(' Modal not found:', modalId);
         }
@@ -1399,11 +1399,11 @@ Examples:
                     // Show citizen status if applicable
                     if (this.currentIdentity.citizenship_result) {
                         balanceElement.innerHTML = `
-                            <div>🏛️ Citizen Wallets</div>
+                            <div> Citizen Wallets</div>
                             <small>Primary + UBI + Savings</small>
                         `;
                     } else {
-                        balanceElement.textContent = '💰 Quantum Wallet';
+                        balanceElement.textContent = ' Quantum Wallet';
                     }
                 }
             }
@@ -1420,7 +1420,7 @@ Examples:
     
     async updateWalletPageBalances() {
         try {
-            // TODO: Implement real wallet balance fetching from ZHTP API
+            // TODO: Implement wallet balance fetching from ZHTP API
             // For now, show placeholder values for citizen wallets
             
             if (this.currentIdentity && this.currentIdentity.citizenship_result) {
@@ -1474,7 +1474,7 @@ Examples:
             const status = await this.api.getNetworkStatus();
             const statusIndicator = document.querySelector('.network-status');
             if (statusIndicator) {
-                statusIndicator.textContent = status.connected ? '🟢 Connected' : '🔴 Disconnected';
+                statusIndicator.textContent = status.connected ? ' Connected' : ' Disconnected';
                 statusIndicator.className = `network-status ${status.connected ? 'connected' : 'disconnected'}`;
             }
         } catch (error) {
@@ -1483,7 +1483,7 @@ Examples:
     }
 
     handleNavigation(action) {
-        console.log('🧭 Navigation:', action);
+        console.log(' Navigation:', action);
         
         switch (action) {
             case 'home':
@@ -1535,7 +1535,7 @@ Examples:
         console.log(` Loading page from zkDHT: ${url}`);
         
         try {
-            // Use real zkDHT client if available and connected
+            // Use zkDHT client if available and connected
             if (this.zkdht && this.zkdht.isConnected) {
                 console.log(' Using live zkDHT blockchain DNS...');
                 return await this.zkdht.loadPage(url);
@@ -1671,7 +1671,7 @@ Examples:
         const blockHeight = document.getElementById('blockHeight');
         
         if (networkStatus) {
-            networkStatus.textContent = '🟢 Connected';
+            networkStatus.textContent = ' Connected';
             networkStatus.className = 'network-status connected';
         }
         
@@ -1767,21 +1767,21 @@ Examples:
                     </div>
 
                     <div class="dashboard-card" onclick="window.browser.navigateToUrl('zhtp://wallet.zhtp')">
-                        <div class="card-icon">💎</div>
+                        <div class="card-icon"></div>
                         <h3>Quantum Wallet</h3>
                         <p>Secure quantum-resistant cryptocurrency wallet</p>
                         <div class="card-status">wallet.zhtp</div>
                     </div>
 
                     <div class="dashboard-card" onclick="window.browser.navigateToUrl('zhtp://dao.zhtp')">
-                        <div class="card-icon">🏛️</div>
+                        <div class="card-icon"></div>
                         <h3>DAO Governance</h3>
                         <p>Participate in decentralized governance</p>
                         <div class="card-status">dao.zhtp</div>
                     </div>
 
                     <div class="dashboard-card" onclick="window.browser.navigateToUrl('zhtp://social.zhtp')">
-                        <div class="card-icon">👥</div>
+                        <div class="card-icon"></div>
                         <h3>Social Network</h3>
                         <p>Connect with the Web4 community</p>
                         <div class="card-status">social.zhtp</div>
@@ -1795,7 +1795,7 @@ Examples:
                     </div>
 
                     <div class="dashboard-card" onclick="window.browser.navigateToUrl('zhtp://whisper.zhtp')">
-                        <div class="card-icon">💬</div>
+                        <div class="card-icon"></div>
                         <h3>Whisper Messaging</h3>
                         <p>Private encrypted communications</p>
                         <div class="card-status">whisper.zhtp</div>
@@ -1828,14 +1828,14 @@ Examples:
         return `
             <div class="wallet-page">
                 <div class="page-header">
-                    <h1>💎 Quantum Wallet System</h1>
+                    <h1> Quantum Wallet System</h1>
                     <p>Your secure, quantum-resistant cryptocurrency wallets</p>
                 </div>
 
                 ${hasCitizenshipWallets ? `
                 <div class="wallet-tabs">
-                    <button class="wallet-tab active" onclick="switchWalletTab('primary')">💰 Primary Wallet</button>
-                    <button class="wallet-tab" onclick="switchWalletTab('ubi')">🏛️ UBI Wallet</button>
+                    <button class="wallet-tab active" onclick="switchWalletTab('primary')"> Primary Wallet</button>
+                    <button class="wallet-tab" onclick="switchWalletTab('ubi')"> UBI Wallet</button>
                     <button class="wallet-tab" onclick="switchWalletTab('savings')">🏦 Savings Wallet</button>
                 </div>
 
@@ -1843,7 +1843,7 @@ Examples:
                 <div class="wallet-content active" id="wallet-primary">
                     <div class="balance-overview">
                         <div class="balance-card">
-                            <h3>💰 Primary Wallet Balance</h3>
+                            <h3> Primary Wallet Balance</h3>
                             <div class="balance-amount">
                                 <span class="amount" id="primaryWalletBalance">--</span>
                                 <span class="currency">ZHTP</span>
@@ -1855,8 +1855,8 @@ Examples:
                     </div>
 
                     <div class="wallet-actions">
-                        <button class="wallet-btn primary" onclick="sendTokens('primary')">📤 Send</button>
-                        <button class="wallet-btn secondary" onclick="receiveTokens('primary')">📥 Receive</button>
+                        <button class="wallet-btn primary" onclick="sendTokens('primary')"> Send</button>
+                        <button class="wallet-btn secondary" onclick="receiveTokens('primary')"> Receive</button>
                         <button class="wallet-btn secondary" onclick="swapTokens('primary')"> Swap</button>
                         <button class="wallet-btn secondary" onclick="transferBetweenWallets('primary')">🔀 Transfer</button>
                     </div>
@@ -1866,7 +1866,7 @@ Examples:
                 <div class="wallet-content" id="wallet-ubi">
                     <div class="balance-overview">
                         <div class="balance-card ubi-wallet">
-                            <h3>🏛️ UBI Wallet Balance</h3>
+                            <h3> UBI Wallet Balance</h3>
                             <div class="balance-amount">
                                 <span class="amount" id="ubiWalletBalance">--</span>
                                 <span class="currency">ZHTP</span>
@@ -1881,10 +1881,10 @@ Examples:
                     </div>
 
                     <div class="wallet-actions">
-                        <button class="wallet-btn primary" onclick="claimUBI()">💰 Claim UBI</button>
+                        <button class="wallet-btn primary" onclick="claimUBI()"> Claim UBI</button>
                         <button class="wallet-btn secondary" onclick="transferBetweenWallets('ubi')">🔀 Transfer to Primary</button>
-                        <button class="wallet-btn secondary" onclick="receiveTokens('ubi')">📥 Receive</button>
-                        <button class="wallet-btn secondary" onclick="viewUbiHistory()">📊 UBI History</button>
+                        <button class="wallet-btn secondary" onclick="receiveTokens('ubi')"> Receive</button>
+                        <button class="wallet-btn secondary" onclick="viewUbiHistory()"> UBI History</button>
                     </div>
                 </div>
 
@@ -1909,15 +1909,15 @@ Examples:
                     <div class="wallet-actions">
                         <button class="wallet-btn primary" onclick="stakeTokens('savings')">🏦 Stake ZHTP</button>
                         <button class="wallet-btn secondary" onclick="transferBetweenWallets('savings')">🔀 Transfer to Primary</button>
-                        <button class="wallet-btn secondary" onclick="receiveTokens('savings')">📥 Receive (Stealth)</button>
-                        <button class="wallet-btn secondary" onclick="viewStakingRewards()">💎 Rewards</button>
+                        <button class="wallet-btn secondary" onclick="receiveTokens('savings')"> Receive (Stealth)</button>
+                        <button class="wallet-btn secondary" onclick="viewStakingRewards()"> Rewards</button>
                     </div>
                 </div>
                 ` : `
                 <!-- Single Wallet for Non-Citizens -->
                 <div class="balance-overview">
                     <div class="balance-card">
-                        <h3>💰 Wallet Balance</h3>
+                        <h3> Wallet Balance</h3>
                         <div class="balance-amount">
                             <span class="amount" id="walletBalance">--</span>
                             <span class="currency">ZHTP</span>
@@ -1928,15 +1928,15 @@ Examples:
                 </div>
 
                 <div class="wallet-actions">
-                    <button class="wallet-btn primary" onclick="sendTokens()">📤 Send</button>
-                    <button class="wallet-btn secondary" onclick="receiveTokens()">📥 Receive</button>
+                    <button class="wallet-btn primary" onclick="sendTokens()"> Send</button>
+                    <button class="wallet-btn secondary" onclick="receiveTokens()"> Receive</button>
                     <button class="wallet-btn secondary" onclick="swapTokens()"> Swap</button>
                     <button class="wallet-btn secondary" onclick="stakeTokens()">🏦 Stake</button>
                 </div>
                 `}
 
                 <div class="asset-section">
-                    <h3>📊 Your Assets</h3>
+                    <h3> Your Assets</h3>
                     <div class="asset-list" id="assetList">
                         <div class="loading-placeholder">Loading assets...</div>
                     </div>
@@ -1956,7 +1956,7 @@ Examples:
         return `
             <div class="dao-page">
                 <div class="page-header">
-                    <h1>🏛️ ZHTP DAO Governance</h1>
+                    <h1> ZHTP DAO Governance</h1>
                     <p>Participate in the decentralized governance of the ZHTP network</p>
                 </div>
 
@@ -1984,20 +1984,20 @@ Examples:
                 </div>
 
                 <div class="dao-tabs">
-                    <button class="dao-tab active" onclick="switchDaoTab('proposals')">🗳️ Proposals</button>
-                    <button class="dao-tab" onclick="switchDaoTab('treasury')">🏛️ Treasury</button>
-                    <button class="dao-tab" onclick="switchDaoTab('delegates')">👥 Delegates</button>
+                    <button class="dao-tab active" onclick="switchDaoTab('proposals')"> Proposals</button>
+                    <button class="dao-tab" onclick="switchDaoTab('treasury')"> Treasury</button>
+                    <button class="dao-tab" onclick="switchDaoTab('delegates')"> Delegates</button>
                 </div>
 
                 <!-- Proposals Tab -->
                 <div class="dao-content active" id="dao-proposals">
                     <div class="dao-actions">
                         <button class="dao-btn primary" onclick="createProposal()">Create Proposal</button>
-                        <button class="dao-btn secondary" onclick="voteOnProposals()">🗳️ Vote</button>
+                        <button class="dao-btn secondary" onclick="voteOnProposals()"> Vote</button>
                     </div>
 
                     <div class="proposals-section">
-                        <h3>🗳️ Active Proposals</h3>
+                        <h3> Active Proposals</h3>
                         <div id="proposalsList" class="proposals-list">
                             <!-- Proposals will be loaded dynamically here -->
                             <div class="loading-placeholder">Loading proposals...</div>
@@ -2009,7 +2009,7 @@ Examples:
                 <div class="dao-content" id="dao-treasury">
                     <div class="treasury-overview">
                         <div class="treasury-card">
-                            <h3>🏛️ Treasury Balance</h3>
+                            <h3> Treasury Balance</h3>
                             <div class="balance-amount">
                                 <span class="amount" id="treasuryTotalFunds">--</span>
                                 <span class="currency">ZHTP</span>
@@ -2032,7 +2032,7 @@ Examples:
                         
                         <!-- Treasury Safeguards Panel -->
                         <div class="treasury-card treasury-safeguards">
-                            <h3>🛡️ Treasury Protection</h3>
+                            <h3> Treasury Protection</h3>
                             <div class="safeguard-info">
                                 <div class="safeguard-item">
                                     <span class="safeguard-icon"></span>
@@ -2042,7 +2042,7 @@ Examples:
                                     </div>
                                 </div>
                                 <div class="safeguard-item">
-                                    <span class="safeguard-icon">📊</span>
+                                    <span class="safeguard-icon"></span>
                                     <div class="safeguard-details">
                                         <strong>Automatic Validation</strong>
                                         <p>Fund availability verified before proposal execution</p>
@@ -2067,9 +2067,9 @@ Examples:
                     </div>
 
                     <div class="dao-actions">
-                        <button class="dao-btn primary" onclick="proposeSpending()">💰 Propose Spending</button>
-                        <button class="dao-btn secondary" onclick="viewTreasuryHistory()">📊 History</button>
-                        <button class="dao-btn secondary" onclick="viewTreasurySafeguards()">🛡️ View Safeguards</button>
+                        <button class="dao-btn primary" onclick="proposeSpending()"> Propose Spending</button>
+                        <button class="dao-btn secondary" onclick="viewTreasuryHistory()"> History</button>
+                        <button class="dao-btn secondary" onclick="viewTreasurySafeguards()"> View Safeguards</button>
                     </div>
 
                     <div class="treasury-transactions">
@@ -2084,7 +2084,7 @@ Examples:
                 <div class="dao-content" id="dao-delegates">
                     <div class="delegate-overview">
                         <div class="delegate-card">
-                            <h3>👥 Your Delegation Status</h3>
+                            <h3> Your Delegation Status</h3>
                             <div class="delegation-info">
                                 <div class="delegation-stat">
                                     <span class="label">Voting Power:</span>
@@ -2103,13 +2103,13 @@ Examples:
                     </div>
 
                     <div class="dao-actions">
-                        <button class="dao-btn primary" onclick="delegateVotes()">🗳️ Delegate Votes</button>
+                        <button class="dao-btn primary" onclick="delegateVotes()"> Delegate Votes</button>
                         <button class="dao-btn secondary" onclick="revokeDelegation()"> Revoke Delegation</button>
-                        <button class="dao-btn secondary" onclick="becomeDeligate()">👤 Become Delegate</button>
+                        <button class="dao-btn secondary" onclick="becomeDeligate()"> Become Delegate</button>
                     </div>
 
                     <div class="delegates-list">
-                        <h3>🏆 Top Delegates</h3>
+                        <h3> Top Delegates</h3>
                         <div id="delegatesList" class="delegates-list">
                             <div class="loading-placeholder">Loading delegates...</div>
                         </div>
@@ -2123,7 +2123,7 @@ Examples:
         return `
             <div class="social-page">
                 <div class="page-header">
-                    <h1>👥 Web4 Social Network</h1>
+                    <h1> Web4 Social Network</h1>
                     <p>Connect with the decentralized community</p>
                 </div>
 
@@ -2131,8 +2131,8 @@ Examples:
                     <textarea class="post-input" placeholder="What's happening on Web4?" id="postTextarea"></textarea>
                     <div class="composer-actions">
                         <div class="composer-features">
-                            <button class="composer-btn" onclick="addImage()">📷</button>
-                            <button class="composer-btn" onclick="addPoll()">📊</button>
+                            <button class="composer-btn" onclick="addImage()"></button>
+                            <button class="composer-btn" onclick="addPoll()"></button>
                             <button class="composer-btn" onclick="addLocation()"></button>
                         </div>
                         <button class="post-btn" onclick="publishPost()"> Post</button>
@@ -2142,7 +2142,7 @@ Examples:
                 <div class="social-feed">
                     <div class="post-card">
                         <div class="post-header">
-                            <div class="post-avatar">👩‍💻</div>
+                            <div class="post-avatar"></div>
                             <div class="post-info">
                                 <div class="post-author">alice.zkdid</div>
                                 <div class="post-time">2 hours ago</div>
@@ -2152,14 +2152,14 @@ Examples:
                         <div class="post-actions">
                             <button class="post-action" onclick="likePost('1')">❤️ 47</button>
                             <button class="post-action" onclick="sharePost('1')"> 12</button>
-                            <button class="post-action" onclick="commentPost('1')">💬 8</button>
-                            <button class="post-action" onclick="tipPost('1')">💰 Tip</button>
+                            <button class="post-action" onclick="commentPost('1')"> 8</button>
+                            <button class="post-action" onclick="tipPost('1')"> Tip</button>
                         </div>
                     </div>
 
                     <div class="post-card">
                         <div class="post-header">
-                            <div class="post-avatar">👨‍💻</div>
+                            <div class="post-avatar"></div>
                             <div class="post-info">
                                 <div class="post-author">dev.zhtp</div>
                                 <div class="post-time">4 hours ago</div>
@@ -2169,8 +2169,8 @@ Examples:
                         <div class="post-actions">
                             <button class="post-action" onclick="likePost('2')">❤️ 156</button>
                             <button class="post-action" onclick="sharePost('2')"> 34</button>
-                            <button class="post-action" onclick="commentPost('2')">💬 23</button>
-                            <button class="post-action" onclick="tipPost('2')">💰 Tip</button>
+                            <button class="post-action" onclick="commentPost('2')"> 23</button>
+                            <button class="post-action" onclick="tipPost('2')"> Tip</button>
                         </div>
                     </div>
                 </div>
@@ -2190,7 +2190,7 @@ Examples:
                     <button class="category-btn active" onclick="showCategory('apps')"> Apps</button>
                     <button class="category-btn" onclick="showCategory('nfts')">🎨 NFTs</button>
                     <button class="category-btn" onclick="showCategory('domains')"> Domains</button>
-                    <button class="category-btn" onclick="showCategory('data')">📊 Data</button>
+                    <button class="category-btn" onclick="showCategory('data')"> Data</button>
                 </div>
 
                 <div class="marketplace-grid">
@@ -2205,7 +2205,7 @@ Examples:
                     </div>
 
                     <div class="marketplace-item">
-                        <div class="item-image">💼</div>
+                        <div class="item-image"></div>
                         <div class="item-info">
                             <div class="item-title">Business Suite</div>
                             <div class="item-description">Complete business management tools</div>
@@ -2215,7 +2215,7 @@ Examples:
                     </div>
 
                     <div class="marketplace-item">
-                        <div class="item-image">🖼️</div>
+                        <div class="item-image"></div>
                         <div class="item-info">
                             <div class="item-title">Digital Art #001</div>
                             <div class="item-description">Unique quantum-verified artwork</div>
@@ -2232,7 +2232,7 @@ Examples:
         return `
             <div class="whisper-page">
                 <div class="page-header">
-                    <h1>💬 Whisper Messaging</h1>
+                    <h1> Whisper Messaging</h1>
                     <p>Secure, private communications on Web4</p>
                 </div>
 
@@ -2243,7 +2243,7 @@ Examples:
                         </div>
                         <div class="contact-list">
                             <div class="contact-item active">
-                                <div class="contact-avatar">👩</div>
+                                <div class="contact-avatar"></div>
                                 <div class="contact-info">
                                     <div class="contact-name">Alice.zkdid</div>
                                     <div class="contact-message">How's the Web4 project?</div>
@@ -2251,7 +2251,7 @@ Examples:
                                 <div class="contact-time">2m</div>
                             </div>
                             <div class="contact-item">
-                                <div class="contact-avatar">👨</div>
+                                <div class="contact-avatar"></div>
                                 <div class="contact-info">
                                     <div class="contact-name">Bob.zhtp</div>
                                     <div class="contact-message">Check out this dApp!</div>
@@ -2263,10 +2263,10 @@ Examples:
 
                     <div class="chat-main">
                         <div class="chat-header">
-                            <div class="chat-avatar">👩</div>
+                            <div class="chat-avatar"></div>
                             <div class="chat-info">
                                 <div class="chat-name">Alice.zkdid</div>
-                                <div class="chat-status">🟢 Online</div>
+                                <div class="chat-status"> Online</div>
                             </div>
                             <div class="chat-actions">
                                 <button class="chat-btn" onclick="voiceCall()">📞</button>
@@ -2287,7 +2287,7 @@ Examples:
 
                         <div class="chat-input">
                             <input type="text" class="form-input" placeholder="Type a message..." onkeypress="handleMessageKeyPress(event)">
-                            <button class="chat-btn" onclick="attachFile()">📎</button>
+                            <button class="chat-btn" onclick="attachFile()"></button>
                             <button class="btn-primary" onclick="sendMessage()">Send</button>
                         </div>
                     </div>
@@ -2305,8 +2305,8 @@ Examples:
                 </div>
 
                 <div class="identity-tabs">
-                    <button class="tab-btn active" onclick="switchZkDidTab('signin')">🔑 Sign In</button>
-                    <button class="tab-btn" onclick="switchZkDidTab('create')">🆕 Create Identity</button>
+                    <button class="tab-btn active" onclick="switchZkDidTab('signin')"> Sign In</button>
+                    <button class="tab-btn" onclick="switchZkDidTab('create')"> Create Identity</button>
                     <button class="tab-btn" onclick="switchZkDidTab('recover')"> Recover</button>
                 </div>
 
@@ -2344,8 +2344,8 @@ Examples:
                         </div>
                         
                         <div class="auth-options">
-                            <button class="auth-btn">📷 Biometric</button>
-                            <button class="auth-btn">🔑 Passphrase</button>
+                            <button class="auth-btn"> Biometric</button>
+                            <button class="auth-btn"> Passphrase</button>
                             <button class="auth-btn"> Mobile QR</button>
                         </div>
                         
@@ -2360,15 +2360,15 @@ Examples:
 
                 <div id="zkdid-create" class="tab-content">
                     <div class="auth-section">
-                        <h3>🆕 Create New ZK-DID Identity</h3>
+                        <h3> Create New ZK-DID Identity</h3>
                         <p>Generate a new quantum-resistant identity</p>
                         
                         <div class="form-group">
                             <label class="form-label">Identity Type</label>
                             <select class="form-input">
-                                <option value="citizen">🏛️ Citizen (UBI Eligible)</option>
-                                <option value="organization">🏢 Organization</option>
-                                <option value="developer">👨‍💻 Developer</option>
+                                <option value="citizen"> Citizen (UBI Eligible)</option>
+                                <option value="organization"> Organization</option>
+                                <option value="developer"> Developer</option>
                                 <option value="validator"> Validator Node</option>
                             </select>
                         </div>
@@ -2407,7 +2407,7 @@ Examples:
                         <button class="btn-primary full-width" onclick="createNewZkDid()"> Generate ZK-DID Identity</button>
                         
                         <div class="info-box">
-                            <h4>🛡️ Soulbound ZK-DID Security</h4>
+                            <h4> Soulbound ZK-DID Security</h4>
                             <p><strong>Quantum-Resistant:</strong> Uses CRYSTALS-Dilithium post-quantum cryptography</p>
                             <p><strong>Soulbound:</strong> Permanently tied to you - cannot be transferred or stolen</p>
                             <p><strong>Zero-Knowledge:</strong> Privacy-preserving proofs protect your personal data</p>
@@ -2423,7 +2423,7 @@ Examples:
                         
                         <div class="recovery-options">
                             <button class="recovery-btn" onclick="recoverWithSeed()">
-                                <div class="recovery-icon">🌱</div>
+                                <div class="recovery-icon"></div>
                                 <div class="recovery-text">
                                     <h4>Seed Phrase</h4>
                                     <p>12 or 24 word recovery phrase</p>
@@ -2431,7 +2431,7 @@ Examples:
                             </button>
                             
                             <button class="recovery-btn" onclick="recoverWithBackup()">
-                                <div class="recovery-icon">💾</div>
+                                <div class="recovery-icon"></div>
                                 <div class="recovery-text">
                                     <h4>Backup File</h4>
                                     <p>Encrypted identity backup</p>
@@ -2439,7 +2439,7 @@ Examples:
                             </button>
                             
                             <button class="recovery-btn" onclick="recoverWithSocial()">
-                                <div class="recovery-icon">👥</div>
+                                <div class="recovery-icon"></div>
                                 <div class="recovery-text">
                                     <h4>Social Recovery</h4>
                                     <p>Trusted contacts verification</p>
@@ -2448,7 +2448,7 @@ Examples:
                         </div>
                         
                         <div id="seedRecovery" class="recovery-section" style="display:none;">
-                            <h4>🌱 Seed Phrase Recovery</h4>
+                            <h4> Seed Phrase Recovery</h4>
                             <div class="form-group">
                                 <label class="form-label">Enter your seed phrase</label>
                                 <textarea class="form-input" rows="3" placeholder="Enter your 12 or 24 word seed phrase..."></textarea>
@@ -2461,7 +2461,7 @@ Examples:
                         </div>
                         
                         <div id="backupRecovery" class="recovery-section" style="display:none;">
-                            <h4>💾 Backup File Recovery</h4>
+                            <h4> Backup File Recovery</h4>
                             <div class="form-group">
                                 <label class="form-label">Select backup file</label>
                                 <input type="file" class="form-input" accept=".zkdid,.json">
@@ -2474,7 +2474,7 @@ Examples:
                         </div>
                         
                         <div id="socialRecovery" class="recovery-section" style="display:none;">
-                            <h4>👥 Social Recovery</h4>
+                            <h4> Social Recovery</h4>
                             <p>Contact your trusted recovery contacts to verify your identity</p>
                             <div class="form-group">
                                 <label class="form-label">Recovery request code</label>
@@ -2494,13 +2494,13 @@ Examples:
                 <div class="identity-nav">
                     <a href="javascript:window.browser.navigateToUrl('identity.zhtp')" class="nav-link">🏠 Identity Home</a>
                     <span class="nav-divider">|</span>
-                    <a href="javascript:window.browser.navigateToUrl('create.zhtp')" class="nav-link">🆕 Create</a>
+                    <a href="javascript:window.browser.navigateToUrl('create.zhtp')" class="nav-link"> Create</a>
                     <span class="nav-divider">|</span>
                     <a href="javascript:window.browser.navigateToUrl('recover.zhtp')" class="nav-link"> Recover</a>
                 </div>
                 
                 <div class="page-header">
-                    <h1>🔑 ZK-DID Sign In</h1>
+                    <h1> ZK-DID Sign In</h1>
                     <p>Access your quantum-resistant digital identity</p>
                 </div>
 
@@ -2514,8 +2514,8 @@ Examples:
                     </div>
                     
                     <div class="auth-options">
-                        <button class="auth-btn">📷 Biometric</button>
-                        <button class="auth-btn">🔑 Passphrase</button>
+                        <button class="auth-btn"> Biometric</button>
+                        <button class="auth-btn"> Passphrase</button>
                         <button class="auth-btn"> Mobile QR</button>
                     </div>
                     
@@ -2541,26 +2541,26 @@ Examples:
                 <div class="identity-nav">
                     <a href="javascript:window.browser.navigateToUrl('identity.zhtp')" class="nav-link">🏠 Identity Home</a>
                     <span class="nav-divider">|</span>
-                    <a href="javascript:window.browser.navigateToUrl('signin.zhtp')" class="nav-link">🔑 Sign In</a>
+                    <a href="javascript:window.browser.navigateToUrl('signin.zhtp')" class="nav-link"> Sign In</a>
                     <span class="nav-divider">|</span>
                     <a href="javascript:window.browser.navigateToUrl('recover.zhtp')" class="nav-link"> Recover</a>
                 </div>
                 
                 <div class="page-header">
-                    <h1>🆕 Create ZK-DID</h1>
+                    <h1> Create ZK-DID</h1>
                     <p>Generate a new quantum-resistant identity</p>
                 </div>
 
                 <div class="auth-section">
-                    <h3>🆕 Create New ZK-DID Identity</h3>
+                    <h3> Create New ZK-DID Identity</h3>
                     <p>Generate a new quantum-resistant identity</p>
                     
                     <div class="form-group">
                         <label class="form-label">Identity Type</label>
                         <select class="form-input">
-                            <option value="citizen">🏛️ Citizen (UBI Eligible)</option>
-                            <option value="organization">🏢 Organization</option>
-                            <option value="developer">👨‍💻 Developer</option>
+                            <option value="citizen"> Citizen (UBI Eligible)</option>
+                            <option value="organization"> Organization</option>
+                            <option value="developer"> Developer</option>
                             <option value="validator"> Validator Node</option>
                         </select>
                     </div>
@@ -2599,7 +2599,7 @@ Examples:
                     <button class="btn-primary full-width" onclick="createNewZkDid()"> Generate ZK-DID Identity</button>
                     
                     <div class="info-box">
-                        <h4>🛡️ Quantum-Resistant Security</h4>
+                        <h4> Quantum-Resistant Security</h4>
                         <p>Your identity uses post-quantum cryptography (CRYSTALS-Dilithium) and zero-knowledge proofs for maximum privacy and security.</p>
                     </div>
                     
@@ -2617,9 +2617,9 @@ Examples:
                 <div class="identity-nav">
                     <a href="javascript:window.browser.navigateToUrl('identity.zhtp')" class="nav-link">🏠 Identity Home</a>
                     <span class="nav-divider">|</span>
-                    <a href="javascript:window.browser.navigateToUrl('signin.zhtp')" class="nav-link">🔑 Sign In</a>
+                    <a href="javascript:window.browser.navigateToUrl('signin.zhtp')" class="nav-link"> Sign In</a>
                     <span class="nav-divider">|</span>
-                    <a href="javascript:window.browser.navigateToUrl('create.zhtp')" class="nav-link">🆕 Create</a>
+                    <a href="javascript:window.browser.navigateToUrl('create.zhtp')" class="nav-link"> Create</a>
                 </div>
                 
                 <div class="page-header">
@@ -2633,7 +2633,7 @@ Examples:
                     
                     <div class="recovery-options">
                         <button class="recovery-btn" onclick="recoverWithSeed()">
-                            <div class="recovery-icon">🌱</div>
+                            <div class="recovery-icon"></div>
                             <div class="recovery-text">
                                 <h4>Seed Phrase</h4>
                                 <p>12 or 24 word recovery phrase</p>
@@ -2641,7 +2641,7 @@ Examples:
                         </button>
                         
                         <button class="recovery-btn" onclick="recoverWithBackup()">
-                            <div class="recovery-icon">💾</div>
+                            <div class="recovery-icon"></div>
                             <div class="recovery-text">
                                 <h4>Backup File</h4>
                                 <p>Encrypted identity backup</p>
@@ -2649,7 +2649,7 @@ Examples:
                         </button>
                         
                         <button class="recovery-btn" onclick="recoverWithSocial()">
-                            <div class="recovery-icon">👥</div>
+                            <div class="recovery-icon"></div>
                             <div class="recovery-text">
                                 <h4>Social Recovery</h4>
                                 <p>Trusted contacts verification</p>
@@ -2658,7 +2658,7 @@ Examples:
                     </div>
                     
                     <div id="seedRecovery" class="recovery-section" style="display:none;">
-                        <h4>🌱 Seed Phrase Recovery</h4>
+                        <h4> Seed Phrase Recovery</h4>
                         <div class="form-group">
                             <label class="form-label">Enter your seed phrase</label>
                             <textarea class="form-input" rows="3" placeholder="Enter your 12 or 24 word seed phrase..."></textarea>
@@ -2667,7 +2667,7 @@ Examples:
                     </div>
                     
                     <div id="backupRecovery" class="recovery-section" style="display:none;">
-                        <h4>💾 Backup File Recovery</h4>
+                        <h4> Backup File Recovery</h4>
                         <div class="form-group">
                             <label class="form-label">Select backup file</label>
                             <input type="file" class="form-input" accept=".zkdid,.json">
@@ -2680,7 +2680,7 @@ Examples:
                     </div>
                     
                     <div id="socialRecovery" class="recovery-section" style="display:none;">
-                        <h4>👥 Social Recovery</h4>
+                        <h4> Social Recovery</h4>
                         <p>Contact your trusted recovery contacts to verify your identity</p>
                         <div class="form-group">
                             <label class="form-label">Recovery request code</label>
@@ -2774,8 +2774,8 @@ Examples:
     }
 
     showSeedPhraseModal(identityDid, seedPhrase, walletInfo = null) {
-        console.log('🌱 Displaying secure seed phrase modal...');
-        console.log('💰 Wallet information:', walletInfo);
+        console.log(' Displaying secure seed phrase modal...');
+        console.log(' Wallet information:', walletInfo);
         
         // Create modal overlay
         const overlay = document.createElement('div');
@@ -2935,7 +2935,7 @@ Examples:
                         align-items: center;
                         gap: 0.5rem;
                     " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                        💾 Save as File
+                         Save as File
                     </button>
                 </div>
             </div>
@@ -2961,7 +2961,7 @@ Examples:
                         align-items: center;
                     ">
                         <div>
-                            <span style="color: #3b82f6; font-weight: 600;">💰 Primary Wallet</span>
+                            <span style="color: #3b82f6; font-weight: 600;"> Primary Wallet</span>
                             <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 0.25rem;">
                                 Balance: ${walletInfo.initial_balance || 0} ZHTP
                             </div>
@@ -2979,7 +2979,7 @@ Examples:
                         align-items: center;
                     ">
                         <div>
-                            <span style="color: #10b981; font-weight: 600;">🏛️ UBI Wallet</span>
+                            <span style="color: #10b981; font-weight: 600;"> UBI Wallet</span>
                             <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 0.25rem;">
                                 Monthly: ${walletInfo.ubi_amount || 0} ZHTP
                             </div>
@@ -3017,11 +3017,11 @@ Examples:
             ">
                 <h4 style="margin: 0 0 0.5rem; color: #10b981;">🎊 Your Citizenship Benefits:</h4>
                 <ul style="margin: 0; padding-left: 1.5rem; color: #94a3b8;">
-                    <li>💰 Welcome Bonus: ${walletInfo?.initial_balance || 5000} ZHTP tokens</li>
+                    <li> Welcome Bonus: ${walletInfo?.initial_balance || 5000} ZHTP tokens</li>
                     <li>📅 Monthly UBI: ${walletInfo?.ubi_amount || 1000} ZHTP tokens</li>
-                    <li>🏛️ DAO Voting Rights: Full participation</li>
+                    <li> DAO Voting Rights: Full participation</li>
                     <li> Web4 Services: Access to all services</li>
-                    <li>🛡️ Privacy Credentials: Zero-knowledge proofs</li>
+                    <li> Privacy Credentials: Zero-knowledge proofs</li>
                 </ul>
             </div>
             
@@ -3074,7 +3074,7 @@ Examples:
 
     copySeedPhrase(seedPhrase) {
         navigator.clipboard.writeText(seedPhrase).then(() => {
-            this.showNotification('🌱 Seed phrase copied to clipboard!', 'success');
+            this.showNotification(' Seed phrase copied to clipboard!', 'success');
         }).catch(err => {
             console.error('Failed to copy seed phrase:', err);
             this.showNotification(' Failed to copy seed phrase', 'error');
@@ -3144,7 +3144,7 @@ Web4 Decentralized Internet with Quantum-Resistant Privacy
         document.body.removeChild(a);
         window.URL.revokeObjectURL(url);
         
-        this.showNotification('💾 Recovery file downloaded successfully!', 'success');
+        this.showNotification(' Recovery file downloaded successfully!', 'success');
     }
 
     confirmSeedPhraseSaved() {
@@ -3189,11 +3189,11 @@ Web4 Decentralized Internet with Quantum-Resistant Privacy
         
         // Show current identity or start with sign-in tab
         if (this.currentIdentity) {
-            console.log('👤 Current identity found:', this.currentIdentity);
+            console.log(' Current identity found:', this.currentIdentity);
             // Switch to a view showing current identity status
             switchZkDidTab('signin');
         } else {
-            console.log('👤 No identity found, showing sign-in tab');
+            console.log(' No identity found, showing sign-in tab');
             // Default to sign-in tab for new users
             switchZkDidTab('signin');
         }
@@ -3324,7 +3324,7 @@ Web4 Decentralized Internet with Quantum-Resistant Privacy
 
     async claimUBI() {
         try {
-            console.log('💰 Claiming UBI...');
+            console.log(' Claiming UBI...');
             this.showNotification('UBI claimed successfully! +100 ZHTP', 'success');
             await this.updateDashboard();
         } catch (error) {
@@ -3415,7 +3415,7 @@ Web4 Decentralized Internet with Quantum-Resistant Privacy
             }
             
             if (parsed.isBlockchainHash) {
-                console.log('⛓️ Loading Web4 site by blockchain hash...');
+                console.log(' Loading Web4 site by blockchain hash...');
                 const contractContent = await this.navigationManager.loadContractByHash(parsed.domain, parsed.path);
                 this.renderWeb4Content(contractContent);
                 return;
@@ -3484,7 +3484,7 @@ Web4 Decentralized Internet with Quantum-Resistant Privacy
         if (pageContent) {
             pageContent.innerHTML = this.generateDashboardPageContent();
             
-            // Update network status with real data
+            // Update network status with data
             this.updateNetworkStatus();
             
             // Start periodic network status updates
@@ -3496,7 +3496,7 @@ Web4 Decentralized Internet with Quantum-Resistant Privacy
         try {
             console.log(' Updating network status...');
             
-            // Get real blockchain data from API
+            // Get blockchain data from API
             const [blockchainInfo, networkInfo, gasInfo] = await Promise.all([
                 this.api.getBlockchainInfo(),
                 this.api.getNetworkInfo(), 
@@ -3512,10 +3512,10 @@ Web4 Decentralized Internet with Quantum-Resistant Privacy
 
             if (networkStatus) {
                 if (blockchainInfo && networkInfo) {
-                    networkStatus.textContent = '🟢 Connected';
+                    networkStatus.textContent = ' Connected';
                     networkStatus.className = 'network-status connected';
                 } else {
-                    networkStatus.textContent = '🔴 Disconnected';
+                    networkStatus.textContent = ' Disconnected';
                     networkStatus.className = 'network-status disconnected';
                 }
             }
@@ -3544,7 +3544,7 @@ Web4 Decentralized Internet with Quantum-Resistant Privacy
             // Update UI to show disconnected state
             const networkStatus = document.getElementById('networkStatus');
             if (networkStatus) {
-                networkStatus.textContent = '🔴 Connection Failed';
+                networkStatus.textContent = ' Connection Failed';
                 networkStatus.className = 'network-status error';
             }
             
@@ -3579,7 +3579,7 @@ Web4 Decentralized Internet with Quantum-Resistant Privacy
         if (pageContent) {
             pageContent.innerHTML = content;
             
-            // Load real data based on page type
+            // Load data based on page type
             switch (pageType) {
                 case 'wallet':
                     this.loadWalletData();
@@ -3716,7 +3716,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
         // Intercept requests for CSS and other files
         // Override link and script loading to use our file system
         if (!this.web4FileServingSetup) {
-            console.log('⚙️ Setting up Web4 file serving...');
+            console.log(' Setting up Web4 file serving...');
             
             // Store original createElement
             const originalCreateElement = document.createElement.bind(document);
@@ -3774,7 +3774,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
 
     async loadWalletData() {
         try {
-            console.log('💳 Loading real wallet data...');
+            console.log('💳 Loading wallet data...');
             
             // Check if user is signed in
             if (!this.currentIdentity) {
@@ -3783,7 +3783,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                 return;
             }
             
-            console.log('👤 Loading wallet for identity:', this.currentIdentity.did);
+            console.log(' Loading wallet for identity:', this.currentIdentity.did);
             console.log(' Current identity details:', this.currentIdentity);
             
             // Force wallet balance API call for debugging
@@ -3792,7 +3792,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
             try {
                 console.log(' Making API call to get wallet balance...');
                 const balance = await this.api.getWalletBalance(this.currentIdentity.did);
-                console.log('📊 RAW API Response:', balance);
+                console.log(' RAW API Response:', balance);
                 
                 if (balance && balance.wallets && balance.wallets.length > 0) {
                     console.log(' FOUND CITIZEN WALLETS!', balance.wallets);
@@ -3802,7 +3802,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                     balance.wallets.forEach((wallet, index) => {
                         console.log(` Checking wallet ${index}: ${wallet.type}`, wallet);
                         if (wallet.transactions && wallet.transactions.length > 0) {
-                            console.log(`💰 Found ${wallet.transactions.length} transactions in ${wallet.type} wallet!`);
+                            console.log(` Found ${wallet.transactions.length} transactions in ${wallet.type} wallet!`);
                             wallet.transactions.forEach(tx => {
                                 const processedTx = {
                                     id: tx.id,
@@ -3888,7 +3888,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
     }
 
     updateMultiWalletInterface(balanceData) {
-        console.log('🏛️ Updating multi-wallet interface for citizen:', balanceData);
+        console.log(' Updating multi-wallet interface for citizen:', balanceData);
         
         // Store the balance data for tab switching
         this.citizenWalletData = balanceData;
@@ -3968,9 +3968,9 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
             identityInfo.className = 'identity-info';
             identityInfo.innerHTML = `
                 <div class="identity-details">
-                    <h3>👤 ${this.currentIdentity.displayName}</h3>
+                    <h3> ${this.currentIdentity.displayName}</h3>
                     <p class="identity-did">${this.currentIdentity.did}</p>
-                    <span class="citizenship-badge">🏛️ Full Citizen</span>
+                    <span class="citizenship-badge"> Full Citizen</span>
                 </div>
             `;
             
@@ -4005,7 +4005,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
         console.log(' Processing', transactionData.length, 'transactions');
         const transactionHtml = transactionData.map(tx => `
             <div class="transaction-item">
-                <div class="tx-icon">${tx.type === 'receive' ? '📥' : '📤'}</div>
+                <div class="tx-icon">${tx.type === 'receive' ? '' : ''}</div>
                 <div class="tx-info">
                     <div class="tx-type">${tx.type === 'receive' ? 'Received' : 'Sent'} ZHTP</div>
                     <div class="tx-details">${tx.type === 'receive' ? 'from' : 'to'} ${tx.counterparty}</div>
@@ -4028,7 +4028,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
             // Show default ZHTP asset with 0 balance for new users
             assetList.innerHTML = `
                 <div class="asset-item">
-                    <div class="asset-icon">💎</div>
+                    <div class="asset-icon"></div>
                     <div class="asset-info">
                         <div class="asset-name">ZHTP Token</div>
                         <div class="asset-symbol">ZHTP</div>
@@ -4087,10 +4087,10 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
 
     async loadDaoData() {
         try {
-            console.log('🏛️ Loading DAO data...');
+            console.log(' Loading DAO data...');
             
             // Always load public DAO data first (doesn't require authentication)
-            console.log('📊 Loading public DAO statistics...');
+            console.log(' Loading public DAO statistics...');
             const [daoData] = await Promise.all([
                 this.api.getDaoData().catch(error => {
                     console.warn(' API failed, using fallback DAO data:', error);
@@ -4104,7 +4104,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                 })
             ]);
             
-            console.log('📊 DAO data received:', daoData);
+            console.log(' DAO data received:', daoData);
             
             // Update DAO interface with public data
             this.updateDaoStats(daoData);
@@ -4117,7 +4117,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                 return;
             }
             
-            console.log('👤 Loading user-specific DAO data for identity:', this.currentIdentity.did);
+            console.log(' Loading user-specific DAO data for identity:', this.currentIdentity.did);
             
             // Load user-specific voting data
             try {
@@ -4174,15 +4174,15 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
             pageContent.innerHTML = `
                 <div class="dao-signin-prompt">
                     <div class="signin-card">
-                        <h2>🏛️ Citizenship Required</h2>
+                        <h2> Citizenship Required</h2>
                         <p>Please sign in with your ZK-DID to participate in DAO governance.</p>
                         <div class="benefits-preview">
                             <h3>Citizen Benefits:</h3>
                             <ul>
-                                <li>🗳️ Vote on proposals</li>
-                                <li>💰 Monthly UBI payments</li>
+                                <li> Vote on proposals</li>
+                                <li> Monthly UBI payments</li>
                                 <li>Create proposals</li>
-                                <li>🏛️ Treasury access</li>
+                                <li> Treasury access</li>
                             </ul>
                         </div>
                         <button onclick="browser.openModal('zkdid')" class="btn-primary">
@@ -4227,7 +4227,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
     }
 
     updateDaoStats(daoData) {
-        console.log('📊 Updating DAO stats with real blockchain data:', daoData);
+        console.log(' Updating DAO stats with blockchain data:', daoData);
         
         // Update treasury balance
         const treasuryBalanceElement = document.getElementById('treasuryBalance');
@@ -4242,14 +4242,14 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                 formattedBalance = balance + ' ZHTP';
             }
             treasuryBalanceElement.textContent = formattedBalance;
-            console.log('💰 Treasury balance updated to:', formattedBalance);
+            console.log(' Treasury balance updated to:', formattedBalance);
         }
 
         // Update total proposals 
         const totalProposalsElement = document.getElementById('totalProposals');
         if (totalProposalsElement && daoData.total_proposals !== undefined) {
             totalProposalsElement.textContent = daoData.total_proposals;
-            console.log('📊 Total proposals updated to:', daoData.total_proposals);
+            console.log(' Total proposals updated to:', daoData.total_proposals);
         }
 
         // Update active proposals
@@ -4272,7 +4272,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                 formattedMembers = members.toString();
             }
             daoMembersElement.textContent = formattedMembers;
-            console.log('👥 DAO members updated to:', formattedMembers);
+            console.log(' DAO members updated to:', formattedMembers);
         }
     }
 
@@ -4346,7 +4346,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
         }).join('');
 
         proposalsList.innerHTML = proposalsHtml;
-        console.log(' Proposals list updated with real blockchain data');
+        console.log(' Proposals list updated with blockchain data');
     }
 
     updateVotingPower(votingPowerData) {
@@ -4356,12 +4356,12 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
             // Handle different API response formats
             const votingPower = votingPowerData.totalPower || votingPowerData.voting_power || 1;
             votingPowerElement.textContent = votingPower.toString();
-            console.log('🗳️ Voting power updated to:', votingPower);
+            console.log(' Voting power updated to:', votingPower);
         }
     }
 
     updateDaoTreasury(treasuryData) {
-        console.log('💰 Updating DAO treasury with data:', treasuryData);
+        console.log(' Updating DAO treasury with data:', treasuryData);
         
         // Update treasury balance
         const treasuryBalanceElement = document.getElementById('treasuryBalance');
@@ -4379,7 +4379,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                 formattedBalance = balance + ' ZHTP';
             }
             treasuryBalanceElement.textContent = formattedBalance;
-            console.log('💰 Treasury balance updated to:', formattedBalance);
+            console.log(' Treasury balance updated to:', formattedBalance);
         }
 
         // Update total proposals from separate proposals API call
@@ -4402,7 +4402,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
             // Estimate members from transaction count (rough estimate)
             const estimatedMembers = Math.max(1, Math.floor((treasuryData.transaction_count || 0) / 10) + 1);
             daoMembersElement.textContent = estimatedMembers.toString();
-            console.log('👥 DAO members estimated to:', estimatedMembers);
+            console.log(' DAO members estimated to:', estimatedMembers);
         }
     }
 
@@ -4432,7 +4432,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
             identityInfo.className = 'identity-info';
             identityInfo.innerHTML = `
                 <div class="citizen-status">
-                    <h3>🏛️ ${this.currentIdentity.displayName}</h3>
+                    <h3> ${this.currentIdentity.displayName}</h3>
                     <p class="citizen-did">${this.currentIdentity.did}</p>
                     <span class="citizenship-level">Full Citizen - Voting Enabled</span>
                 </div>
@@ -4477,20 +4477,20 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
     }
 
     async loadSocialData() {
-        console.log('👥 Loading social data...');
-        // TODO: Implement real social feed loading
+        console.log(' Loading social data...');
+        // TODO: Implement social feed loading
         // For now, the static content will be shown
     }
 
     async loadMarketplaceData() {
         console.log('🛒 Loading marketplace data...');
-        // TODO: Implement real marketplace data loading
+        // TODO: Implement marketplace data loading
         // For now, the static content will be shown
     }
 
     async loadIdentityData() {
         console.log(' Loading identity data...');
-        // TODO: Implement real identity data loading
+        // TODO: Implement identity data loading
         // For now, the static content will be shown
     }
 
@@ -4582,7 +4582,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
         }
         
         // Debug: log navigation state
-        console.log(`🧭 Navigation: ${this.historyIndex + 1}/${this.navigationHistory.length} | Current: ${this.currentUrl}`);
+        console.log(` Navigation: ${this.historyIndex + 1}/${this.navigationHistory.length} | Current: ${this.currentUrl}`);
     }
     
     // Debug method to inspect navigation history
@@ -4679,7 +4679,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
         
         // If we have citizen wallet data, use it directly (but only for non-citizens or if we haven't cleared it)
         if (this.citizenWalletData) {
-            console.log('📊 Using stored citizen wallet data');
+            console.log(' Using stored citizen wallet data');
             this.updateMultiWalletInterface(this.citizenWalletData);
             return;
         }
@@ -4701,7 +4701,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                     balanceData.wallets.forEach((wallet, index) => {
                         console.log(` Checking wallet ${index}: ${wallet.type}`, wallet);
                         if (wallet.transactions && Array.isArray(wallet.transactions)) {
-                            console.log(`💰 Found ${wallet.transactions.length} transactions in ${wallet.type} wallet!`);
+                            console.log(` Found ${wallet.transactions.length} transactions in ${wallet.type} wallet!`);
                             wallet.transactions.forEach(tx => {
                                 const processedTx = {
                                     id: tx.id,
@@ -4738,7 +4738,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                 // Update multi-wallet interface
                 this.updateMultiWalletInterface(balanceData);
             } else {
-                console.log('📊 No citizenship data found - showing basic wallet');
+                console.log(' No citizenship data found - showing basic wallet');
             }
         } catch (error) {
             console.error(' Failed to load wallet data:', error);
@@ -4747,7 +4747,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
 
     async loadDaoData() {
         try {
-            console.log('🏛️ Loading DAO data...');
+            console.log(' Loading DAO data...');
             
             // Check if user is signed in
             if (!this.currentIdentity) {
@@ -4756,7 +4756,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                 return;
             }
             
-            console.log('👤 Loading DAO data for identity:', this.currentIdentity.did);
+            console.log(' Loading DAO data for identity:', this.currentIdentity.did);
             
             // Get DAO data from API for current identity
             const [proposalsData, votingPowerData, treasuryData, userVotesData] = await Promise.all([
@@ -4766,7 +4766,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                 this.api.getUserVotes(this.currentIdentity.did)
             ]);
             
-            // Update DAO interface with real data
+            // Update DAO interface with data
             this.updateDaoProposals(proposalsData);
             this.updateVotingPower(votingPowerData);
             this.updateDaoTreasury(treasuryData);
@@ -4797,7 +4797,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
         }
         
         try {
-            console.log(`🗳️ Voting ${vote} on proposal ${proposalId}...`);
+            console.log(` Voting ${vote} on proposal ${proposalId}...`);
             
             // First, check if user has already voted on this proposal
             const userVotes = await this.api.getUserVotes(this.currentIdentity.did);
@@ -4898,7 +4898,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
     // DAO Modal and Interaction Methods
 
     async submitNewProposal(proposal) {
-        console.log('📤 Submitting new proposal:', proposal);
+        console.log(' Submitting new proposal:', proposal);
         
         try {
             const did = this.currentIdentity?.did;
@@ -4951,7 +4951,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
     }
 
     async submitVote(proposalId, support) {
-        console.log(`🗳️ Submitting vote on proposal ${proposalId}: ${support ? 'FOR' : 'AGAINST'}`);
+        console.log(` Submitting vote on proposal ${proposalId}: ${support ? 'FOR' : 'AGAINST'}`);
         
         try {
             const did = this.currentIdentity?.did;
@@ -4987,19 +4987,19 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
     }
 
     async voteOnProposal(proposalId, support) {
-        console.log(`🗳️ Voting on proposal ${proposalId}: ${support ? 'FOR' : 'AGAINST'}`);
+        console.log(` Voting on proposal ${proposalId}: ${support ? 'FOR' : 'AGAINST'}`);
         await this.submitVote(proposalId, support);
     }
 
     showSpendingProposalModal() {
-        console.log('💰 Showing spending proposal modal...');
+        console.log(' Showing spending proposal modal...');
         
         const modal = document.createElement('div');
         modal.className = 'modal-overlay';
         modal.innerHTML = `
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3>💰 Propose Treasury Spending</h3>
+                    <h3> Propose Treasury Spending</h3>
                     <button class="modal-close" onclick="this.closest('.modal-overlay').remove()">&times;</button>
                 </div>
                 <div class="modal-body">
@@ -5257,7 +5257,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
     }
 
     async loadDaoTreasury() {
-        console.log('💰 Loading DAO treasury...');
+        console.log(' Loading DAO treasury...');
         
         try {
             // Show loading state
@@ -5305,7 +5305,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                 };
             });
             
-            console.log('💰 DAO treasury response:', treasuryData);
+            console.log(' DAO treasury response:', treasuryData);
             
             // Check if we have valid treasury data (API returns data directly, not wrapped in success)
             if (treasuryData && (treasuryData.total_funds !== undefined || treasuryData.treasury_balance !== undefined)) {
@@ -5327,7 +5327,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                 if (treasuryElement) {
                     treasuryElement.innerHTML = `
                         <div class="treasury-section">
-                            <h3>💰 DAO Treasury</h3>
+                            <h3> DAO Treasury</h3>
                             <div class="treasury-stats" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 20px 0;">
                                 <div class="stat-card" style="background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 10px; text-align: center;">
                                     <h4 style="margin-bottom: 10px; color: #00d4ff;">Total Treasury</h4>
@@ -5348,9 +5348,9 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                             </div>
                             <div class="treasury-actions" style="display: flex; gap: 15px; margin: 20px 0;">
                                 ${this.currentIdentity ? `
-                                    <button onclick="proposeSpending()" class="btn-primary">💸 Propose Spending</button>
+                                    <button onclick="proposeSpending()" class="btn-primary"> Propose Spending</button>
                                 ` : ''}
-                                <button onclick="viewTreasuryHistory()" class="btn-secondary">📊 View History</button>
+                                <button onclick="viewTreasuryHistory()" class="btn-secondary"> View History</button>
                             </div>
                             <div class="treasury-transactions">
                                 <h4>Recent Treasury Activity</h4>
@@ -5386,7 +5386,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
     }
 
     async loadDaoDelegates() {
-        console.log('👥 Loading DAO delegates...');
+        console.log(' Loading DAO delegates...');
         
         try {
             // Show loading state
@@ -5439,7 +5439,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                 };
             });
             
-            console.log('👥 DAO delegates response:', delegatesData);
+            console.log(' DAO delegates response:', delegatesData);
             
             if (delegatesData.success) {
                 const delegatesHtml = delegatesData.delegates.map(delegate => `
@@ -5471,7 +5471,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                         </div>
                         <div style="display: flex; gap: 10px; flex-wrap: wrap;">
                             ${this.currentIdentity ? `
-                                <button onclick="browser.delegateVotingPower('${delegate.did}')" class="btn-primary" style="flex: 1;">👥 Delegate to ${delegate.name || 'Delegate'}</button>
+                                <button onclick="browser.delegateVotingPower('${delegate.did}')" class="btn-primary" style="flex: 1;"> Delegate to ${delegate.name || 'Delegate'}</button>
                             ` : `
                                 <button class="btn-secondary" disabled style="flex: 1;">Sign in to delegate</button>
                             `}
@@ -5484,7 +5484,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                 if (delegatesElement) {
                     delegatesElement.innerHTML = `
                         <div class="delegates-section">
-                            <h3>👥 DAO Delegates</h3>
+                            <h3> DAO Delegates</h3>
                             <div class="voting-info" style="background: rgba(0, 212, 255, 0.1); border: 1px solid #00d4ff; border-radius: 8px; padding: 15px; margin: 20px 0;">
                                 <h4 style="margin-bottom: 10px; color: #00d4ff;"> How Delegation Works</h4>
                                 <p style="font-size: 0.9rem; line-height: 1.5;">Each verified identity gets 1 vote that can be delegated to a trusted delegate. Delegates vote on behalf of those who delegated to them, amplifying their voting power based on community trust.</p>
@@ -5494,11 +5494,11 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                             </div>
                             ${this.currentIdentity ? `
                                 <div class="delegation-controls" style="background: rgba(255, 255, 255, 0.03); border-radius: 10px; padding: 20px; margin-top: 30px;">
-                                    <h4 style="margin-bottom: 15px;">🗳️ Manual Delegation</h4>
+                                    <h4 style="margin-bottom: 15px;"> Manual Delegation</h4>
                                     <p style="margin-bottom: 15px; color: #8a9ba8;">Enter the DID of a specific delegate you trust:</p>
                                     <div style="display: flex; gap: 10px; margin-bottom: 15px;">
                                         <input type="text" id="delegateDidInput" placeholder="Enter delegate DID (did:zhtp:...)" style="flex: 1; padding: 10px; border: 1px solid #333; border-radius: 5px; background: rgba(255, 255, 255, 0.05); color: white;" />
-                                        <button onclick="browser.delegateVotingPower(document.getElementById('delegateDidInput').value)" class="btn-primary">👥 Delegate</button>
+                                        <button onclick="browser.delegateVotingPower(document.getElementById('delegateDidInput').value)" class="btn-primary"> Delegate</button>
                                     </div>
                                     <div style="display: flex; gap: 10px;">
                                         <button onclick="browser.showDelegateModal()" class="btn-secondary">Become a Delegate</button>
@@ -5524,7 +5524,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
     }
 
     async delegateVotingPower(targetDid) {
-        console.log('👥 Delegating voting power to:', targetDid);
+        console.log(' Delegating voting power to:', targetDid);
         
         if (!targetDid || targetDid.trim() === '') {
             this.showNotification(' Please enter a valid DID to delegate to', 'error');
@@ -5668,7 +5668,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
         if (proposals.length === 0) {
             daoContent.innerHTML = `
                 <div class="proposals-section">
-                    <h3>🗳️ Active Proposals</h3>
+                    <h3> Active Proposals</h3>
                     <div class="empty-state">
                         <p>No active proposals found</p>
                         ${this.currentIdentity ? 
@@ -5725,7 +5725,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
         daoContent.innerHTML = `
             <div class="proposals-section">
                 <div class="section-header">
-                    <h3>🗳️ Active Proposals</h3>
+                    <h3> Active Proposals</h3>
                     ${this.currentIdentity ? 
                         '<button class="btn-primary" onclick="createProposal()">Create Proposal</button>' : 
                         ''
@@ -5739,7 +5739,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
     }
 
     async voteOnProposal(proposalId, vote) {
-        console.log(`🗳️ Submitting vote: ${vote ? 'YES' : 'NO'} on proposal ${proposalId}`);
+        console.log(` Submitting vote: ${vote ? 'YES' : 'NO'} on proposal ${proposalId}`);
         
         if (!this.currentIdentity) {
             this.showNotification(' Please sign in to vote on proposals', 'error');
@@ -5861,7 +5861,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
     }
 
     async viewDelegateProfile(delegateId) {
-        console.log(`👤 Viewing delegate profile: ${delegateId}`);
+        console.log(` Viewing delegate profile: ${delegateId}`);
         
         // Show a modal with delegate information
         const modal = document.createElement('div');
@@ -5916,7 +5916,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                     <div style="margin-top: 20px;">
                         ${this.currentIdentity ? `
                             <button onclick="browser.delegateVotingPower('${delegateId}'); this.closest('.modal-overlay').remove();" class="btn-primary" style="width: 100%; margin-bottom: 10px;">
-                                👥 Delegate Your Vote to This Delegate
+                                 Delegate Your Vote to This Delegate
                             </button>
                         ` : ''}
                         <button onclick="this.closest('.modal-overlay').remove();" class="btn-secondary" style="width: 100%;">
@@ -5983,7 +5983,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
     }
 
     async loadDaoTreasuryForPage() {
-        console.log('💰 Loading DAO treasury for page...');
+        console.log(' Loading DAO treasury for page...');
         
         try {
             const treasuryData = await this.api.getDaoTreasury().catch(error => {
@@ -5997,7 +5997,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                 };
             });
             
-            console.log('💰 DAO treasury response:', treasuryData);
+            console.log(' DAO treasury response:', treasuryData);
             
             // Update treasury elements in the page
             this.updateTreasuryPageElements(treasuryData);
@@ -6059,7 +6059,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
     }
 
     async loadDaoDelegatesForPage() {
-        console.log('👥 Loading DAO delegates for page...');
+        console.log(' Loading DAO delegates for page...');
         
         try {
             const delegatesData = await this.api.getDaoDelegates().catch(error => {
@@ -6087,7 +6087,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                 };
             });
             
-            console.log('👥 DAO delegates response:', delegatesData);
+            console.log(' DAO delegates response:', delegatesData);
             
             // Update the dao-delegates content section
             const delegatesSection = document.getElementById('dao-delegates');
@@ -6117,7 +6117,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                         </div>
                         <div style="display: flex; gap: 10px; flex-wrap: wrap;">
                             ${this.currentIdentity ? `
-                                <button onclick="browser.delegateVotingPower('${delegate.did}')" class="btn-primary" style="flex: 1;">👥 Delegate to ${delegate.name || 'Delegate'}</button>
+                                <button onclick="browser.delegateVotingPower('${delegate.did}')" class="btn-primary" style="flex: 1;"> Delegate to ${delegate.name || 'Delegate'}</button>
                             ` : `
                                 <button class="btn-secondary" disabled style="flex: 1;">Sign in to delegate</button>
                             `}
@@ -6278,7 +6278,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
     }
 
     async loadTreasuryHistory() {
-        console.log('📊 Loading treasury transaction history...');
+        console.log(' Loading treasury transaction history...');
         
         try {
             // Show loading state
@@ -6364,10 +6364,10 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                 if (daoElement) {
                     daoElement.innerHTML = `
                         <div class="treasury-history-section">
-                            <h3>📊 Treasury Transaction History</h3>
+                            <h3> Treasury Transaction History</h3>
                             <div class="history-controls" style="display: flex; gap: 15px; margin: 20px 0;">
                                 <button onclick="switchDaoTab('treasury')" class="btn-secondary">← Back to Treasury</button>
-                                <button onclick="browser.exportTreasuryData()" class="btn-primary">📤 Export Data</button>
+                                <button onclick="browser.exportTreasuryData()" class="btn-primary"> Export Data</button>
                             </div>
                             <div class="transactions-list">
                                 ${historyHtml || '<p style="text-align: center; color: #8a9ba8; padding: 40px;">No transaction history found</p>'}
@@ -6386,7 +6386,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
     }
 
     async showSpendingProposalModal() {
-        console.log('💸 Showing spending proposal modal...');
+        console.log(' Showing spending proposal modal...');
         
         if (!this.currentIdentity) {
             this.showNotification(' Please sign in to propose treasury spending', 'error');
@@ -6398,7 +6398,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
         modal.innerHTML = `
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2>💸 Propose Treasury Spending</h2>
+                    <h2> Propose Treasury Spending</h2>
                     <button class="close-btn" onclick="this.closest('.modal-overlay').remove()">&times;</button>
                 </div>
                 <div class="modal-body">
@@ -6442,7 +6442,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                             </ul>
                         </div>
                         <div style="display: flex; gap: 10px;">
-                            <button type="submit" class="btn-primary" style="flex: 1;">💸 Submit Spending Proposal</button>
+                            <button type="submit" class="btn-primary" style="flex: 1;"> Submit Spending Proposal</button>
                             <button type="button" onclick="this.closest('.modal-overlay').remove();" class="btn-secondary">Cancel</button>
                         </div>
                     </form>
@@ -6491,7 +6491,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
     }
 
     async exportTreasuryData() {
-        console.log('📤 Exporting treasury data...');
+        console.log(' Exporting treasury data...');
         
         try {
             // Create CSV data
@@ -6520,7 +6520,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
     }
 
     async loadTreasuryHistory() {
-        console.log('📊 Loading treasury transaction history...');
+        console.log(' Loading treasury transaction history...');
         
         try {
             const did = this.currentIdentity?.did;
@@ -6532,7 +6532,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
             const response = await fetch(`http://localhost:8000/zhtp/dao/treasury/history/${encodeURIComponent(did)}`);
             const data = await response.json();
             
-            console.log('📊 Treasury history response:', data);
+            console.log(' Treasury history response:', data);
             
             if (data.success) {
                 const historyHtml = (data.transactions || []).map(tx => `
@@ -6554,7 +6554,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                 const treasuryElement = document.getElementById('dao-content');
                 if (treasuryElement) {
                     treasuryElement.innerHTML = `
-                        <h3>📊 Treasury Transaction History</h3>
+                        <h3> Treasury Transaction History</h3>
                         <div class="history-controls">
                             <button onclick="browser.loadDaoTreasury()" class="btn-secondary">← Back to Treasury</button>
                             <button onclick="browser.exportTreasuryData()" class="btn-primary">Export Data</button>
@@ -6575,14 +6575,14 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
     }
 
     showDelegateRegistrationModal() {
-        console.log('👤 Showing delegate registration modal...');
+        console.log(' Showing delegate registration modal...');
         
         const modal = document.createElement('div');
         modal.className = 'modal-overlay';
         modal.innerHTML = `
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3>👤 Become a Delegate</h3>
+                    <h3> Become a Delegate</h3>
                     <button class="modal-close" onclick="this.closest('.modal-overlay').remove()">&times;</button>
                 </div>
                 <div class="modal-body">
@@ -6630,7 +6630,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
     }
 
     async exportTreasuryData() {
-        console.log('📤 Exporting treasury data...');
+        console.log(' Exporting treasury data...');
         this.showNotification('Treasury data export feature coming soon!', 'info');
     }
 
@@ -6920,7 +6920,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
         modal.innerHTML = `
             <div class="modal delegation-modal">
                 <div class="modal-header">
-                    <h2>🗳️ Vote Delegation</h2>
+                    <h2> Vote Delegation</h2>
                     <button onclick="this.parentElement.parentElement.parentElement.remove()" class="close-btn">×</button>
                 </div>
                 <div class="modal-body">
@@ -6957,7 +6957,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
         modal.innerHTML = `
             <div class="modal treasury-modal">
                 <div class="modal-header">
-                    <h2>🏛️ DAO Treasury</h2>
+                    <h2> DAO Treasury</h2>
                     <button onclick="this.parentElement.parentElement.parentElement.remove()" class="close-btn">×</button>
                 </div>
                 <div class="modal-body">
@@ -7005,7 +7005,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
         
         document.body.appendChild(modal);
         
-        // Load real treasury data
+        // Load treasury data
         this.loadTreasuryModalData();
     }
 
@@ -7013,7 +7013,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
         try {
             const treasuryData = await this.api.getDaoTreasury();
             
-            // Update modal with real data
+            // Update modal with data
             const formatCurrency = (amount) => {
                 if (amount >= 1000000) return (amount / 1000000).toFixed(1) + 'M ZHTP';
                 if (amount >= 1000) return (amount / 1000).toFixed(1) + 'K ZHTP';
@@ -7031,14 +7031,14 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
     }
 
     showTreasurySafeguardsModal() {
-        console.log('🛡️ Showing treasury safeguards modal...');
+        console.log(' Showing treasury safeguards modal...');
         
         const modal = document.createElement('div');
         modal.className = 'modal-overlay';
         modal.innerHTML = `
             <div class="modal" style="max-width: 700px;">
                 <div class="modal-header">
-                    <h2>🛡️ Treasury Protection Safeguards</h2>
+                    <h2> Treasury Protection Safeguards</h2>
                     <button onclick="this.parentElement.parentElement.parentElement.remove()" class="modal-close">×</button>
                 </div>
                 <div class="modal-body">
@@ -7103,7 +7103,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                         </div>
                         
                         <div class="safeguard-section">
-                            <h3>📊 Monitoring & Transparency</h3>
+                            <h3> Monitoring & Transparency</h3>
                             <div class="safeguard-details">
                                 <div class="safeguard-rule">
                                     <strong>Real-time Balance Tracking:</strong> Treasury balance is monitored 
@@ -7231,7 +7231,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
         
         // Handle treasury proposals with enhanced safeguards
         if (type === 'TreasuryManagement') {
-            console.log('🏛️ Treasury proposal detected - applying enhanced safeguards...');
+            console.log(' Treasury proposal detected - applying enhanced safeguards...');
             
             const requestedAmount = parseFloat(treasuryAmount);
             
@@ -7262,7 +7262,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                 // Update description with safeguard information
                 const enhancedDescription = description + safeguardNotice;
                 
-                console.log('🛡️ Treasury safeguards applied:', {
+                console.log(' Treasury safeguards applied:', {
                     requestedAmount,
                     availableFunds,
                     treasuryPercentage: treasuryPercentage.toFixed(1) + '%',
@@ -7286,7 +7286,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                     }
                 };
                 
-                console.log('🏛️ Submitting treasury proposal with safeguards:', proposal);
+                console.log(' Submitting treasury proposal with safeguards:', proposal);
                 await this.submitNewProposal(proposal);
                 
             } catch (error) {
@@ -7298,13 +7298,13 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
         } else if (type === 'UbiRateChange') {
             // Handle UBI rate change proposals
             try {
-                console.log('💰 Submitting UBI rate change proposal:', { title, type, description, newUbiRate });
+                console.log(' Submitting UBI rate change proposal:', { title, type, description, newUbiRate });
                 
                 // Create proposal object with UBI rate information
                 const proposal = {
                     title: title,
                     type: 'ubi_rate_change',
-                    description: description + `\n\n📊 PROPOSED UBI RATE: ${newUbiRate} ZHTP per day`,
+                    description: description + `\n\n PROPOSED UBI RATE: ${newUbiRate} ZHTP per day`,
                     amount: 0,
                     ubi_rate: parseFloat(newUbiRate)
                 };
@@ -7322,7 +7322,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
             // Regular proposal submission for other proposal types
             try {
                 console.log('Submitting regular proposal:', { title, type, description, duration });
-                console.log('👤 Using identity:', this.currentIdentity);
+                console.log(' Using identity:', this.currentIdentity);
                 
                 // Create proposal object and submit to backend
                 const proposal = {
@@ -7384,9 +7384,9 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
         }
         
         try {
-            console.log('🗳️ Delegating votes:', { delegateTo, amount });
+            console.log(' Delegating votes:', { delegateTo, amount });
             this.showNotification(' Votes delegated successfully', 'success');
-            // In real implementation, would submit to blockchain
+            // In implementation, would submit to blockchain
         } catch (error) {
             console.error(' Failed to delegate votes:', error);
             this.showNotification(' Failed to delegate votes', 'error');
@@ -7406,7 +7406,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
 
 // Global ZK-DID Functions for HTML onclick handlers
 function signInWithBiometric() {
-    console.log('📷 Starting biometric authentication...');
+    console.log(' Starting biometric authentication...');
     
     // Check if we have a ZK-DID entered
     const identityInput = document.getElementById('signinDid');
@@ -7429,7 +7429,7 @@ function signInWithBiometric() {
 }
 
 function signInWithPassphrase() {
-    console.log('🔑 Using passphrase authentication...');
+    console.log(' Using passphrase authentication...');
     
     // Check if both fields are filled
     const identityInput = document.getElementById('signinDid');
@@ -7517,7 +7517,7 @@ function executeSignInProcess(did, method) {
 }
 
 function setupBiometrics() {
-    console.log('📷 Setting up biometric authentication...');
+    console.log(' Setting up biometric authentication...');
     
     const statusElement = document.getElementById('biometricStatus');
     statusElement.className = 'status-indicator pending';
@@ -7540,19 +7540,19 @@ function setupBiometrics() {
 
 
 function recoverWithSeed() {
-    console.log('🌱 Recovering with seed phrase...');
+    console.log(' Recovering with seed phrase...');
     hideAllRecoverySections();
     document.getElementById('seedRecovery').style.display = 'block';
 }
 
 function recoverWithBackup() {
-    console.log('💾 Recovering with backup file...');
+    console.log(' Recovering with backup file...');
     hideAllRecoverySections();
     document.getElementById('backupRecovery').style.display = 'block';
 }
 
 function recoverWithSocial() {
-    console.log('👥 Recovering with social recovery...');
+    console.log(' Recovering with social recovery...');
     hideAllRecoverySections();
     document.getElementById('socialRecovery').style.display = 'block';
 }
@@ -7564,7 +7564,7 @@ function hideAllRecoverySections() {
 }
 
 async function executeSeedRecovery() {
-    console.log('🌱 Executing seed recovery...');
+    console.log(' Executing seed recovery...');
     
     try {
         const seedInput = document.querySelector('#seedRecovery textarea');
@@ -7615,7 +7615,7 @@ async function executeSeedRecovery() {
 }
 
 async function executeBackupRecovery() {
-    console.log('💾 Executing backup recovery...');
+    console.log(' Executing backup recovery...');
     
     try {
         const fileInput = document.querySelector('#backupRecovery input[type="file"]');
@@ -7634,7 +7634,7 @@ async function executeBackupRecovery() {
         const backupFile = fileInput.files[0];
         const backupPassword = passwordInput.value;
         
-        window.browser?.showNotification('💾 Restoring identity from backup file...', 'info');
+        window.browser?.showNotification(' Restoring identity from backup file...', 'info');
         
         // Read the backup file
         const backupData = await new Promise((resolve, reject) => {
@@ -7667,7 +7667,7 @@ async function executeBackupRecovery() {
 }
 
 async function executeSocialRecovery() {
-    console.log('👥 Executing social recovery...');
+    console.log(' Executing social recovery...');
     
     try {
         const codeInput = document.querySelector('#socialRecovery input[type="text"]');
@@ -7679,7 +7679,7 @@ async function executeSocialRecovery() {
         
         const recoveryCode = codeInput.value.trim();
         
-        window.browser?.showNotification('👥 Processing social recovery request...', 'info');
+        window.browser?.showNotification(' Processing social recovery request...', 'info');
         
         // Use the enhanced ZHTP API for social recovery
         const result = await window.browser.api.recoverFromSocial(recoveryCode);
@@ -7687,7 +7687,7 @@ async function executeSocialRecovery() {
         if (result.success) {
             if (result.needsMoreApprovals) {
                 window.browser?.showNotification(
-                    `⏳ Recovery request submitted. Need ${result.approvalsNeeded - result.approvalsReceived} more approvals from trusted contacts.`, 
+                    ` Recovery request submitted. Need ${result.approvalsNeeded - result.approvalsReceived} more approvals from trusted contacts.`, 
                     'info'
                 );
             } else {
@@ -7868,7 +7868,7 @@ function refreshPage() {
 }
 
 function openSettings() {
-    console.log('⚙️ Opening settings...');
+    console.log(' Opening settings...');
     if (window.browser) {
         window.browser.openModal('settings');
     }
@@ -7885,13 +7885,13 @@ function createProposal() {
 }
 
 function delegateVotes() {
-    console.log('🗳️ Switching to delegates tab...');
+    console.log(' Switching to delegates tab...');
     // Switch to delegates tab instead of navigating away
     switchDaoTab('delegates');
 }
 
 function viewTreasury() {
-    console.log('🏛️ Switching to treasury tab...');
+    console.log(' Switching to treasury tab...');
     // Switch to treasury tab instead of navigating away
     switchDaoTab('treasury');
 }
@@ -7906,7 +7906,7 @@ function voteYes(proposalId) {
 }
 
 function proposeSpending() {
-    console.log('💸 Opening spending proposal modal...');
+    console.log(' Opening spending proposal modal...');
     if (window.browser) {
         window.browser.showSpendingProposalModal();
     } else {
@@ -7915,7 +7915,7 @@ function proposeSpending() {
 }
 
 function viewTreasuryHistory() {
-    console.log('📊 Viewing treasury history...');
+    console.log(' Viewing treasury history...');
     if (window.browser) {
         // For now, just show a notification
         window.browser.showNotification('Treasury history feature coming soon!', 'info');
@@ -7958,7 +7958,7 @@ function handleProposalTypeChange(selectedType) {
             const treasuryFields = document.getElementById('treasuryFields');
             if (treasuryFields) {
                 treasuryFields.style.display = 'block';
-                console.log('📊 Treasury fields shown');
+                console.log(' Treasury fields shown');
             }
             break;
             
@@ -7966,7 +7966,7 @@ function handleProposalTypeChange(selectedType) {
             const ubiFields = document.getElementById('ubiFields');
             if (ubiFields) {
                 ubiFields.style.display = 'block';
-                console.log('💰 UBI fields shown');
+                console.log(' UBI fields shown');
             }
             break;
             
@@ -7992,14 +7992,14 @@ function handleProposalTypeChangeHTML(selectedType) {
         case 'TreasuryManagement':
             if (treasuryFieldsHTML) {
                 treasuryFieldsHTML.style.display = 'block';
-                console.log('📊 HTML Treasury fields shown');
+                console.log(' HTML Treasury fields shown');
             }
             break;
             
         case 'UbiRateChange':
             if (ubiFieldsHTML) {
                 ubiFieldsHTML.style.display = 'block';
-                console.log('💰 HTML UBI fields shown');
+                console.log(' HTML UBI fields shown');
             }
             break;
             
@@ -8014,7 +8014,7 @@ async function submitProposal() {
     
     if (window.browser) {
         console.log(' Browser instance found, checking identity...');
-        console.log('👤 Current identity:', window.browser.currentIdentity);
+        console.log(' Current identity:', window.browser.currentIdentity);
         
         if (!window.browser.currentIdentity) {
             console.error(' No identity found - user must sign in first');
@@ -8064,11 +8064,11 @@ function switchSettingsTab(tabName) {
     // Add active class to selected tab
     event.target.classList.add('active');
     
-    console.log(`⚙️ Switched to settings tab: ${tabName}`);
+    console.log(` Switched to settings tab: ${tabName}`);
 }
 
 function saveSettings() {
-    console.log('💾 Saving settings...');
+    console.log(' Saving settings...');
     
     // Get all setting values
     const settings = {
@@ -8097,7 +8097,7 @@ function resetSettings() {
 }
 
 function exportData() {
-    console.log('📤 Exporting data...');
+    console.log(' Exporting data...');
     const data = {
         settings: JSON.parse(localStorage.getItem('zhtp-settings') || '{}'),
         identities: JSON.parse(localStorage.getItem('zhtp-identities') || '[]'),
@@ -8138,12 +8138,12 @@ function publishPost() {
 }
 
 function addImage() {
-    console.log('📷 Adding image...');
+    console.log(' Adding image...');
     window.browser?.showNotification('Image upload coming soon!', 'info');
 }
 
 function addPoll() {
-    console.log('📊 Adding poll...');
+    console.log(' Adding poll...');
     window.browser?.showNotification('Poll creation coming soon!', 'info');
 }
 
@@ -8163,12 +8163,12 @@ function sharePost(postId) {
 }
 
 function commentPost(postId) {
-    console.log(`💬 Commenting on post ${postId}...`);
+    console.log(` Commenting on post ${postId}...`);
     window.browser?.showNotification('Comment interface coming soon!', 'info');
 }
 
 function tipPost(postId) {
-    console.log(`💰 Tipping post ${postId}...`);
+    console.log(` Tipping post ${postId}...`);
     window.browser?.showNotification('Tip sent to author!', 'success');
 }
 
@@ -8197,7 +8197,7 @@ function showCategory(category) {
 }
 
 function installApp(appId) {
-    console.log(`📦 Installing app: ${appId}...`);
+    console.log(` Installing app: ${appId}...`);
     window.browser?.showNotification(`Installing ${appId}...`, 'pending');
     
     setTimeout(() => {
@@ -8206,7 +8206,7 @@ function installApp(appId) {
 }
 
 function buyNFT(nftId) {
-    console.log(`🖼️ Buying NFT: ${nftId}...`);
+    console.log(` Buying NFT: ${nftId}...`);
     window.browser?.showNotification(`Purchasing ${nftId}...`, 'pending');
     
     setTimeout(() => {
@@ -8241,8 +8241,8 @@ function selectChat(contactId) {
     // Add active class to selected contact
     event.target.classList.add('active');
     
-    console.log(`💬 Selected chat: ${contactId}`);
-    // In a real app, this would load the chat history
+    console.log(` Selected chat: ${contactId}`);
+    // In a app, this would load the chat history
 }
 
 function voiceCall() {
@@ -8256,7 +8256,7 @@ function videoCall() {
 }
 
 function chatSettings() {
-    console.log('⚙️ Opening chat settings...');
+    console.log(' Opening chat settings...');
     window.browser?.showNotification('Chat settings coming soon!', 'info');
 }
 
@@ -8290,7 +8290,7 @@ function handleMessageKeyPress(event) {
 }
 
 function attachFile() {
-    console.log('📎 Attaching file...');
+    console.log(' Attaching file...');
     window.browser?.showNotification('File attachment coming soon!', 'info');
 }
 
@@ -8322,7 +8322,7 @@ function switchZkDidTab(tabName) {
 }
 
 async function signInWithZkDid() {
-    console.log('🔑 Signing in with ZK-DID...');
+    console.log(' Signing in with ZK-DID...');
     
     try {
         // Add debugging to see if elements are found
@@ -8414,7 +8414,7 @@ async function signInWithZkDid() {
             window.browser.updateIdentityIndicator();
             
             //  LOAD WALLET DATA for existing citizen
-            console.log('💰 Loading wallet data for returning citizen...');
+            console.log(' Loading wallet data for returning citizen...');
             try {
                 await window.browser.loadWalletData();
             } catch (error) {
@@ -8464,7 +8464,7 @@ async function signInWithZkDid() {
 }
 
 async function createNewZkDid() {
-    console.log('🆕 Creating new ZK-DID identity...');
+    console.log(' Creating new ZK-DID identity...');
     
     try {
         // Find form elements in the create page
@@ -8608,8 +8608,8 @@ async function createNewZkDid() {
                     ubi_amount: citizenshipResult.ubi_registration?.daily_amount || citizenshipResult.ubi_amount || 33
                 };
                 
-                console.log('💰 Wallet information:', walletInfo);
-                console.log('🔑 Seed phrase available:', !!seedPhrase);
+                console.log(' Wallet information:', walletInfo);
+                console.log(' Seed phrase available:', !!seedPhrase);
             }
             
             // Set the current identity in the browser immediately
@@ -8634,7 +8634,7 @@ async function createNewZkDid() {
             
             //  CRITICAL: Load wallet data for new citizen!
             // The createIdentity API returns complete citizenship data, so we should load it
-            console.log('💰 Loading wallet data for new citizen...');
+            console.log(' Loading wallet data for new citizen...');
             
             // Save identity to localStorage
             localStorage.setItem('zhtp-current-identity', JSON.stringify(window.browser.currentIdentity));
@@ -8686,7 +8686,7 @@ async function createNewZkDid() {
             }
             
             if (displaySeedPhrase && typeof displaySeedPhrase === 'string') {
-                console.log('🔑 Displaying seed phrase for primary wallet');
+                console.log(' Displaying seed phrase for primary wallet');
                 window.browser?.showSeedPhraseModal(identityDid, displaySeedPhrase, walletInfo);
             } else {
                 // Just show success notification
@@ -8754,7 +8754,7 @@ function sendEmoji() {
 
 // Wallet tab switching for multi-wallet system
 function switchWalletTab(walletType) {
-    console.log(`💎 Switching to ${walletType} wallet...`);
+    console.log(` Switching to ${walletType} wallet...`);
     
     // Remove active class from all tabs
     document.querySelectorAll('.wallet-tab').forEach(tab => {
@@ -8791,7 +8791,7 @@ async function loadWalletDataForType(walletType) {
 
 // DAO tab switching for multi-tab DAO governance
 function switchDaoTab(daoType) {
-    console.log(`🏛️ Switching to ${daoType} DAO tab...`);
+    console.log(` Switching to ${daoType} DAO tab...`);
     
     // Remove active class from all tabs
     document.querySelectorAll('.dao-tab').forEach(tab => {
@@ -8821,7 +8821,7 @@ function switchDaoTab(daoType) {
 
 // Load DAO data for specific tab type
 async function loadDaoDataForType(daoType) {
-    console.log(`📊 Loading ${daoType} DAO data...`);
+    console.log(` Loading ${daoType} DAO data...`);
     
     try {
         switch (daoType) {
@@ -8892,7 +8892,7 @@ async function loadDaoProposals() {
 }
 
 async function loadDaoTreasury() {
-    console.log('💰 Loading DAO treasury...');
+    console.log(' Loading DAO treasury...');
     
     try {
         const did = window.browser?.currentDid;
@@ -8904,13 +8904,13 @@ async function loadDaoTreasury() {
         const response = await fetch(`http://localhost:8000/zhtp/dao/treasury/${encodeURIComponent(did)}`);
         const data = await response.json();
         
-        console.log('💰 DAO treasury response:', data);
+        console.log(' DAO treasury response:', data);
         
         if (data.success) {
             const treasuryElement = document.getElementById('dao-content');
             if (treasuryElement) {
                 treasuryElement.innerHTML = `
-                    <h3>💰 DAO Treasury</h3>
+                    <h3> DAO Treasury</h3>
                     <div class="treasury-stats">
                         <div class="stat-card">
                             <h4>Total Treasury</h4>
@@ -8950,7 +8950,7 @@ async function loadDaoTreasury() {
 }
 
 async function loadDaoDelegates() {
-    console.log('👥 Loading DAO delegates...');
+    console.log(' Loading DAO delegates...');
     
     try {
         const did = window.browser?.currentDid;
@@ -8962,7 +8962,7 @@ async function loadDaoDelegates() {
         const response = await fetch(`http://localhost:8000/zhtp/dao/delegates/${encodeURIComponent(did)}`);
         const data = await response.json();
         
-        console.log('👥 DAO delegates response:', data);
+        console.log(' DAO delegates response:', data);
         
         if (data.success) {
             const delegatesHtml = data.delegates.map(delegate => `
@@ -8977,7 +8977,7 @@ async function loadDaoDelegates() {
             const delegatesElement = document.getElementById('dao-content');
             if (delegatesElement) {
                 delegatesElement.innerHTML = `
-                    <h3>👥 DAO Delegates</h3>
+                    <h3> DAO Delegates</h3>
                     <div class="delegates-container">
                         ${delegatesHtml || '<p>No delegates found</p>'}
                     </div>
@@ -8997,7 +8997,7 @@ async function loadDaoDelegates() {
 }
     
     try {
-        console.log(`📊 Loading ${walletType} wallet data...`);
+        console.log(` Loading ${walletType} wallet data...`);
         
         // Get the citizen wallet data from browser instance
         const citizenData = window.browser.citizenWalletData;
@@ -9012,10 +9012,10 @@ async function loadDaoDelegates() {
             return;
         }
         
-        console.log('📊 Citizen data found:', citizenData);
-        console.log('💰 Welcome bonus check:', citizenData.welcome_bonus);
-        console.log('🏛️ Citizenship data:', citizenData.citizenship);
-        console.log('💼 Wallets data:', citizenData.wallets);
+        console.log(' Citizen data found:', citizenData);
+        console.log(' Welcome bonus check:', citizenData.welcome_bonus);
+        console.log(' Citizenship data:', citizenData.citizenship);
+        console.log(' Wallets data:', citizenData.wallets);
         
         const citizenship = citizenData.citizenship;
         const wallets = citizenData.wallets;
@@ -9063,7 +9063,7 @@ async function loadDaoDelegates() {
             balance = citizenData.totalBalance;
         }
         
-        console.log(`💰 ${walletType} wallet balance: ${balance} ZHTP`);
+        console.log(` ${walletType} wallet balance: ${balance} ZHTP`);
         
         // Update balance display
         const balanceElement = document.getElementById(balanceElementId);
@@ -9151,7 +9151,7 @@ async function loadDaoDelegates() {
                 symbol: 'ZHTP',
                 balance: balance,
                 usdPrice: 1.00,
-                icon: '💎',
+                icon: '',
                 change24h: 0
             }
         ];
@@ -9201,7 +9201,7 @@ function updateTransactionDisplay(walletType, transactions) {
     
     const transactionHtml = transactions.map(tx => `
         <div class="transaction-item">
-            <div class="transaction-icon">${tx.type === 'received' ? '📥' : '📤'}</div>
+            <div class="transaction-icon">${tx.type === 'received' ? '' : ''}</div>
             <div class="transaction-info">
                 <div class="transaction-title">${tx.type === 'received' ? 'Received' : 'Sent'}</div>
                 <div class="transaction-subtitle">${formatTransactionDate(tx.timestamp)}</div>
@@ -9405,7 +9405,7 @@ async function claimUBI() {
     
     const ubiAmount = citizenData.citizenship.ubi_eligibility.daily_amount || 50.0000;
     
-    window.browser?.showNotification('🏛️ Claiming daily UBI payment...', 'info');
+    window.browser?.showNotification(' Claiming daily UBI payment...', 'info');
     
     setTimeout(() => {
         // Find UBI wallet and update balance
@@ -9436,14 +9436,14 @@ async function claimUBI() {
 }
 
 async function viewUbiHistory() {
-    window.browser?.showNotification('📊 UBI payment history coming soon!', 'info');
+    window.browser?.showNotification(' UBI payment history coming soon!', 'info');
 }
 
 async function viewStakingRewards() {
-    window.browser?.showNotification('💎 Staking rewards interface coming soon!', 'info');
+    window.browser?.showNotification(' Staking rewards interface coming soon!', 'info');
 }
 
-console.log('💎 ZHTP Multi-Wallet System loaded successfully!');
+console.log(' ZHTP Multi-Wallet System loaded successfully!');
 
 console.log(' ZHTP Web4 Desktop App script loaded successfully!');
 
@@ -9544,7 +9544,7 @@ async function sendTokens() {
     modal.innerHTML = `
         <div class="modal-content">
             <div class="modal-header">
-                <h3>📤 Send ZHTP Tokens</h3>
+                <h3> Send ZHTP Tokens</h3>
                 <button class="modal-close" onclick="this.closest('.modal-overlay').remove()">✕</button>
             </div>
             <div class="modal-body">
@@ -9589,7 +9589,7 @@ async function executeSendTokens() {
             return;
         }
 
-        console.log('💸 Sending tokens:', { recipient, amount, message, usePrivate });
+        console.log(' Sending tokens:', { recipient, amount, message, usePrivate });
         
         const result = await window.browser.api.sendTokens({
             recipient,
@@ -9626,7 +9626,7 @@ async function receiveTokens() {
     modal.innerHTML = `
         <div class="modal-content">
             <div class="modal-header">
-                <h3>📥 Receive ZHTP Tokens</h3>
+                <h3> Receive ZHTP Tokens</h3>
                 <button class="modal-close" onclick="this.closest('.modal-overlay').remove()">✕</button>
             </div>
             <div class="modal-body">
@@ -9806,7 +9806,7 @@ async function stakeTokens() {
             <div class="modal-body">
                 <div class="stake-info">
                     <div class="info-card">
-                        <h4>💰 Current APY</h4>
+                        <h4> Current APY</h4>
                         <div class="apy-rate">8.5%</div>
                     </div>
                     <div class="info-card">
@@ -10023,7 +10023,7 @@ window.createProposal = function() {
 };
 
 window.voteOnProposals = function() {
-    console.log('🗳️ Viewing active proposals for voting...');
+    console.log(' Viewing active proposals for voting...');
     window.switchDaoTab('proposals');
     if (window.browser) {
         window.browser.loadDaoProposals();
@@ -10031,7 +10031,7 @@ window.voteOnProposals = function() {
 };
 
 window.proposeSpending = function() {
-    console.log('💰 Opening treasury spending proposal...');
+    console.log(' Opening treasury spending proposal...');
     if (window.browser) {
         window.browser.showSpendingProposalModal();
     } else {
@@ -10040,7 +10040,7 @@ window.proposeSpending = function() {
 };
 
 window.viewTreasuryHistory = function() {
-    console.log('📊 Loading treasury transaction history...');
+    console.log(' Loading treasury transaction history...');
     if (window.browser) {
         window.browser.loadTreasuryHistory();
     } else {
@@ -10049,7 +10049,7 @@ window.viewTreasuryHistory = function() {
 };
 
 window.delegateVotes = function() {
-    console.log('🗳️ Switching to delegates tab...');
+    console.log(' Switching to delegates tab...');
     window.switchDaoTab('delegates');
 };
 
@@ -10063,7 +10063,7 @@ window.revokeDelegation = function() {
 };
 
 window.becomeDeligate = function() {
-    console.log('👤 Starting delegate registration...');
+    console.log(' Starting delegate registration...');
     if (window.browser) {
         window.browser.showDelegateRegistrationModal();
     } else {
@@ -10072,7 +10072,7 @@ window.becomeDeligate = function() {
 };
 
 window.voteOnProposal = function(proposalId, voteChoice) {
-    console.log(`🗳️ Voting ${voteChoice ? 'FOR' : 'AGAINST'} proposal ${proposalId}...`);
+    console.log(` Voting ${voteChoice ? 'FOR' : 'AGAINST'} proposal ${proposalId}...`);
     if (window.browser) {
         window.browser.submitVote(proposalId, voteChoice);
     } else {
@@ -10081,7 +10081,7 @@ window.voteOnProposal = function(proposalId, voteChoice) {
 };
 
 window.delegateVotingPower = function(delegateId) {
-    console.log(`👥 Delegating voting power to ${delegateId}...`);
+    console.log(` Delegating voting power to ${delegateId}...`);
     if (window.browser) {
         window.browser.delegateVotingPower(delegateId);
     } else {
@@ -10090,13 +10090,13 @@ window.delegateVotingPower = function(delegateId) {
 };
 
 window.viewTreasury = function() {
-    console.log('🏛️ Switching to treasury tab...');
+    console.log(' Switching to treasury tab...');
     window.switchDaoTab('treasury');
 };
 
 // Add missing modal and UI functions
 window.openSettings = function() {
-    console.log('⚙️ Opening settings...');
+    console.log(' Opening settings...');
     if (window.browser) {
         window.browser.openSettings();
     } else {
@@ -10145,7 +10145,7 @@ window.switchZkDidTab = function(tabName) {
 
 // ZK-DID Authentication Functions
 window.signInWithZkDid = function() {
-    console.log('🔑 Signing in with ZK-DID...');
+    console.log(' Signing in with ZK-DID...');
     if (window.browser) {
         window.browser.signInWithZkDid();
     } else {
@@ -10181,7 +10181,7 @@ window.signInWithQR = function() {
 };
 
 window.createNewZkDid = function() {
-    console.log('🆕 Creating new ZK-DID...');
+    console.log(' Creating new ZK-DID...');
     if (window.browser) {
         window.browser.createNewZkDid();
     } else {
@@ -10200,7 +10200,7 @@ window.setupBiometrics = function() {
 
 // Recovery Functions
 window.recoverWithSeed = function() {
-    console.log('🌱 Recovering with seed phrase...');
+    console.log(' Recovering with seed phrase...');
     if (window.browser) {
         window.browser.recoverWithSeed();
     } else {
@@ -10209,7 +10209,7 @@ window.recoverWithSeed = function() {
 };
 
 window.recoverWithBackup = function() {
-    console.log('💾 Recovering with backup...');
+    console.log(' Recovering with backup...');
     if (window.browser) {
         window.browser.recoverWithBackup();
     } else {
@@ -10218,7 +10218,7 @@ window.recoverWithBackup = function() {
 };
 
 window.recoverWithSocial = function() {
-    console.log('👥 Recovering with social...');
+    console.log(' Recovering with social...');
     if (window.browser) {
         window.browser.recoverWithSocial();
     } else {
@@ -10237,7 +10237,7 @@ window.executeRecovery = function() {
 
 // Wallet Functions
 window.sendTokens = function() {
-    console.log('💸 Sending tokens...');
+    console.log(' Sending tokens...');
     if (window.browser) {
         window.browser.sendTokens();
     } else {
@@ -10246,7 +10246,7 @@ window.sendTokens = function() {
 };
 
 window.receiveTokens = function() {
-    console.log('💰 Receiving tokens...');
+    console.log(' Receiving tokens...');
     if (window.browser) {
         window.browser.receiveTokens();
     } else {
@@ -10283,7 +10283,7 @@ window.switchDaoTab = function(tabName) {
         // Use the browser instance method if available
         window.browser.switchDaoTab(tabName);
     } else {
-        console.log('⏳ Browser not ready, queuing DAO tab switch for:', tabName);
+        console.log(' Browser not ready, queuing DAO tab switch for:', tabName);
         // Store the requested tab to switch to when browser is ready
         window.pendingDaoTab = tabName;
         
@@ -10314,28 +10314,28 @@ window.createProposal = function() {
     if (window.browser && window.browser.isInitialized) {
         window.browser.showCreateProposalModal();
     } else {
-        console.log('⏳ Browser not ready, showing preparation message');
+        console.log(' Browser not ready, showing preparation message');
         alert('Please wait for the Web4 Browser to finish loading before creating proposals.');
     }
 };
 
 window.voteOnProposals = function() {
-    console.log('🗳️ Viewing active proposals for voting...');
+    console.log(' Viewing active proposals for voting...');
     window.switchDaoTab('proposals');
 };
 
 window.delegateVotes = function() {
-    console.log('🗳️ Switching to delegates tab...');
+    console.log(' Switching to delegates tab...');
     window.switchDaoTab('delegates');
 };
 
 window.viewTreasury = function() {
-    console.log('🏛️ Switching to treasury tab...');
+    console.log(' Switching to treasury tab...');
     window.switchDaoTab('treasury');
 };
 
 window.proposeSpending = function() {
-    console.log('💸 Opening spending proposal modal...');
+    console.log(' Opening spending proposal modal...');
     if (window.browser && window.browser.isInitialized) {
         window.browser.showSpendingProposalModal();
     } else {
@@ -10344,7 +10344,7 @@ window.proposeSpending = function() {
 };
 
 window.viewTreasuryHistory = function() {
-    console.log('📊 Loading treasury transaction history...');
+    console.log(' Loading treasury transaction history...');
     if (window.browser && window.browser.isInitialized) {
         window.browser.loadTreasuryHistory();
     } else {

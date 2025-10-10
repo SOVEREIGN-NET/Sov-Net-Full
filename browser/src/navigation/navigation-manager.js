@@ -31,7 +31,7 @@ export class NavigationManager {
         this.protocolHandlers.set('dao://', this.handleDaoProtocol.bind(this));
         
         this.isInitialized = true;
-        console.log('🧭 Navigation manager initialized with protocol handlers');
+        console.log(' Navigation manager initialized with protocol handlers');
     }
 
     async navigate(url) {
@@ -96,7 +96,7 @@ export class NavigationManager {
             if (url.match(/^[a-f0-9]{64}$/i)) {
                 urlObj.isBlockchainHash = true;
                 urlObj.domain = url;
-                console.log(`⛓️ Detected blockchain hash: ${url}`);
+                console.log(` Detected blockchain hash: ${url}`);
                 return urlObj;
             }
 
@@ -365,7 +365,7 @@ export class NavigationManager {
     }
     
     async loadContractByHash(blockchainHash, path = '/') {
-        console.log(`⛓️ Loading Web4 site by blockchain hash: ${blockchainHash}`);
+        console.log(` Loading Web4 site by blockchain hash: ${blockchainHash}`);
         
         try {
             // Query blockchain for contract by hash
@@ -664,7 +664,7 @@ export class NavigationManager {
                             <h3 class="card-title">Smart Contract IDE</h3>
                             <p>Develop and deploy ZHTP smart contracts with built-in ZK proof generation.</p>
                             <button class="btn-primary" style="margin-top: 1rem;">
-                                🧑‍💻 Open IDE
+                                🧑 Open IDE
                             </button>
                         </div>
                         

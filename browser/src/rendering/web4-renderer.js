@@ -97,7 +97,7 @@ class Web4PageRenderer {
             </div>
             <div class="page-actions">
                 <button class="page-btn" onclick="window.browser?.refreshPage()"> Refresh</button>
-                <button class="page-btn" onclick="window.browser?.sharePage()">📤 Share</button>
+                <button class="page-btn" onclick="window.browser?.sharePage()"> Share</button>
                 <button class="page-btn" onclick="window.browser?.bookmarkPage()">⭐ Bookmark</button>
             </div>
         `;
@@ -140,7 +140,7 @@ class Web4PageRenderer {
         element.className = 'balance-overview-component';
         element.innerHTML = `
             <div class="balance-card">
-                <h3>💰 Total Balance</h3>
+                <h3> Total Balance</h3>
                 <div class="balance-amount">
                     <span class="amount">${component.data.totalBalance}</span>
                     <span class="currency">${component.data.currency}</span>
@@ -159,7 +159,7 @@ class Web4PageRenderer {
         element.className = 'quick-actions-component';
         
         const actionButtons = component.actions.map(action => {
-            const icons = { send: '📤', receive: '📥', swap: '', stake: '🏦' };
+            const icons = { send: '', receive: '', swap: '', stake: '🏦' };
             return `
                 <button class="action-btn" onclick="window.browser?.handleWalletAction('${action}')">
                     ${icons[action]} ${action.charAt(0).toUpperCase() + action.slice(1)}
@@ -194,7 +194,7 @@ class Web4PageRenderer {
         `).join('');
         
         element.innerHTML = `
-            <h3>📊 Your Assets</h3>
+            <h3> Your Assets</h3>
             <div class="asset-grid">
                 ${assetItems}
             </div>
@@ -208,7 +208,7 @@ class Web4PageRenderer {
         
         const txItems = component.transactions.map(tx => `
             <div class="transaction-item">
-                <div class="tx-icon">${tx.type === 'received' ? '📥' : '📤'}</div>
+                <div class="tx-icon">${tx.type === 'received' ? '' : ''}</div>
                 <div class="tx-info">
                     <div class="tx-amount">${tx.amount}</div>
                     <div class="tx-details">${tx.type === 'received' ? 'from' : 'to'} ${tx.from || tx.to}</div>
@@ -301,7 +301,7 @@ class Web4PageRenderer {
         }).join('');
         
         element.innerHTML = `
-            <h3>🗳️ Active Proposals</h3>
+            <h3> Active Proposals</h3>
             <div class="proposals-list">
                 ${proposalItems}
             </div>
@@ -315,7 +315,7 @@ class Web4PageRenderer {
         element.className = 'post-composer-component';
         
         const featureButtons = component.features.map(feature => {
-            const icons = { text: '', images: '📷', polls: '📊', location: '' };
+            const icons = { text: '', images: '', polls: '', location: '' };
             return `<button class="composer-btn" onclick="window.browser?.addToPost('${feature}')">${icons[feature]}</button>`;
         }).join('');
         
@@ -355,10 +355,10 @@ class Web4PageRenderer {
                          ${post.shares}
                     </button>
                     <button class="post-action" onclick="window.browser?.commentOnPost('${post.id}')">
-                        💬 ${post.comments}
+                         ${post.comments}
                     </button>
                     <button class="post-action" onclick="window.browser?.tipAuthor('${post.id}')">
-                        💰 Tip
+                         Tip
                     </button>
                 </div>
             </div>
