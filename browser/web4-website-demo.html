@@ -37,18 +37,18 @@
 </head>
 <body>
     <div class="container">
-        <h1>🌐 Web4 Website Hosting Demo</h1>
+        <h1> Web4 Website Hosting Demo</h1>
         <p>This demonstrates how to host decentralized websites using smart contracts + DHT storage on the ZHTP network.</p>
 
         <div class="step">
-            <h3>📄 Step 1: Create Website Content</h3>
+            <h3> Step 1: Create Website Content</h3>
             <p>First, we'll create the HTML content that will be stored in the DHT:</p>
             <button onclick="createWebsiteContent()">Create Website Content</button>
             <div id="content-output" class="output" style="display: none;"></div>
         </div>
 
         <div class="step">
-            <h3>🚀 Step 2: Deploy Web4 Smart Contract</h3>
+            <h3> Step 2: Deploy Web4 Smart Contract</h3>
             <p>Deploy a smart contract that defines the website routes and references DHT content:</p>
             <button onclick="deployWebsiteContract()">Deploy Website Contract</button>
             <div id="contract-output" class="output" style="display: none;"></div>
@@ -88,7 +88,7 @@
 </head>
 <body>
     <header>
-        <h1>🌐 Welcome to Web4!</h1>
+        <h1> Welcome to Web4!</h1>
         <nav>
             <a href="/">Home</a>
             <a href="/about">About</a>
@@ -100,9 +100,9 @@
         <div class="features">
             <h3>✨ Features:</h3>
             <ul>
-                <li>🔒 Quantum-resistant security</li>
+                <li> Quantum-resistant security</li>
                 <li>🌍 Decentralized hosting</li>
-                <li>⚡ Zero-knowledge privacy</li>
+                <li> Zero-knowledge privacy</li>
                 <li>🏛️ DAO governance</li>
             </ul>
         </div>
@@ -141,7 +141,7 @@ main {
     border-radius: 10px;
     margin: 2rem 0;
 }`,
-            'app.js': `console.log('🌐 Web4 website loaded successfully!');
+            'app.js': `console.log(' Web4 website loaded successfully!');
 console.log(' Running on ZHTP protocol');
 console.log('💎 Content stored in DHT network');
 
@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             } catch (error) {
                 output.innerHTML = `
-                    <div class="error">❌ Contract deployment failed:</div>
+                    <div class="error"> Contract deployment failed:</div>
                     <div class="code">${error.message}</div>
                     <p class="info">Note: This is a demo - the contract structure is created but may need the ZHTP node to be fully running for deployment.</p>
                 `;
@@ -298,7 +298,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             } catch (error) {
                 output.innerHTML = `
-                    <div class="error">❌ DHT storage failed:</div>
+                    <div class="error"> DHT storage failed:</div>
                     <div class="code">${error.message}</div>
                 `;
             }
@@ -312,7 +312,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Simulate the Web4 loading process
             setTimeout(() => {
                 output.innerHTML = `
-                    <div class="success">🌐 Web4 Website Loaded Successfully!</div>
+                    <div class="success"> Web4 Website Loaded Successfully!</div>
                     <div class="code">
                         URL: zhtp://mysite.zhtp/<br>
                         Contract:  Found and verified<br>
@@ -362,7 +362,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Initialize
-        console.log('🌐 Web4 Website Hosting Demo loaded');
+        console.log(' Web4 Website Hosting Demo loaded');
         console.log(' Ready to demonstrate decentralized website hosting');
     </script>
 </body>

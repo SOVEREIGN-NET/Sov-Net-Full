@@ -35,7 +35,7 @@ export class NavigationManager {
     }
 
     async navigate(url) {
-        console.log(`🌐 Navigating to: ${url}`);
+        console.log(` Navigating to: ${url}`);
         
         try {
             // Parse and validate URL
@@ -58,7 +58,7 @@ export class NavigationManager {
             return await this.handleWeb4Navigation(parsedUrl);
             
         } catch (error) {
-            console.error('❌ Navigation failed:', error);
+            console.error(' Navigation failed:', error);
             throw error;
         }
     }
@@ -129,7 +129,7 @@ export class NavigationManager {
             }
 
         } catch (error) {
-            console.error('❌ URL parsing failed:', error);
+            console.error(' URL parsing failed:', error);
         }
 
         return urlObj;
@@ -218,7 +218,7 @@ export class NavigationManager {
             const domainData = await this.httpGet(`/api/v1/web4/domains/${domain}`);
             
             if (domainData && domainData.found) {
-                console.log(`✅ Domain found in Web4 registry: ${domain}`);
+                console.log(` Domain found in Web4 registry: ${domain}`);
                 return await this.loadWeb4Site(domain, path || '/');
             }
         } catch (error) {
@@ -235,10 +235,10 @@ export class NavigationManager {
                 return await this.loadContractById(contractInfo.contract_id, path);
             }
             
-            console.log(`❌ Domain not found in blockchain DNS: ${domain}`);
+            console.log(` Domain not found in blockchain DNS: ${domain}`);
             throw new Error(`Domain not registered: ${domain}`);
         } catch (error) {
-            console.error(`🚫 DNS resolution failed for ${domain}:`, error.message);
+            console.error(` DNS resolution failed for ${domain}:`, error.message);
             throw new Error(`Failed to resolve domain: ${domain}`);
         }
 
@@ -247,7 +247,7 @@ export class NavigationManager {
     }
 
     async loadWeb4Site(domain, path = '/') {
-        console.log(`🌐 Loading Web4 site: ${domain}${path}`);
+        console.log(` Loading Web4 site: ${domain}${path}`);
         
         try {
             // Fetch content from Web4 serve endpoint using direct HTTP
@@ -264,7 +264,7 @@ export class NavigationManager {
             
             // Get the content
             let content = response.data;
-            console.log(`✅ Received ${content.length} bytes of content`);
+            console.log(` Received ${content.length} bytes of content`);
             
             // Determine content type
             const contentType = response.headers['content-type'] ||
@@ -284,7 +284,7 @@ export class NavigationManager {
                     document.head.insertBefore(baseElement, document.head.firstChild);
                 }
                 baseElement.href = baseUrl;
-                console.log(`📍 Set base URL to: ${baseUrl}`);
+                console.log(` Set base URL to: ${baseUrl}`);
                 
                 // Also inject base tag into the HTML content for completeness
                 const baseTag = `<base href="${baseUrl}">`;
@@ -305,7 +305,7 @@ export class NavigationManager {
                 }
             };
         } catch (error) {
-            console.error(`❌ Failed to load Web4 site ${domain}${path}:`, error);
+            console.error(` Failed to load Web4 site ${domain}${path}:`, error);
             throw error;
         }
     }
@@ -359,7 +359,7 @@ export class NavigationManager {
             };
             
         } catch (error) {
-            console.error(`❌ Failed to load contract ${contractId}:`, error);
+            console.error(` Failed to load contract ${contractId}:`, error);
             throw error;
         }
     }
@@ -394,7 +394,7 @@ export class NavigationManager {
             };
             
         } catch (error) {
-            console.error(`❌ Failed to load contract by hash ${blockchainHash}:`, error);
+            console.error(` Failed to load contract by hash ${blockchainHash}:`, error);
             throw error;
         }
     }
@@ -421,7 +421,7 @@ export class NavigationManager {
             };
 
         } catch (error) {
-            console.error(`❌ Failed to load dApp ${domain}:`, error);
+            console.error(` Failed to load dApp ${domain}:`, error);
             throw error;
         }
     }
@@ -448,7 +448,7 @@ export class NavigationManager {
                         
                         <div style="margin-top: 1rem;">
                             <button class="btn-primary" onclick="browser.launchDapp('${dappInfo.id}')">
-                                🚀 Launch dApp
+                                 Launch dApp
                             </button>
                         </div>
                     </div>
@@ -713,7 +713,7 @@ export class NavigationManager {
                 error: error.message,
                 content: `
                     <div class="fade-in" style="text-align: center; padding: 4rem;">
-                        <h1 style="color: #ff6b6b; margin-bottom: 2rem;">🚫 Resource Not Found</h1>
+                        <h1 style="color: #ff6b6b; margin-bottom: 2rem;"> Resource Not Found</h1>
                         <p style="font-size: 1.2rem; margin-bottom: 3rem; color: #8a9ba8;">
                             The requested Web4 resource could not be found.
                         </p>

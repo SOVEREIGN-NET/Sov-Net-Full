@@ -33,7 +33,7 @@ export class QuantumWallet {
             console.log(' Quantum wallet system initialized');
 
         } catch (error) {
-            console.error('❌ Wallet initialization failed:', error);
+            console.error(' Wallet initialization failed:', error);
             throw error;
         }
     }
@@ -57,12 +57,12 @@ export class QuantumWallet {
                     wallet.balance = balance.zhtpBalance || 0;
                     wallet.lastUpdated = Date.now();
                 } catch (error) {
-                    console.warn(`⚠️ Could not verify wallet ${walletId}:`, error);
+                    console.warn(` Could not verify wallet ${walletId}:`, error);
                 }
             }
 
         } catch (error) {
-            console.error('❌ Failed to load wallets:', error);
+            console.error(' Failed to load wallets:', error);
         }
     }
 
@@ -81,7 +81,7 @@ export class QuantumWallet {
             return wallet;
 
         } catch (error) {
-            console.error('❌ Default wallet creation failed:', error);
+            console.error(' Default wallet creation failed:', error);
             throw error;
         }
     }
@@ -125,7 +125,7 @@ export class QuantumWallet {
             return wallet;
 
         } catch (error) {
-            console.error('❌ Wallet creation failed:', error);
+            console.error(' Wallet creation failed:', error);
             throw error;
         }
     }
@@ -144,7 +144,7 @@ export class QuantumWallet {
             console.log(' Wallet registered on ZHTP blockchain');
 
         } catch (error) {
-            console.warn('⚠️ Wallet chain registration failed, continuing with local wallet:', error);
+            console.warn(' Wallet chain registration failed, continuing with local wallet:', error);
             // Continue without chain registration for development
         }
     }
@@ -204,7 +204,7 @@ export class QuantumWallet {
             return walletData;
 
         } catch (error) {
-            console.error('❌ Failed to get wallet data:', error);
+            console.error(' Failed to get wallet data:', error);
             
             // Return cached data if API fails
             return {
@@ -279,7 +279,7 @@ export class QuantumWallet {
             return result;
 
         } catch (error) {
-            console.error('❌ Token transfer failed:', error);
+            console.error(' Token transfer failed:', error);
             throw error;
         }
     }
@@ -346,7 +346,7 @@ export class QuantumWallet {
             return transaction;
 
         } catch (error) {
-            console.error('❌ Transaction signing failed:', error);
+            console.error(' Transaction signing failed:', error);
             throw error;
         }
     }
@@ -394,7 +394,7 @@ export class QuantumWallet {
             return true;
 
         } catch (error) {
-            console.error('❌ Token receive failed:', error);
+            console.error(' Token receive failed:', error);
             throw error;
         }
     }
@@ -437,7 +437,7 @@ export class QuantumWallet {
             return result;
 
         } catch (error) {
-            console.error('❌ UBI claim failed:', error);
+            console.error(' UBI claim failed:', error);
             throw error;
         }
     }
@@ -447,7 +447,7 @@ export class QuantumWallet {
             throw new Error('No active wallet');
         }
 
-        console.log(`🔒 Staking ${amount} ZHTP with validator ${validatorId}`);
+        console.log(` Staking ${amount} ZHTP with validator ${validatorId}`);
         
         try {
             if (amount > this.currentWallet.balance) {
@@ -484,7 +484,7 @@ export class QuantumWallet {
             return result;
 
         } catch (error) {
-            console.error('❌ Staking failed:', error);
+            console.error(' Staking failed:', error);
             throw error;
         }
     }
@@ -533,7 +533,7 @@ export class QuantumWallet {
             return result;
 
         } catch (error) {
-            console.error('❌ Unstaking failed:', error);
+            console.error(' Unstaking failed:', error);
             throw error;
         }
     }
@@ -548,7 +548,7 @@ export class QuantumWallet {
             return rewards;
 
         } catch (error) {
-            console.error('❌ Failed to get staking rewards:', error);
+            console.error(' Failed to get staking rewards:', error);
             return { rewards: 0, validators: [] };
         }
     }
@@ -560,7 +560,7 @@ export class QuantumWallet {
             console.log('💾 Wallets saved to local storage');
 
         } catch (error) {
-            console.error('❌ Failed to save wallets:', error);
+            console.error(' Failed to save wallets:', error);
         }
     }
 
@@ -600,7 +600,7 @@ export class QuantumWallet {
             return true;
 
         } catch (error) {
-            console.error('❌ Wallet export failed:', error);
+            console.error(' Wallet export failed:', error);
             throw error;
         }
     }
@@ -632,7 +632,7 @@ export class QuantumWallet {
             return wallet;
 
         } catch (error) {
-            console.error('❌ Wallet import failed:', error);
+            console.error(' Wallet import failed:', error);
             throw error;
         }
     }
@@ -700,7 +700,7 @@ class QuantumCryptoUtils {
             };
 
         } catch (error) {
-            console.error('❌ Wallet key generation failed:', error);
+            console.error(' Wallet key generation failed:', error);
             throw error;
         }
     }
@@ -780,7 +780,7 @@ class QuantumCryptoUtils {
             return true;
 
         } catch (error) {
-            console.error('❌ Signature verification failed:', error);
+            console.error(' Signature verification failed:', error);
             return false;
         }
     }

@@ -73,10 +73,10 @@
                 if (typeof ZhtpUrlUtils !== 'undefined' && typeof DhtTestingDashboard !== 'undefined') {
                     results.innerHTML = '<p class="success"> All imports successful!</p>';
                 } else {
-                    results.innerHTML = '<p class="error">❌ Import failed</p>';
+                    results.innerHTML = '<p class="error"> Import failed</p>';
                 }
             } catch (error) {
-                results.innerHTML = `<p class="error">❌ Import error: ${error.message}</p>`;
+                results.innerHTML = `<p class="error"> Import error: ${error.message}</p>`;
             }
         };
 
@@ -92,7 +92,7 @@
                     <p class="info">Parsed URL: ${JSON.stringify(parsed, null, 2)}</p>
                 `;
             } catch (error) {
-                results.innerHTML = `<p class="error">❌ URL Utils error: ${error.message}</p>`;
+                results.innerHTML = `<p class="error"> URL Utils error: ${error.message}</p>`;
             }
         };
 
@@ -110,7 +110,7 @@
                     <p class="info">Dashboard methods: ${Object.getOwnPropertyNames(Object.getPrototypeOf(dashboard)).join(', ')}</p>
                 `;
             } catch (error) {
-                results.innerHTML = `<p class="error">❌ Dashboard error: ${error.message}</p>`;
+                results.innerHTML = `<p class="error"> Dashboard error: ${error.message}</p>`;
             }
         };
 
@@ -122,13 +122,13 @@
             if (typeof window.openDhtTesting === 'function') {
                 tests.push(' openDhtTesting function exists');
             } else {
-                tests.push('❌ openDhtTesting function missing');
+                tests.push(' openDhtTesting function missing');
             }
 
             if (typeof window.openSettings === 'function') {
                 tests.push(' openSettings function exists');
             } else {
-                tests.push('❌ openSettings function missing');
+                tests.push(' openSettings function missing');
             }
 
             results.innerHTML = `<div>${tests.join('<br>')}</div>`;

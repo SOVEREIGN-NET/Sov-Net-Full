@@ -51,7 +51,7 @@ class PureZhtpConnection {
                 }
             };
         } catch (error) {
-            console.error('❌ ZHTP mesh connection failed:', error);
+            console.error(' ZHTP mesh connection failed:', error);
             throw error;
         }
     }
@@ -67,12 +67,12 @@ class PureZhtpConnection {
             console.log('📥 Received native ZHTP mesh response:', response);
             return response;
         } catch (error) {
-            console.error('❌ ZHTP mesh request failed:', error);
+            console.error(' ZHTP mesh request failed:', error);
             throw error;
         }
     }
 
-    // 🌐 NATIVE ZHTP MESH PROTOCOL COMMUNICATION
+    //  NATIVE ZHTP MESH PROTOCOL COMMUNICATION
     async sendNativeZhtpMeshRequest(zhtpRequest) {
         if (!isElectron || !dgram) {
             throw new Error('Pure ZHTP mesh requires Electron desktop environment');
@@ -106,7 +106,7 @@ class PureZhtpConnection {
             this.meshSocket.on('error', (err) => {
                 if (!responseReceived) {
                     responseReceived = true;
-                    console.error('❌ ZHTP mesh socket error:', err);
+                    console.error(' ZHTP mesh socket error:', err);
                     reject(err);
                 }
             });
@@ -217,11 +217,11 @@ class PureZhtpConnection {
                     request_id: response.request_id
                 };
             } else {
-                console.error('⚠️ Invalid ZHTP mesh message structure:', Object.keys(meshMessage));
+                console.error(' Invalid ZHTP mesh message structure:', Object.keys(meshMessage));
                 throw new Error('Expected ZhtpResponse enum structure');
             }
         } catch (error) {
-            console.error('❌ Failed to parse complex ZHTP mesh response:', error);
+            console.error(' Failed to parse complex ZHTP mesh response:', error);
             throw new Error('Invalid ZHTP mesh response format: ' + error.message);
         }
     }
@@ -257,13 +257,13 @@ class ZhtpApi {
         this.meshPeers = new Set();
         this.zhtpHeaders = new Map();
         
-        console.log('🚀 Initializing ZHTP API with Native Mesh Protocol');
-        console.log('⚡ Pure ZHTP - No TCP, No WebSocket, No HTTP');
+        console.log(' Initializing ZHTP API with Native Mesh Protocol');
+        console.log(' Pure ZHTP - No TCP, No WebSocket, No HTTP');
         
         // Auto-initialize connection to ZHTP mesh node
         this.initPromise = this.initialize().catch(error => {
-            console.error('❌ ZHTP initialization failed:', error);
-            console.warn('⚠️ Will attempt to reconnect on next API call');
+            console.error(' ZHTP initialization failed:', error);
+            console.warn(' Will attempt to reconnect on next API call');
         });
     }
 
@@ -297,7 +297,7 @@ class ZhtpApi {
                     });
                     console.log('📊 ZHTP Node Status:', nodeStatus);
                 } catch (statusError) {
-                    console.warn('⚠️ Could not get node status:', statusError.message);
+                    console.warn(' Could not get node status:', statusError.message);
                 }
                 
                 return true;
@@ -305,7 +305,7 @@ class ZhtpApi {
                 throw new Error('Connection test failed');
             }
         } catch (error) {
-            console.error('❌ ZHTP initialization failed:', error);
+            console.error(' ZHTP initialization failed:', error);
             this.isConnected = false;
             this.isInitialized = false;
             throw error;
@@ -359,7 +359,7 @@ class ZhtpApi {
                 data: typeof response.data === 'string' ? response.data : JSON.stringify(response.data)
             };
         } catch (error) {
-            console.error('❌ HTTP fallback failed:', error.message);
+            console.error(' HTTP fallback failed:', error.message);
             throw error;
         }
     }
@@ -383,7 +383,7 @@ class ZhtpApi {
             console.log(' ZK-DID created successfully via ZHTP API:', response);
             return response;
         } catch (error) {
-            console.error('❌ ZK-DID creation failed:', error);
+            console.error(' ZK-DID creation failed:', error);
             throw error;
         }
     }
@@ -399,7 +399,7 @@ class ZhtpApi {
             console.log(' Identity retrieved successfully:', response);
             return response;
         } catch (error) {
-            console.error('❌ Identity retrieval failed:', error);
+            console.error(' Identity retrieval failed:', error);
             throw error;
         }
     }
@@ -494,7 +494,7 @@ class ZhtpApi {
                 throw new Error(`Node status request failed: ${response.status}`);
             }
         } catch (error) {
-            console.error('❌ Failed to get protocol info:', error);
+            console.error(' Failed to get protocol info:', error);
             return {
                 success: false,
                 error: error.message,
@@ -525,7 +525,7 @@ class ZhtpApi {
                 throw new Error(`Blockchain info request failed: ${response.status}`);
             }
         } catch (error) {
-            console.error('❌ Failed to get blockchain info:', error);
+            console.error(' Failed to get blockchain info:', error);
             throw error;
         }
     }
@@ -545,7 +545,7 @@ class ZhtpApi {
                 throw new Error(`DAO proposals request failed: ${response.status}`);
             }
         } catch (error) {
-            console.error('❌ Failed to get DAO proposals:', error);
+            console.error(' Failed to get DAO proposals:', error);
             throw error;
         }
     }
@@ -571,7 +571,7 @@ class ZhtpApi {
                     try {
                         data = JSON.parse(response.data);
                     } catch (parseError) {
-                        console.warn('⚠️ Could not parse response as JSON, using raw data:', response.data);
+                        console.warn(' Could not parse response as JSON, using raw data:', response.data);
                         data = { message: response.data };
                     }
                 } else {
@@ -589,7 +589,7 @@ class ZhtpApi {
                 throw new Error(`Create proposal failed: ${response.status} - ${response.data}`);
             }
         } catch (error) {
-            console.error('❌ Failed to create proposal:', error);
+            console.error(' Failed to create proposal:', error);
             throw error;
         }
     }
@@ -614,7 +614,7 @@ class ZhtpApi {
                     reputation_score: data.reputation_score || 85
                 };
             } else {
-                console.warn('⚠️ Voting power API failed, using fallback data');
+                console.warn(' Voting power API failed, using fallback data');
                 return {
                     totalPower: 150,
                     delegatedToYou: 25,
@@ -623,7 +623,7 @@ class ZhtpApi {
                 };
             }
         } catch (error) {
-            console.error('❌ Failed to get voting power:', error);
+            console.error(' Failed to get voting power:', error);
             return { totalPower: 150, delegatedToYou: 0, delegatedByYou: 0, baseVotingPower: 125 };
         }
     }
@@ -747,7 +747,7 @@ class ZhtpApi {
             };
 
         } catch (error) {
-            console.error('❌ Failed to get comprehensive DAO data:', error);
+            console.error(' Failed to get comprehensive DAO data:', error);
             
             // Return minimal fallback data
             return {
@@ -779,11 +779,11 @@ class ZhtpApi {
                 console.log('💰 Real treasury data:', treasuryData);
                 return treasuryData;
             } else {
-                console.warn('⚠️ Treasury API returned status:', response.status);
+                console.warn(' Treasury API returned status:', response.status);
                 throw new Error(`Treasury API failed with status ${response.status}`);
             }
         } catch (error) {
-            console.error('❌ Failed to get DAO treasury:', error);
+            console.error(' Failed to get DAO treasury:', error);
             throw error; // Don't return fallback data - let caller handle the error
         }
     }
@@ -804,7 +804,7 @@ class ZhtpApi {
                 }
             ];
         } catch (error) {
-            console.error('❌ Failed to get user votes:', error);
+            console.error(' Failed to get user votes:', error);
             return [];
         }
     }
@@ -838,7 +838,7 @@ class ZhtpApi {
                     try {
                         data = JSON.parse(response.data);
                     } catch (parseError) {
-                        console.warn('⚠️ Could not parse vote response as JSON, using raw data:', response.data);
+                        console.warn(' Could not parse vote response as JSON, using raw data:', response.data);
                         data = { message: response.data };
                     }
                 } else {
@@ -856,7 +856,7 @@ class ZhtpApi {
                 throw new Error(`Vote submission failed: ${response.status} - ${response.data}`);
             }
         } catch (error) {
-            console.error('❌ Failed to submit vote:', error);
+            console.error(' Failed to submit vote:', error);
             throw error;
         }
     }
@@ -875,11 +875,11 @@ class ZhtpApi {
                 console.log('👥 Real delegates data:', delegatesData);
                 return delegatesData;
             } else {
-                console.warn('⚠️ Delegates API returned status:', response.status);
+                console.warn(' Delegates API returned status:', response.status);
                 throw new Error(`Delegates API failed with status ${response.status}`);
             }
         } catch (error) {
-            console.error('❌ Failed to get DAO delegates:', error);
+            console.error(' Failed to get DAO delegates:', error);
             throw error; // Don't return fallback data - let caller handle the error
         }
     }
@@ -898,11 +898,11 @@ class ZhtpApi {
                 console.log('👤 Real delegate profile:', profileData);
                 return profileData;
             } else {
-                console.warn('⚠️ Delegate profile API returned status:', response.status);
+                console.warn(' Delegate profile API returned status:', response.status);
                 throw new Error(`Delegate profile API failed with status ${response.status}`);
             }
         } catch (error) {
-            console.error('❌ Failed to get delegate profile:', error);
+            console.error(' Failed to get delegate profile:', error);
             throw error;
         }
     }
@@ -928,11 +928,11 @@ class ZhtpApi {
                 console.log('Delegate registration result:', result);
                 return result;
             } else {
-                console.warn('⚠️ Delegate registration API returned status:', response.status);
+                console.warn(' Delegate registration API returned status:', response.status);
                 throw new Error(`Delegate registration failed with status ${response.status}`);
             }
         } catch (error) {
-            console.error('❌ Failed to register delegate:', error);
+            console.error(' Failed to register delegate:', error);
             throw error;
         }
     }
@@ -954,14 +954,14 @@ class ZhtpApi {
             
             if (response.status === 200) {
                 const result = JSON.parse(response.data);
-                console.log('❌ Delegation revocation result:', result);
+                console.log(' Delegation revocation result:', result);
                 return result;
             } else {
-                console.warn('⚠️ Delegation revocation API returned status:', response.status);
+                console.warn(' Delegation revocation API returned status:', response.status);
                 throw new Error(`Delegation revocation failed with status ${response.status}`);
             }
         } catch (error) {
-            console.error('❌ Failed to revoke delegation:', error);
+            console.error(' Failed to revoke delegation:', error);
             throw error;
         }
     }
@@ -977,14 +977,14 @@ class ZhtpApi {
             
             if (response.status === 200) {
                 const proposalData = JSON.parse(response.data);
-                console.log('📄 Real proposal details:', proposalData);
+                console.log(' Real proposal details:', proposalData);
                 return proposalData;
             } else {
-                console.warn('⚠️ Proposal details API returned status:', response.status);
+                console.warn(' Proposal details API returned status:', response.status);
                 throw new Error(`Proposal details API failed with status ${response.status}`);
             }
         } catch (error) {
-            console.error('❌ Failed to get proposal details:', error);
+            console.error(' Failed to get proposal details:', error);
             throw error;
         }
     }
@@ -1003,11 +1003,11 @@ class ZhtpApi {
                 console.log('📊 Real treasury history:', historyData);
                 return historyData;
             } else {
-                console.warn('⚠️ Treasury history API returned status:', response.status);
+                console.warn(' Treasury history API returned status:', response.status);
                 throw new Error(`Treasury history API failed with status ${response.status}`);
             }
         } catch (error) {
-            console.error('❌ Failed to get treasury history:', error);
+            console.error(' Failed to get treasury history:', error);
             throw error;
         }
     }
@@ -1030,11 +1030,11 @@ class ZhtpApi {
                 console.log('💸 Spending proposal result:', result);
                 return result;
             } else {
-                console.warn('⚠️ Spending proposal API returned status:', response.status);
+                console.warn(' Spending proposal API returned status:', response.status);
                 throw new Error(`Spending proposal API failed with status ${response.status}`);
             }
         } catch (error) {
-            console.error('❌ Failed to create spending proposal:', error);
+            console.error(' Failed to create spending proposal:', error);
             throw error;
         }
     }
@@ -1077,7 +1077,7 @@ class ZhtpApi {
                 timestamp: Math.floor(Date.now() / 1000)
             };
         } catch (error) {
-            console.error('❌ Failed to get network info:', error);
+            console.error(' Failed to get network info:', error);
             throw error;
         }
     }
@@ -1086,7 +1086,7 @@ class ZhtpApi {
     
     // Resolve dApp by domain name (e.g., "mysite.zhtp")
     async resolveDapp(domain) {
-        console.log(`🌐 Resolving Web4 dApp: ${domain}`);
+        console.log(` Resolving Web4 dApp: ${domain}`);
         
         try {
             await this.ensureConnection();
@@ -1107,7 +1107,7 @@ class ZhtpApi {
                 throw new Error(`dApp resolution failed: ${response.status}`);
             }
         } catch (error) {
-            console.error('❌ Failed to resolve dApp:', error);
+            console.error(' Failed to resolve dApp:', error);
             // Return fallback for demo purposes
             return {
                 id: 'demo_dapp',
@@ -1129,7 +1129,7 @@ class ZhtpApi {
     
     // Load Web4 resource content from smart contract + DHT
     async loadWeb4Resource(url) {
-        console.log(`📄 Loading Web4 resource: ${url}`);
+        console.log(` Loading Web4 resource: ${url}`);
         
         try {
             await this.ensureConnection();
@@ -1204,7 +1204,7 @@ class ZhtpApi {
             }
             
             if (!content) {
-                console.log('📄 No direct content found, generating demo content...');
+                console.log(' No direct content found, generating demo content...');
                 content = this.generateDemoWeb4Content(domain, path, contractData.metadata);
             }
             
@@ -1224,7 +1224,7 @@ class ZhtpApi {
             };
             
         } catch (error) {
-            console.error('❌ Failed to load Web4 resource:', error);
+            console.error(' Failed to load Web4 resource:', error);
             throw error;
         }
     }
@@ -1251,7 +1251,7 @@ class ZhtpApi {
                 throw new Error(`Contract lookup failed: ${response.status}`);
             }
         } catch (error) {
-            console.error('❌ Failed to get contract by ID:', error);
+            console.error(' Failed to get contract by ID:', error);
             return null;
         }
     }
@@ -1278,14 +1278,14 @@ class ZhtpApi {
                 throw new Error(`Contract lookup by hash failed: ${response.status}`);
             }
         } catch (error) {
-            console.error('❌ Failed to get contract by hash:', error);
+            console.error(' Failed to get contract by hash:', error);
             return null;
         }
     }
 
     // Resolve domain name to contract via blockchain DNS (using direct HTTP)
     async resolveDomain(domainName) {
-        console.log(`🔍 Resolving domain via HTTP: ${domainName}`);
+        console.log(` Resolving domain via HTTP: ${domainName}`);
         
         try {
             const axios = require('axios').default;
@@ -1294,20 +1294,20 @@ class ZhtpApi {
             const response = await axios.get(url, { timeout: 5000 });
             
             if (response.status === 200 && response.data) {
-                console.log('✅ Domain resolved:', response.data);
+                console.log(' Domain resolved:', response.data);
                 return response.data;
             } else if (response.status === 404) {
-                console.log(`❌ Domain not found: ${domainName}`);
+                console.log(` Domain not found: ${domainName}`);
                 return null;
             } else {
                 throw new Error(`DNS resolution failed: ${response.status}`);
             }
         } catch (error) {
             if (error.response && error.response.status === 404) {
-                console.log(`❌ Domain not found: ${domainName}`);
+                console.log(` Domain not found: ${domainName}`);
                 return null;
             }
-            console.error('❌ Failed to resolve domain:', error.message);
+            console.error(' Failed to resolve domain:', error.message);
             return null;
         }
     }
@@ -1330,7 +1330,7 @@ class ZhtpApi {
             // Handle direct content structure from our deployed contracts
             let content;
             if (contractData.content) {
-                console.log('📄 Available content files:', Object.keys(contractData.content));
+                console.log(' Available content files:', Object.keys(contractData.content));
                 if (path === '/' || path === '/index.html') {
                     content = contractData.content['index.html'] || contractData.content['index.htm'];
                 } else {
@@ -1338,7 +1338,7 @@ class ZhtpApi {
                     content = contractData.content[filename];
                 }
             } else if (contractData.contract_data && contractData.contract_data.content) {
-                console.log('📄 Available content files:', Object.keys(contractData.contract_data.content));
+                console.log(' Available content files:', Object.keys(contractData.contract_data.content));
                 if (path === '/' || path === '/index.html') {
                     content = contractData.contract_data.content['index.html'] || contractData.contract_data.content['index.htm'];
                 } else {
@@ -1348,7 +1348,7 @@ class ZhtpApi {
             }
             
             if (!content) {
-                console.log('❌ No content found for path:', path);
+                console.log(' No content found for path:', path);
                 console.log(' Full contract structure keys:', Object.keys(contractData));
                 throw new Error(`Resource not found in contract: ${path}`);
             }
@@ -1365,7 +1365,7 @@ class ZhtpApi {
                 }
             };
         } catch (error) {
-            console.error('❌ Failed to get contract content:', error);
+            console.error(' Failed to get contract content:', error);
             throw error;
         }
     }
@@ -1428,7 +1428,7 @@ class ZhtpApi {
 </head>
 <body>
     <div class="container">
-        <h1>🌐 ${title}</h1>
+        <h1> ${title}</h1>
         <p>${description}</p>
         
         <nav>
@@ -1438,7 +1438,7 @@ class ZhtpApi {
         </nav>
         
         <div class="web4-info">
-            <h3>🚀 You're viewing a Web4 website!</h3>
+            <h3> You're viewing a Web4 website!</h3>
             <p><strong>Current path:</strong> ${path}</p>
             <p><strong>Domain:</strong> ${domain}</p>
             <p><strong>Protocol:</strong> ZHTP Web4</p>
@@ -1447,10 +1447,10 @@ class ZhtpApi {
         <div class="features">
             <h3>✨ Web4 Features:</h3>
             <ul>
-                <li>🔒 Quantum-resistant security</li>
+                <li> Quantum-resistant security</li>
                 <li>🌍 Decentralized hosting via smart contracts</li>
                 <li>💾 Content stored in DHT network</li>
-                <li>⚡ Zero-knowledge privacy protection</li>
+                <li> Zero-knowledge privacy protection</li>
                 <li>🏛️ DAO governance integration</li>
                 <li> Blockchain verification</li>
             </ul>
@@ -1462,7 +1462,7 @@ class ZhtpApi {
     </div>
     
     <script>
-        console.log('🌐 Web4 website loaded successfully!');
+        console.log(' Web4 website loaded successfully!');
         console.log(' Running on ZHTP protocol');
         console.log('💎 Content served from smart contract + DHT');
         console.log('Domain: ${domain}');
@@ -1487,7 +1487,7 @@ class ZhtpApi {
                 throw new Error(`Gas info request failed: ${response.status}`);
             }
         } catch (error) {
-            console.error('❌ Failed to get gas info:', error);
+            console.error(' Failed to get gas info:', error);
             throw error;
         }
     }
@@ -1517,7 +1517,7 @@ class ZhtpApi {
                 throw new Error(`Identity check failed: ${response.status}`);
             }
         } catch (error) {
-            console.error('❌ Failed to check identity existence:', error);
+            console.error(' Failed to check identity existence:', error);
             throw error;
         }
     }
@@ -1541,7 +1541,7 @@ class ZhtpApi {
             return response;
             
         } catch (error) {
-            console.error('❌ Failed to create identity:', error);
+            console.error(' Failed to create identity:', error);
             throw error;
         }
     }
@@ -1563,7 +1563,7 @@ class ZhtpApi {
                 throw new Error(`Identity lookup failed: ${response.status}`);
             }
         } catch (error) {
-            console.error('❌ Failed to get identity:', error);
+            console.error(' Failed to get identity:', error);
             throw error;
         }
     }
@@ -1584,7 +1584,7 @@ class ZhtpApi {
                 throw new Error(`Identity verification failed: ${response.status}`);
             }
         } catch (error) {
-            console.error('❌ Failed to verify identity:', error);
+            console.error(' Failed to verify identity:', error);
             throw error;
         }
     }
@@ -1610,7 +1610,7 @@ class ZhtpApi {
                 throw new Error(`Wallet balance request failed: ${response.status}`);
             }
         } catch (error) {
-            console.error('❌ Failed to get wallet balance:', error);
+            console.error(' Failed to get wallet balance:', error);
             // Return default balance structure for new users
             return {
                 success: true,
@@ -1665,11 +1665,11 @@ class ZhtpApi {
                 const transactionData = JSON.parse(response.data);
                 return transactionData.transactions || [];
             } else {
-                console.warn(`⚠️ Transaction history request failed: ${response.status}`);
+                console.warn(` Transaction history request failed: ${response.status}`);
                 return [];
             }
         } catch (error) {
-            console.error('❌ Failed to get transaction history:', error);
+            console.error(' Failed to get transaction history:', error);
             return [];
         }
     }
@@ -1689,7 +1689,7 @@ class ZhtpApi {
                 }
             ];
         } catch (error) {
-            console.error('❌ Failed to get assets:', error);
+            console.error(' Failed to get assets:', error);
             return [];
         }
     }
@@ -1717,7 +1717,7 @@ class ZhtpApi {
             return response;
             
         } catch (error) {
-            console.error('❌ Failed to sign in with identity:', error);
+            console.error(' Failed to sign in with identity:', error);
             throw error;
         }
     }

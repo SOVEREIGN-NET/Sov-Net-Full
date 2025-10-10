@@ -2,7 +2,7 @@
 
 A complete Web4 desktop application built with Electron, featuring built-in ZK-DID identity management, quantum-resistant cryptography, and real ZHTP blockchain integration.
 
-## 🚀 Features
+##  Features
 
 ###  Zero-Knowledge Identity (ZK-DID)
 - **Quantum-Resistant Security**: CRYSTALS-Dilithium signatures + CRYSTALS-Kyber encryption
@@ -25,7 +25,7 @@ A complete Web4 desktop application built with Electron, featuring built-in ZK-D
 - **Treasury Management**: Community-controlled fund allocation
 - **Execution Engine**: Automatic proposal implementation
 
-### 🌐 Web4 Navigation
+###  Web4 Navigation
 - **ZHTP Protocol**: Native support for zhtp://, zk://, mesh://, dao:// protocols
 - **Decentralized DNS**: ZDNS resolution for .zhtp domains
 - **dApp Integration**: Seamless dApp discovery and launching
@@ -64,7 +64,7 @@ A complete Web4 desktop application built with Electron, featuring built-in ZK-D
 - **Biometric APIs**: Camera access for identity verification
 - **Native OS**: Platform-specific features and notifications
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 1. **ZHTP Node**: Ensure ZHTP blockchain node is running
@@ -341,7 +341,7 @@ npm run package
 - **Accessibility**: Support screen readers and keyboard navigation
 - **Cross-Platform**: Ensure compatibility across all supported platforms
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
@@ -362,9 +362,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**🖥️ Welcome to the Future of the Internet - Web4 Desktop App is Here! 🚀**
+**🖥️ Welcome to the Future of the Internet - Web4 Desktop App is Here! **
 
-## 🚀 Features
+##  Features
 
 ###  Zero-Knowledge Identity (ZK-DID)
 - **Quantum-Resistant Security**: CRYSTALS-Dilithium signatures + CRYSTALS-Kyber encryption
@@ -387,7 +387,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Treasury Management**: Community-controlled fund allocation
 - **Execution Engine**: Automatic proposal implementation
 
-### 🌐 Web4 Navigation
+###  Web4 Navigation
 - **ZHTP Protocol**: Native support for zhtp://, zk://, mesh://, dao:// protocols
 - **Decentralized DNS**: ZDNS resolution for .zhtp domains
 - **dApp Integration**: Seamless dApp discovery and launching
@@ -421,7 +421,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Biometric APIs**: Camera access for identity verification
 - **Service Workers**: Offline functionality and caching
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 1. **ZHTP Node**: Ensure ZHTP blockchain node is running
@@ -560,7 +560,7 @@ Access via settings menu (⚙️):
 - **Multi-Factor**: Combined with cryptographic authentication
 - **Revocation**: Secure identity revocation and recovery
 
-## 🌐 Protocol Support
+##  Protocol Support
 
 ### ZHTP Protocol (`zhtp://`)
 - `zhtp://identity/create` - Create new identity
@@ -682,7 +682,7 @@ CMD ["node", "server.js"]
 - **Accessibility**: Support screen readers and keyboard navigation
 - **Testing**: Comprehensive test coverage for all features
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
@@ -702,4 +702,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**🌐 Welcome to the Future of the Internet - Web4 is Here! 🚀**
+** Welcome to the Future of the Internet - Web4 is Here! **

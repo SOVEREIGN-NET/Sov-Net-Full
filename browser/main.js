@@ -20,7 +20,7 @@ async function ensureZhtpNodeRunning() {
         console.log(' ZHTP node is already running on port 9333');
         return true;
     } catch (error) {
-        console.log('⚠️ ZHTP node not detected on port 9333, attempting to start...');
+        console.log(' ZHTP node not detected on port 9333, attempting to start...');
         return await startZhtpNode();
     }
 }
@@ -31,7 +31,7 @@ async function startZhtpNode() {
         const executable = isWindows ? '.\\target\\debug\\zhtp.exe' : './target/debug/zhtp';
         const args = ['node', 'start', '--dev', '--port', '9333'];
         
-        console.log('🚀 Starting ZHTP node on port 9333...');
+        console.log(' Starting ZHTP node on port 9333...');
         
         const nodeProcess = spawn(executable, args, {
             cwd: path.join(__dirname, '../zhtp'),
@@ -63,7 +63,7 @@ async function startZhtpNode() {
         });
         
         nodeProcess.on('error', (error) => {
-            console.error('❌ Failed to start ZHTP node:', error);
+            console.error(' Failed to start ZHTP node:', error);
             if (!nodeReady) reject(error);
         });
         
@@ -77,7 +77,7 @@ async function startZhtpNode() {
         // Timeout after 30 seconds
         setTimeout(() => {
             if (!nodeReady) {
-                console.log('⚠️ ZHTP node startup timeout - continuing anyway');
+                console.log(' ZHTP node startup timeout - continuing anyway');
                 resolve(false);
             }
         }, 30000);
@@ -416,7 +416,7 @@ ipcMain.handle('zhtp-connect', async (event, nodeAddress) => {
         
         return { success: true, connected: true };
     } catch (error) {
-        console.error('❌ Electron: ZHTP connection failed:', error);
+        console.error(' Electron: ZHTP connection failed:', error);
         return { success: false, error: error.message };
     }
 });
@@ -489,7 +489,7 @@ ipcMain.handle('zhtp-request', async (event, requestData) => {
         };
         
     } catch (error) {
-        console.error('❌ Electron: ZHTP request failed:', error);
+        console.error(' Electron: ZHTP request failed:', error);
         throw error;
     }
 });
@@ -505,7 +505,7 @@ ipcMain.handle('zhtp-disconnect', async (event) => {
         
         return { success: true };
     } catch (error) {
-        console.error('❌ Electron: ZHTP disconnection failed:', error);
+        console.error(' Electron: ZHTP disconnection failed:', error);
         return { success: false, error: error.message };
     }
 });

@@ -62,7 +62,7 @@ class ZkDidManager {
             return result;
 
         } catch (error) {
-            console.error('❌ Failed to create ZK-DID identity:', error);
+            console.error(' Failed to create ZK-DID identity:', error);
             throw new Error(`Identity creation failed: ${error.message}`);
         }
     }
@@ -122,7 +122,7 @@ class ZkDidManager {
             };
 
         } catch (error) {
-            console.error('❌ Failed to create identity proof:', error);
+            console.error(' Failed to create identity proof:', error);
             throw error;
         }
     }
@@ -130,7 +130,7 @@ class ZkDidManager {
     async generatePlonky2Proof(proofData, identity) {
         // Simplified Plonky2 proof generation for web environment
         // In production, this would use actual Plonky2 WASM
-        console.log('⚡ Generating Plonky2 proof...');
+        console.log(' Generating Plonky2 proof...');
         
         try {
             // Create circuit inputs
@@ -151,7 +151,7 @@ class ZkDidManager {
             return mockProof;
 
         } catch (error) {
-            console.error('❌ Plonky2 proof generation failed:', error);
+            console.error(' Plonky2 proof generation failed:', error);
             throw error;
         }
     }
@@ -211,14 +211,14 @@ class ZkDidManager {
                     return this.currentIdentity;
                 }
             } catch (error) {
-                console.log('⚠️ Identity not found on network, using local copy');
+                console.log(' Identity not found on network, using local copy');
             }
 
             this.currentIdentity = identity;
             return identity;
 
         } catch (error) {
-            console.error('❌ Failed to load saved identity:', error);
+            console.error(' Failed to load saved identity:', error);
             return null;
         }
     }
@@ -232,7 +232,7 @@ class ZkDidManager {
             return fullIdentity;
 
         } catch (error) {
-            console.error('❌ Failed to decrypt full identity:', error);
+            console.error(' Failed to decrypt full identity:', error);
             return this.currentIdentity;
         }
     }
@@ -269,7 +269,7 @@ class ZkDidManager {
             return true;
 
         } catch (error) {
-            console.error('❌ Failed to export identity:', error);
+            console.error(' Failed to export identity:', error);
             throw error;
         }
     }
@@ -299,7 +299,7 @@ class ZkDidManager {
             return identity;
 
         } catch (error) {
-            console.error('❌ Failed to import identity:', error);
+            console.error(' Failed to import identity:', error);
             throw error;
         }
     }
@@ -323,7 +323,7 @@ class ZkDidManager {
             return true;
 
         } catch (error) {
-            console.error('❌ Failed to revoke identity:', error);
+            console.error(' Failed to revoke identity:', error);
             throw error;
         }
     }
@@ -355,7 +355,7 @@ class ZkDidManager {
             return credential;
 
         } catch (error) {
-            console.error('❌ Failed to create credential:', error);
+            console.error(' Failed to create credential:', error);
             throw error;
         }
     }
@@ -406,7 +406,7 @@ class ZkDidManager {
             return isValid;
 
         } catch (error) {
-            console.error('❌ Identity verification failed:', error);
+            console.error(' Identity verification failed:', error);
             return false;
         }
     }
@@ -426,7 +426,7 @@ class ZkDidManager {
             return isValidProof;
 
         } catch (error) {
-            console.error('❌ Proof verification failed:', error);
+            console.error(' Proof verification failed:', error);
             return false;
         }
     }
@@ -451,7 +451,7 @@ class ZkDidManager {
             return isValid;
 
         } catch (error) {
-            console.error('❌ Proof verification error:', error);
+            console.error(' Proof verification error:', error);
             return false;
         }
     }
@@ -510,7 +510,7 @@ class ZkCryptoUtils {
             };
 
         } catch (error) {
-            console.error('❌ Key generation failed:', error);
+            console.error(' Key generation failed:', error);
             throw error;
         }
     }

@@ -179,7 +179,7 @@
                 showStatus(' ZHTP Node is running and accessible', 'success');
                 log('Node status check complete - all endpoints responding');
             } else {
-                showStatus('❌ ZHTP Node is not accessible', 'error');
+                showStatus(' ZHTP Node is not accessible', 'error');
             }
         }
         
@@ -188,7 +188,7 @@
             const passphrase = document.getElementById('passphrase').value;
             
             if (!identityId || !passphrase) {
-                showStatus('❌ Please enter both Identity ID and passphrase', 'error');
+                showStatus(' Please enter both Identity ID and passphrase', 'error');
                 return;
             }
             
@@ -208,7 +208,7 @@
                 showStatus(' Registration successful!', 'success');
                 log('Registration completed successfully');
             } else {
-                showStatus(`❌ Registration failed: ${result.data}`, 'error');
+                showStatus(` Registration failed: ${result.data}`, 'error');
                 log(`Registration error: ${JSON.stringify(result)}`);
             }
         }
@@ -218,7 +218,7 @@
             const passphrase = document.getElementById('passphrase').value;
             
             if (!identityId || !passphrase) {
-                showStatus('❌ Please enter both Identity ID and passphrase', 'error');
+                showStatus(' Please enter both Identity ID and passphrase', 'error');
                 return;
             }
             
@@ -237,7 +237,7 @@
                 log('Signin completed successfully');
                 log(`Session token: ${result.data.session_token}`);
             } else {
-                showStatus(`❌ Signin failed: ${result.data}`, 'error');
+                showStatus(` Signin failed: ${result.data}`, 'error');
                 log(`Signin error: ${JSON.stringify(result)}`);
             }
         }

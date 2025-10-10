@@ -139,7 +139,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>🌐 Web4 Smart Contracts Testing</h1>
+        <h1> Web4 Smart Contracts Testing</h1>
         <div class="status" id="nodeStatus">
              Connecting to ZHTP node at http://localhost:9333...
         </div>
@@ -160,7 +160,7 @@
         </div>
         
         <div class="section">
-            <h2>🚀 Quick Deploy Test Contract</h2>
+            <h2> Quick Deploy Test Contract</h2>
             <p>Deploy a simple test smart contract to the DHT network using quantum-resistant ZHTP protocol.</p>
             
             <div class="input-group">
@@ -175,8 +175,8 @@
             
             <button onclick="deployTestContract()" id="deployBtn"> Deploy Test Contract</button>
             <button onclick="queryContract()" id="queryBtn"> Query Contract</button>
-            <button onclick="executeContract()" id="executeBtn">⚡ Execute Contract</button>
-            <button onclick="listContracts()" id="listBtn">📄 List All Contracts</button>
+            <button onclick="executeContract()" id="executeBtn"> Execute Contract</button>
+            <button onclick="listContracts()" id="listBtn"> List All Contracts</button>
         </div>
         
         <div class="section">
@@ -203,7 +203,7 @@
         
         <div class="section">
             <h2>📊 DHT Network Status</h2>
-            <button onclick="checkDhtStatus()" id="statusBtn">🌐 Check DHT Status</button>
+            <button onclick="checkDhtStatus()" id="statusBtn"> Check DHT Status</button>
             <button onclick="discoverPeers()" id="peersBtn">👥 Discover Peers</button>
             <button onclick="getNetworkStats()" id="statsBtn">📈 Network Statistics</button>
             <button onclick="clearLog()" id="clearBtn">🧹 Clear Log</button>
@@ -225,9 +225,9 @@
                 this.operationCount = 0;
                 this.contractsDeployed = 0;
                 
-                this.log('🚀 Web4 Contracts DHT API initialized');
+                this.log(' Web4 Contracts DHT API initialized');
                 this.log(` Node ID: ${this.nodeId}`);
-                this.log(`🌐 ZHTP Node: ${this.zhtpNodeUrl}`);
+                this.log(` ZHTP Node: ${this.zhtpNodeUrl}`);
                 
                 this.checkNodeConnection();
             }
@@ -268,8 +268,8 @@
                         throw new Error(`Status: ${response.status}`);
                     }
                 } catch (error) {
-                    this.log(`❌ ZHTP node connection failed: ${error.message}`, 'error');
-                    document.getElementById('nodeStatus').innerHTML = '❌ ZHTP node offline - Testing in simulation mode';
+                    this.log(` ZHTP node connection failed: ${error.message}`, 'error');
+                    document.getElementById('nodeStatus').innerHTML = ' ZHTP node offline - Testing in simulation mode';
                 }
             }
             
@@ -306,14 +306,14 @@
                             }
                         } catch (error) {
                             lastError = error;
-                            this.log(`⚠️ Endpoint ${endpoint} failed: ${error.message}`, 'warning');
+                            this.log(` Endpoint ${endpoint} failed: ${error.message}`, 'warning');
                         }
                     }
                     
                     throw lastError || new Error('All endpoints failed');
                     
                 } catch (error) {
-                    this.log(`❌ DHT packet send failed: ${error.message}`, 'error');
+                    this.log(` DHT packet send failed: ${error.message}`, 'error');
                     
                     // Simulate success for demo purposes when node is offline
                     this.log('🎭 Simulating successful DHT operation for demo', 'warning');
@@ -352,7 +352,7 @@
                     this.log(` Contract ${contractId} deployed successfully!`, 'success');
                     return result;
                 } catch (error) {
-                    this.log(`❌ Contract deployment failed: ${error.message}`, 'error');
+                    this.log(` Contract deployment failed: ${error.message}`, 'error');
                     throw error;
                 }
             }
@@ -380,13 +380,13 @@
                     this.log(` Contract query sent for ${contractId}`, 'success');
                     return result;
                 } catch (error) {
-                    this.log(`❌ Contract query failed: ${error.message}`, 'error');
+                    this.log(` Contract query failed: ${error.message}`, 'error');
                     throw error;
                 }
             }
             
             async executeContract(contractId, functionName, args = []) {
-                this.log(`⚡ Executing ${contractId}.${functionName}...`);
+                this.log(` Executing ${contractId}.${functionName}...`);
 
                 const contractData = {
                     contract_id: contractId,
@@ -405,10 +405,10 @@
 
                 try {
                     const result = await this.sendDhtPacket(packet);
-                    this.log(`🚀 Contract execution initiated for ${contractId}.${functionName}`, 'success');
+                    this.log(` Contract execution initiated for ${contractId}.${functionName}`, 'success');
                     return result;
                 } catch (error) {
-                    this.log(`❌ Contract execution failed: ${error.message}`, 'error');
+                    this.log(` Contract execution failed: ${error.message}`, 'error');
                     throw error;
                 }
             }
@@ -477,7 +477,7 @@
                     args = JSON.parse(argsText);
                 }
             } catch (e) {
-                contractsApi.log('⚠️ Invalid function arguments, using empty array', 'warning');
+                contractsApi.log(' Invalid function arguments, using empty array', 'warning');
             }
             
             await contractsApi.executeContract(contractId, functionName, args);
@@ -488,7 +488,7 @@
             const bytecodeHex = document.getElementById('customBytecode').value;
             
             if (!bytecodeHex) {
-                contractsApi.log('❌ Please enter WASM bytecode in hex format', 'error');
+                contractsApi.log(' Please enter WASM bytecode in hex format', 'error');
                 return;
             }
             
@@ -506,14 +506,14 @@
                 
                 await contractsApi.deployContract(contractId, bytecode, metadata);
             } catch (error) {
-                contractsApi.log(`❌ Custom deployment failed: ${error.message}`, 'error');
+                contractsApi.log(` Custom deployment failed: ${error.message}`, 'error');
             }
         };
         
         window.listContracts = async function() {
             contractsApi.log(' Requesting contract list from DHT network...');
             // Simulate contract listing
-            contractsApi.log('📄 Found contracts: hello_web4_demo, test_contract_001', 'success');
+            contractsApi.log(' Found contracts: hello_web4_demo, test_contract_001', 'success');
         };
         
         window.findContract = async function() {
@@ -528,7 +528,7 @@
         
         window.discoverPeers = function() {
             contractsApi.log('👥 Discovering DHT peers...');
-            contractsApi.log('🌐 Found peers: node_abc123, node_def456, node_ghi789', 'info');
+            contractsApi.log(' Found peers: node_abc123, node_def456, node_ghi789', 'info');
         };
         
         window.getNetworkStats = function() {

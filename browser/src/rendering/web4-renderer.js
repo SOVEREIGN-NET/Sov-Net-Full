@@ -79,7 +79,7 @@ class Web4PageRenderer {
             console.log(' Web4 page rendered successfully');
             
         } catch (error) {
-            console.error('❌ Failed to render Web4 page:', error);
+            console.error(' Failed to render Web4 page:', error);
             this.renderErrorPage(error);
         }
     }
@@ -113,7 +113,7 @@ class Web4PageRenderer {
                 <span>Created: ${new Date(pageData.metadata.created).toLocaleDateString()}</span>
             </div>
             <div class="zhtp-branding">
-                <span>🌐 Powered by ZHTP Protocol</span>
+                <span> Powered by ZHTP Protocol</span>
             </div>
         `;
         return footer;
@@ -181,7 +181,7 @@ class Web4PageRenderer {
         
         const assetItems = component.assets.map(asset => `
             <div class="asset-item" onclick="window.browser?.selectAsset('${asset.symbol}')">
-                <div class="asset-icon">${asset.symbol === 'ZHTP' ? '🪙' : '⚡'}</div>
+                <div class="asset-icon">${asset.symbol === 'ZHTP' ? '🪙' : ''}</div>
                 <div class="asset-info">
                     <div class="asset-name">${asset.name}</div>
                     <div class="asset-symbol">${asset.symbol}</div>
@@ -292,7 +292,7 @@ class Web4PageRenderer {
                             👎 Vote No
                         </button>
                         <button class="vote-btn details" onclick="window.browser?.viewProposalDetails('${proposal.id}')">
-                            📄 Details
+                             Details
                         </button>
                     </div>
                     <div class="proposal-deadline">${proposal.deadline}</div>
@@ -326,7 +326,7 @@ class Web4PageRenderer {
                     <div class="composer-features">
                         ${featureButtons}
                     </div>
-                    <button class="post-btn" onclick="window.browser?.publishPost()">🚀 Post</button>
+                    <button class="post-btn" onclick="window.browser?.publishPost()"> Post</button>
                 </div>
             </div>
         `;
@@ -407,7 +407,7 @@ class Web4PageRenderer {
         element.className = 'error-component';
         element.innerHTML = `
             <div class="component-error">
-                <h4>❌ Error rendering ${componentType}</h4>
+                <h4> Error rendering ${componentType}</h4>
                 <p>${error.message}</p>
             </div>
         `;
@@ -417,7 +417,7 @@ class Web4PageRenderer {
     renderErrorPage(error) {
         this.container.innerHTML = `
             <div class="error-page">
-                <h1>❌ Page Load Error</h1>
+                <h1> Page Load Error</h1>
                 <p>Failed to load Web4 page: ${error.message}</p>
                 <button onclick="window.browser?.goBack()">← Go Back</button>
                 <button onclick="window.browser?.refreshPage()"> Retry</button>

@@ -25,7 +25,7 @@ class Web4Browser {
     }
 
     async initialize() {
-        console.log('🚀 Initializing ZHTP Web4 Desktop App with Native Protocol...');
+        console.log(' Initializing ZHTP Web4 Desktop App with Native Protocol...');
         
         try {
             // Show loading screen
@@ -37,7 +37,7 @@ class Web4Browser {
                 console.log(' Native ZHTP protocol initialized successfully');
                 this.updateLoadingProgress(20, 'Native ZHTP protocol connected');
             } catch (error) {
-                console.warn('⚠️ Native ZHTP failed, falling back to legacy bridge:', error);
+                console.warn(' Native ZHTP failed, falling back to legacy bridge:', error);
                 this.useNativeProtocol = false;
                 await this.legacyApi.initialize();
                 this.api = this.legacyApi; // Switch to legacy API
@@ -86,7 +86,7 @@ class Web4Browser {
             }, 1000);
             
         } catch (error) {
-            console.error('❌ Initialization failed:', error);
+            console.error(' Initialization failed:', error);
             this.updateLoadingProgress(0, 'Failed to connect to ZHTP network');
             this.showInitializationError(error);
         }
@@ -112,7 +112,7 @@ class Web4Browser {
                     this.updateProtocolStatus();
                 }
             } catch (error) {
-                console.log('⚠️ Network update failed:', error.message);
+                console.log(' Network update failed:', error.message);
                 
                 // If native protocol fails, try to reconnect or fallback
                 if (this.useNativeProtocol && error.message.includes('Not connected')) {
@@ -120,7 +120,7 @@ class Web4Browser {
                     try {
                         await this.api.initialize();
                     } catch (reconnectError) {
-                        console.warn('⚠️ Native reconnection failed, switching to legacy');
+                        console.warn(' Native reconnection failed, switching to legacy');
                         this.useNativeProtocol = false;
                         this.api = this.legacyApi;
                     }
@@ -136,7 +136,7 @@ class Web4Browser {
             const connectionInfo = this.api.getConnectionInfo();
             protocolIndicator.innerHTML = `
                 <div class="protocol-status ${this.useNativeProtocol ? 'native' : 'legacy'}">
-                    <span class="protocol-icon">${this.useNativeProtocol ? '🚀' : ''}</span>
+                    <span class="protocol-icon">${this.useNativeProtocol ? '' : ''}</span>
                     <span class="protocol-text">
                         ${this.useNativeProtocol ? 'Native ZHTP' : 'Legacy Bridge'}
                     </span>
@@ -301,7 +301,7 @@ class Web4Browser {
     generateDashboardCards() {
         const cards = [
             {
-                icon: '🌐',
+                icon: '',
                 title: 'Social Network',
                 description: 'Connect with friends on social.zhtp - fully decentralized social media with zero-knowledge privacy',
                 action: () => this.navigateToAddress('social.zhtp'),
@@ -364,7 +364,7 @@ class Web4Browser {
                 <div class="card-icon">${card.icon}</div>
                 <h3 class="card-title">${card.title}</h3>
                 <p class="card-description">${card.description}</p>
-                ${!card.enabled ? '<p style="color: #ff6b6b; margin-top: 1rem; font-size: 0.9rem;">⚠️ Requires ZK-DID Identity</p>' : ''}
+                ${!card.enabled ? '<p style="color: #ff6b6b; margin-top: 1rem; font-size: 0.9rem;"> Requires ZK-DID Identity</p>' : ''}
             </div>
         `).join('');
     }
@@ -374,7 +374,7 @@ class Web4Browser {
     }
 
     async navigateToAddress(address) {
-        console.log(`🌐 Navigating to: ${address} via ${this.useNativeProtocol ? 'Native ZHTP' : 'Legacy Bridge'}`);
+        console.log(` Navigating to: ${address} via ${this.useNativeProtocol ? 'Native ZHTP' : 'Legacy Bridge'}`);
         
         // Update address bar
         const addressBar = document.getElementById('addressBar');
@@ -428,7 +428,7 @@ class Web4Browser {
                     break;
             }
         } catch (error) {
-            console.error('❌ Navigation failed:', error);
+            console.error(' Navigation failed:', error);
             this.showErrorPage('Navigation Error', error);
         }
     }
@@ -449,7 +449,7 @@ class Web4Browser {
             if (pageContent) {
                 pageContent.innerHTML = `
                     <div class="social-network">
-                        <h2>🌐 ZHTP Social Network</h2>
+                        <h2> ZHTP Social Network</h2>
                         <p>Zero-knowledge social media powered by ZHTP</p>
                         <div class="feed">
                             ${JSON.stringify(socialData, null, 2)}
@@ -547,7 +547,7 @@ class Web4Browser {
                             <p>Create custom zero-knowledge proofs</p>
                         </div>
                         <div class="tool-card">
-                            <h3>🌐 Mesh APIs</h3>
+                            <h3> Mesh APIs</h3>
                             <p>Integrate with ZHTP mesh network</p>
                         </div>
                     </div>
@@ -576,7 +576,7 @@ class Web4Browser {
         if (pageContent) {
             pageContent.innerHTML = `
                 <div class="error-page">
-                    <h2>❌ ${title}</h2>
+                    <h2> ${title}</h2>
                     <p>${error.message}</p>
                     <button class="btn-primary" onclick="browser.loadDashboard()">
                         Return to Dashboard
@@ -603,7 +603,7 @@ class Web4Browser {
     }
 
     closeModal(modalId) {
-        console.log(`❌ Closing modal: ${modalId}`);
+        console.log(` Closing modal: ${modalId}`);
         // Implement modal closing logic
     }
 

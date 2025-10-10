@@ -30,7 +30,7 @@ export class BiometricVerifier {
             return true;
 
         } catch (error) {
-            console.error('❌ Biometric initialization failed:', error);
+            console.error(' Biometric initialization failed:', error);
             throw error;
         }
     }
@@ -51,7 +51,7 @@ export class BiometricVerifier {
             await this.initializeMLFaceDetection();
 
         } catch (error) {
-            console.log('⚠️ Advanced face detection not available, using basic verification');
+            console.log(' Advanced face detection not available, using basic verification');
             // Will use basic liveness detection without ML
         }
     }
@@ -125,7 +125,7 @@ export class BiometricVerifier {
             };
 
         } catch (error) {
-            console.error('❌ Biometric verification start failed:', error);
+            console.error(' Biometric verification start failed:', error);
             
             if (error.name === 'NotAllowedError') {
                 throw new Error('Camera permission denied. Please allow camera access for biometric verification.');
@@ -219,7 +219,7 @@ export class BiometricVerifier {
             };
 
         } catch (error) {
-            console.error('❌ Biometric capture failed:', error);
+            console.error(' Biometric capture failed:', error);
             
             this.verificationSession.attempts++;
             
@@ -242,7 +242,7 @@ export class BiometricVerifier {
             return await this.basicFaceDetection(imageData);
 
         } catch (error) {
-            console.error('❌ Face detection failed:', error);
+            console.error(' Face detection failed:', error);
             return [];
         }
     }
@@ -346,7 +346,7 @@ export class BiometricVerifier {
             };
 
         } catch (error) {
-            console.error('❌ Liveness detection failed:', error);
+            console.error(' Liveness detection failed:', error);
             return {
                 isLive: false,
                 score: 0,
@@ -442,7 +442,7 @@ export class BiometricVerifier {
             return features;
 
         } catch (error) {
-            console.error('❌ Feature extraction failed:', error);
+            console.error(' Feature extraction failed:', error);
             throw error;
         }
     }
@@ -531,7 +531,7 @@ export class BiometricVerifier {
             return hashHex;
 
         } catch (error) {
-            console.error('❌ Biometric hash creation failed:', error);
+            console.error(' Biometric hash creation failed:', error);
             throw error;
         }
     }
@@ -557,7 +557,7 @@ export class BiometricVerifier {
             return true;
 
         } catch (error) {
-            console.error('❌ QR code generation failed:', error);
+            console.error(' QR code generation failed:', error);
             throw error;
         }
     }

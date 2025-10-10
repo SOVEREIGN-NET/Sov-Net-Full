@@ -12,7 +12,7 @@ class ZkDHTClient {
     }
 
     async initialize() {
-        console.log('🌐 Initializing zkDHT client...');
+        console.log(' Initializing zkDHT client...');
         
         try {
             // Connect to zkDHT network
@@ -25,7 +25,7 @@ class ZkDHTClient {
             console.log(' zkDHT client initialized successfully');
             
         } catch (error) {
-            console.error('❌ Failed to initialize zkDHT client:', error);
+            console.error(' Failed to initialize zkDHT client:', error);
             throw error;
         }
     }
@@ -49,12 +49,12 @@ class ZkDHTClient {
                 console.log(` Connected to local node: ${node}`);
                 return; // Successfully connected to local node
             } catch (error) {
-                console.log(`⚠️ Failed to connect to ${node}, trying next...`);
+                console.log(` Failed to connect to ${node}, trying next...`);
             }
         }
 
         if (this.peers.size === 0) {
-            console.log('⚠️ No local nodes available, operating in standalone mode (pure mesh only)');
+            console.log(' No local nodes available, operating in standalone mode (pure mesh only)');
             // Don't throw error - allow operation with mesh-only connectivity
             this.peers.add('zhtp://localhost:8080'); // Add dummy local peer for testing
         }
@@ -74,12 +74,12 @@ class ZkDHTClient {
             console.log(` Discovered ${discoveredPeers.length} local mesh peers`);
             
         } catch (error) {
-            console.log('⚠️ Local mesh peer discovery failed, continuing with available peers');
+            console.log(' Local mesh peer discovery failed, continuing with available peers');
         }
     }
 
     async loadPage(zhtpUrl) {
-        console.log(`📄 Loading page from zkDHT: ${zhtpUrl}`);
+        console.log(` Loading page from zkDHT: ${zhtpUrl}`);
         
         try {
             // Parse ZHTP URL
@@ -106,7 +106,7 @@ class ZkDHTClient {
             return content;
             
         } catch (error) {
-            console.error('❌ Failed to load page from zkDHT:', error);
+            console.error(' Failed to load page from zkDHT:', error);
             
             // Fallback to mock content for development
             return this.generateMockContent(zhtpUrl);
@@ -148,7 +148,7 @@ class ZkDHTClient {
             return response.contentHash;
             
         } catch (error) {
-            console.error('❌ Content resolution failed:', error);
+            console.error(' Content resolution failed:', error);
             throw error;
         }
     }
@@ -167,14 +167,14 @@ class ZkDHTClient {
                         return content;
                     }
                 } catch (error) {
-                    console.log(`⚠️ Failed to fetch from ${peer}, trying next...`);
+                    console.log(` Failed to fetch from ${peer}, trying next...`);
                 }
             }
             
             throw new Error('Content not available from any peer');
             
         } catch (error) {
-            console.error('❌ Content fetch failed:', error);
+            console.error(' Content fetch failed:', error);
             throw error;
         }
     }
@@ -244,7 +244,7 @@ class ZkDHTClient {
             throw new Error('No valid responses from DHT query');
             
         } catch (error) {
-            console.error('❌ DHT query failed:', error);
+            console.error(' DHT query failed:', error);
             throw error;
         }
     }
@@ -406,7 +406,7 @@ class ZkDHTClient {
                                 id: 'post_1',
                                 author: 'alice.zkdid',
                                 avatar: '👩‍💻',
-                                content: 'Just deployed my first Web4 dApp! The zero-knowledge privacy is incredible! 🚀 #Web4 #ZHTP',
+                                content: 'Just deployed my first Web4 dApp! The zero-knowledge privacy is incredible!  #Web4 #ZHTP',
                                 timestamp: '2 hours ago',
                                 likes: 47,
                                 shares: 12,
@@ -416,7 +416,7 @@ class ZkDHTClient {
                                 id: 'post_2',
                                 author: 'dev.zhtp',
                                 avatar: '👨‍💻',
-                                content: 'New protocol update is live! Quantum-resistant signatures now 40% faster. Upgrade your nodes! ⚡',
+                                content: 'New protocol update is live! Quantum-resistant signatures now 40% faster. Upgrade your nodes! ',
                                 timestamp: '4 hours ago',
                                 likes: 156,
                                 shares: 34,
@@ -479,7 +479,7 @@ class ZkDHTClient {
                                 description: 'Premium business domain for Web4',
                                 price: '500 ZHTP',
                                 category: 'Business',
-                                image: '🌐'
+                                image: ''
                             }
                         ]
                     },
@@ -518,7 +518,7 @@ class ZkDHTClient {
                         activeChat: 'alice',
                         messages: [
                             { sender: 'alice', content: 'Hey! How\'s the Web4 project going?', time: '2:30 PM', type: 'received' },
-                            { sender: 'me', content: 'Going great! Just deployed the new features 🚀', time: '2:31 PM', type: 'sent' },
+                            { sender: 'me', content: 'Going great! Just deployed the new features ', time: '2:31 PM', type: 'sent' },
                             { sender: 'alice', content: 'Awesome! Can\'t wait to try them out', time: '2:32 PM', type: 'received' }
                         ]
                     },
@@ -553,12 +553,12 @@ class ZkDHTClient {
                         type: 'content',
                         html: `
                             <div style="text-align: center; padding: 2rem;">
-                                <h2>🌐 Welcome to ${domain}</h2>
+                                <h2> Welcome to ${domain}</h2>
                                 <p>This is a Web4 site hosted on the ZHTP network</p>
                                 <p>Content loaded from zkDHT (Zero-Knowledge Distributed Hash Table)</p>
                                 <div style="margin-top: 2rem;">
                                     <button onclick="window.browser?.showNotification('Feature coming soon!', 'info')">
-                                        🚀 Explore Features
+                                         Explore Features
                                     </button>
                                 </div>
                             </div>

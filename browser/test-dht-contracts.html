@@ -182,7 +182,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>🚀 Smart Contracts DHT Testing</h1>
+        <h1> Smart Contracts DHT Testing</h1>
         <p style="text-align: center; opacity: 0.9;">Test direct DHT packet-based smart contract operations through ZHTP protocol</p>
         
         <div class="section">
@@ -194,7 +194,7 @@
         
         <div class="grid">
             <div class="section">
-                <h2>🚀 Deploy Contract</h2>
+                <h2> Deploy Contract</h2>
                 <div class="form-group">
                     <label for="deploy-contract-id">Contract ID:</label>
                     <input type="text" id="deploy-contract-id" placeholder="e.g., counter_v1" value="test_counter">
@@ -207,7 +207,7 @@
                     <label for="deploy-description">Description:</label>
                     <input type="text" id="deploy-description" placeholder="Contract description" value="A simple counter for DHT testing">
                 </div>
-                <button class="button" onclick="deployTestContract()">🚀 Deploy Test Contract</button>
+                <button class="button" onclick="deployTestContract()"> Deploy Test Contract</button>
                 <button class="button" onclick="deployCustomContract()">Deploy Custom</button>
             </div>
             
@@ -227,7 +227,7 @@
         </div>
         
         <div class="section">
-            <h2>⚡ Execute Contract</h2>
+            <h2> Execute Contract</h2>
             <div class="inline-form">
                 <div style="flex: 1;">
                     <label for="exec-contract-id">Contract ID:</label>
@@ -241,13 +241,13 @@
                     <label for="exec-args">Arguments (JSON):</label>
                     <input type="text" id="exec-args" placeholder='e.g., [1]' value='[]'>
                 </div>
-                <button class="button" onclick="executeContract()">⚡ Execute</button>
+                <button class="button" onclick="executeContract()"> Execute</button>
             </div>
         </div>
         
         <div class="section">
-            <h2>🔥 Quick Actions</h2>
-            <button class="button" onclick="deployAndExecute()">🚀⚡ Deploy & Execute</button>
+            <h2> Quick Actions</h2>
+            <button class="button" onclick="deployAndExecute()"> Deploy & Execute</button>
             <button class="button" onclick="runFullDemo()">🎬 Run Full Demo</button>
             <button class="button" onclick="clearLogs()">🧹 Clear Logs</button>
         </div>
@@ -322,17 +322,17 @@
                     showStatus(' ZHTP node connected - DHT operations available', 'success');
                     log(' ZHTP node is running and accessible');
                 } else {
-                    showStatus('⚠️ ZHTP node responding but may have issues', 'error');
-                    log('⚠️ ZHTP node response issues');
+                    showStatus(' ZHTP node responding but may have issues', 'error');
+                    log(' ZHTP node response issues');
                 }
             } catch (error) {
-                showStatus('❌ Cannot connect to ZHTP node', 'error');
-                log(`❌ Connection failed: ${error.message}`);
+                showStatus(' Cannot connect to ZHTP node', 'error');
+                log(` Connection failed: ${error.message}`);
             }
         }
         
         async function deployTestContract() {
-            log('🚀 Starting test contract deployment via DHT...');
+            log(' Starting test contract deployment via DHT...');
             
             const contractId = document.getElementById('deploy-contract-id').value || 'test_counter';
             const contractName = document.getElementById('deploy-contract-name').value || 'Test Counter';
@@ -354,7 +354,7 @@
                 log(` Message ID: ${result.message_id}`);
                 
             } catch (error) {
-                log(`❌ Contract deployment failed: ${error.message}`);
+                log(` Contract deployment failed: ${error.message}`);
             }
         }
         
@@ -380,7 +380,7 @@
                 }, 2000);
                 
             } catch (error) {
-                log(`❌ Contract query failed: ${error.message}`);
+                log(` Contract query failed: ${error.message}`);
             }
         }
         
@@ -389,7 +389,7 @@
             const functionName = document.getElementById('exec-function').value || 'increment';
             const argsStr = document.getElementById('exec-args').value || '[]';
             
-            log(`⚡ Executing contract ${contractId}.${functionName} via DHT...`);
+            log(` Executing contract ${contractId}.${functionName} via DHT...`);
             
             try {
                 const args = JSON.parse(argsStr);
@@ -398,7 +398,7 @@
                 log(` Message ID: ${result.message_id}`);
                 
             } catch (error) {
-                log(`❌ Contract execution failed: ${error.message}`);
+                log(` Contract execution failed: ${error.message}`);
             }
         }
         
@@ -413,7 +413,7 @@
                 log(` Message ID: ${result.message_id}`);
                 
             } catch (error) {
-                log(`❌ Contract search failed: ${error.message}`);
+                log(` Contract search failed: ${error.message}`);
             }
         }
         
@@ -447,14 +447,14 @@
                 }
                 
             } catch (error) {
-                log(`❌ Failed to list contracts: ${error.message}`);
+                log(` Failed to list contracts: ${error.message}`);
                 const contractsList = document.getElementById('contracts-list');
                 contractsList.innerHTML = '<div class="status error">Failed to load contracts from DHT</div>';
             }
         }
         
         async function deployAndExecute() {
-            log('🚀⚡ Starting deploy and execute sequence via DHT...');
+            log(' Starting deploy and execute sequence via DHT...');
             
             const contractId = 'demo_' + Math.random().toString(36).substr(2, 9);
             
@@ -474,7 +474,7 @@
                 log(` Deploy and execute completed: ${JSON.stringify(result)}`);
                 
             } catch (error) {
-                log(`❌ Deploy and execute failed: ${error.message}`);
+                log(` Deploy and execute failed: ${error.message}`);
             }
         }
         
@@ -528,11 +528,11 @@
                         log(` Custom contract deployed: ${JSON.stringify(result)}`);
                     })
                     .catch(error => {
-                        log(`❌ Custom contract deployment failed: ${error.message}`);
+                        log(` Custom contract deployment failed: ${error.message}`);
                     });
                     
             } catch (error) {
-                log(`❌ Invalid bytecode format: ${error.message}`);
+                log(` Invalid bytecode format: ${error.message}`);
             }
         }
         
@@ -545,7 +545,7 @@
         
         // Initialize the page
         window.addEventListener('load', () => {
-            log('🚀 DHT Smart Contracts testing interface loaded');
+            log(' DHT Smart Contracts testing interface loaded');
             log(' Testing direct DHT packet communication for smart contracts');
             checkDhtStatus();
         });

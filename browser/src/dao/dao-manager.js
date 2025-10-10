@@ -28,7 +28,7 @@ export class DaoManager {
             console.log(' DAO management system initialized');
 
         } catch (error) {
-            console.error('❌ DAO initialization failed:', error);
+            console.error(' DAO initialization failed:', error);
             throw error;
         }
     }
@@ -40,7 +40,7 @@ export class DaoManager {
             return this.currentDaoData;
 
         } catch (error) {
-            console.error('❌ Failed to load DAO data:', error);
+            console.error(' Failed to load DAO data:', error);
             
             // Fallback to cached data
             const cached = localStorage.getItem('zhtp_dao_cache');
@@ -71,7 +71,7 @@ export class DaoManager {
             return votingData.totalPower || votingData.voting_power || 0;
 
         } catch (error) {
-            console.error('❌ Failed to calculate voting power:', error);
+            console.error(' Failed to calculate voting power:', error);
             
             // Fallback to zero voting power if API fails
             return 0;
@@ -135,7 +135,7 @@ export class DaoManager {
             return { ...proposal, networkResult: result };
 
         } catch (error) {
-            console.error('❌ Proposal creation failed:', error);
+            console.error(' Proposal creation failed:', error);
             throw error;
         }
     }
@@ -263,7 +263,7 @@ export class DaoManager {
             return { ...result, zkProof: zkVoteProof };
 
         } catch (error) {
-            console.error('❌ Voting failed:', error);
+            console.error(' Voting failed:', error);
             throw error;
         }
     }
@@ -297,7 +297,7 @@ export class DaoManager {
     }
 
     async executeProposal(proposal) {
-        console.log(`⚡ Executing proposal: ${proposal.title}`);
+        console.log(` Executing proposal: ${proposal.title}`);
         
         try {
             for (const implementation of proposal.implementations) {
@@ -325,7 +325,7 @@ export class DaoManager {
             console.log(' Proposal executed successfully');
 
         } catch (error) {
-            console.error('❌ Proposal execution failed:', error);
+            console.error(' Proposal execution failed:', error);
             proposal.executionError = error.message;
         }
     }
@@ -433,7 +433,7 @@ export class DaoManager {
             const balance = await this.api.getTreasuryBalance();
             return balance;
         } catch (error) {
-            console.error('❌ Failed to get treasury balance:', error);
+            console.error(' Failed to get treasury balance:', error);
             return this.currentDaoData?.treasuryBalance || 0;
         }
     }
@@ -443,7 +443,7 @@ export class DaoManager {
             const stats = await this.api.getDaoStatistics();
             return stats;
         } catch (error) {
-            console.error('❌ Failed to get DAO statistics:', error);
+            console.error(' Failed to get DAO statistics:', error);
             
             // Return calculated stats from current data
             if (this.currentDaoData) {
@@ -479,7 +479,7 @@ export class DaoManager {
             localStorage.setItem('zhtp_dao_cache', JSON.stringify(cacheData));
             localStorage.setItem('zhtp_dao_cache_timestamp', Date.now().toString());
         } catch (error) {
-            console.error('❌ Failed to cache DAO data:', error);
+            console.error(' Failed to cache DAO data:', error);
         }
     }
 
@@ -530,7 +530,7 @@ class ZkVotingSystem {
             };
 
         } catch (error) {
-            console.error('❌ Proposal proof creation failed:', error);
+            console.error(' Proposal proof creation failed:', error);
             throw error;
         }
     }
@@ -564,7 +564,7 @@ class ZkVotingSystem {
             };
 
         } catch (error) {
-            console.error('❌ Vote proof creation failed:', error);
+            console.error(' Vote proof creation failed:', error);
             throw error;
         }
     }
@@ -618,7 +618,7 @@ class ZkVotingSystem {
         // Simulate ZK proof generation
         // In production, this would use actual Plonky2 or similar ZK system
         
-        console.log(`⚡ Generating ${proofType} ZK proof...`);
+        console.log(` Generating ${proofType} ZK proof...`);
         
         // Simulate proof generation time
         await new Promise(resolve => setTimeout(resolve, 200));
@@ -702,7 +702,7 @@ class ZkVotingSystem {
             return true;
 
         } catch (error) {
-            console.error('❌ ZK proof verification failed:', error);
+            console.error(' ZK proof verification failed:', error);
             return false;
         }
     }

@@ -91,14 +91,14 @@ class DhtTestingDashboard {
      */
     async runFullTestSuite() {
         if (this.isRunning) {
-            console.log('⚠️ Test suite already running...');
+            console.log(' Test suite already running...');
             return;
         }
 
         this.isRunning = true;
         
         try {
-            console.log('🚀 Starting comprehensive DHT test suite...');
+            console.log(' Starting comprehensive DHT test suite...');
             
             if (this.browser && this.browser.showNotification) {
                 this.browser.showNotification('Starting DHT test suite...', 'info');
@@ -176,7 +176,7 @@ class DhtTestingDashboard {
      * Run performance test suite
      */
     async runPerformanceTest() {
-        console.log('⚡ Running DHT performance tests...');
+        console.log(' Running DHT performance tests...');
 
         const tests = [
             { name: 'Small Content', size: 'small', nodes: 3 },
@@ -230,7 +230,7 @@ class DhtTestingDashboard {
      * Log performance test results
      */
     logPerformanceResults(results) {
-        console.log('\n⚡ DHT Performance Test Results:');
+        console.log('\n DHT Performance Test Results:');
         console.log('=' .repeat(40));
         
         results.forEach(result => {
@@ -338,7 +338,7 @@ class DhtTestingDashboard {
         const resultsDiv = document.getElementById('dht-test-results');
         
         if (!urlInput || !urlInput.value.trim()) {
-            this.updateInterfaceResults('❌ Please enter a valid ZHTP URL');
+            this.updateInterfaceResults(' Please enter a valid ZHTP URL');
             return;
         }
         
@@ -356,13 +356,13 @@ Success rate: ${Math.round(result.successfulQueries / result.nodesQueried * 100)
 Avg response time: ${result.averageResponseTime}ms
 
 Nodes:
-${result.nodes.map((n, i) => `  ${i+1}. ${n.id}... (${n.protocol}) ${n.hasContent ? '' : '❌'}`).join('\n')}
+${result.nodes.map((n, i) => `  ${i+1}. ${n.id}... (${n.protocol}) ${n.hasContent ? '' : ''}`).join('\n')}
 `;
             
             this.updateInterfaceResults(output);
             
         } catch (error) {
-            this.updateInterfaceResults(`❌ Test failed: ${error.message}`);
+            this.updateInterfaceResults(` Test failed: ${error.message}`);
         }
     }
 

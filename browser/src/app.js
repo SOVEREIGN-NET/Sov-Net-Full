@@ -1,6 +1,6 @@
 /**
  * ZHTP Web4 Desktop App - Complete Native Protocol Application
- * ⚡ PURE ZHTP PROTOCOL - NO HTTP, NO WASM, NO OLD PROTOCOLS ⚡
+ *  PURE ZHTP PROTOCOL - NO HTTP, NO WASM, NO OLD PROTOCOLS 
  * Real Web4 integration with native ZHTP blockchain and ZK-DID system
  * 🧪 DHT TESTING ENABLED - Test mesh network and content routing
  */
@@ -86,11 +86,11 @@ window.submitProposal = function() {
         console.log('👤 Current identity:', window.browser.currentIdentity);
         
         if (!window.browser.currentIdentity) {
-            console.error('❌ No identity found - user must sign in first');
+            console.error(' No identity found - user must sign in first');
             if (window.browser.showNotification) {
-                window.browser.showNotification('❌ Please sign in to create proposals', 'error');
+                window.browser.showNotification(' Please sign in to create proposals', 'error');
             } else {
-                alert('❌ Please sign in to create proposals');
+                alert(' Please sign in to create proposals');
             }
             return;
         }
@@ -99,7 +99,7 @@ window.submitProposal = function() {
         // Call the browser's submitProposal method which will handle form data collection
         window.browser.submitProposal();
     } else {
-        console.error('❌ Browser instance not available');
+        console.error(' Browser instance not available');
         alert('Please wait for the Web4 Browser to finish loading before submitting proposals.');
     }
 };
@@ -140,7 +140,7 @@ window.handleProposalTypeChange = function(selectedType) {
 
 // Add cancelProposal to immediate global definitions
 window.cancelProposal = function() {
-    console.log('❌ Cancelling proposal creation...');
+    console.log(' Cancelling proposal creation...');
     if (window.browser && window.browser.isInitialized) {
         window.browser.closeModal();
     } else {
@@ -187,7 +187,7 @@ window.voteYes = function(proposalId) {
 };
 
 window.voteNo = function(proposalId) {
-    console.log(`❌ Voting NO on proposal: ${proposalId}`);
+    console.log(` Voting NO on proposal: ${proposalId}`);
     if (window.browser && window.browser.isInitialized) {
         window.browser.voteOnProposal(proposalId, false);
     } else {
@@ -196,7 +196,7 @@ window.voteNo = function(proposalId) {
 };
 
 window.viewProposal = function(proposalId) {
-    console.log(`📄 Viewing proposal details: ${proposalId}`);
+    console.log(` Viewing proposal details: ${proposalId}`);
     if (window.browser && window.browser.isInitialized) {
         window.browser.showProposalDetails(proposalId);
     } else {
@@ -234,7 +234,7 @@ window.becomeDeligate = function() {
 };
 
 window.revokeDelegation = function() {
-    console.log('❌ Revoking vote delegation...');
+    console.log(' Revoking vote delegation...');
     if (window.browser && window.browser.isInitialized) {
         window.browser.revokeDelegation();
     } else {
@@ -277,7 +277,7 @@ window.signInWithZkDid = async function() {
     const passphrase = document.getElementById('signinPassphrase')?.value;
     
     if (!did) {
-        window.browser.showNotification('❌ Please enter your ZK-DID', 'error');
+        window.browser.showNotification(' Please enter your ZK-DID', 'error');
         return;
     }
     
@@ -299,7 +299,7 @@ window.signInWithZkDid = async function() {
         
     } catch (error) {
         console.error('Sign-in failed:', error);
-        window.browser.showNotification(`❌ Sign-in failed: ${error.message}`, 'error');
+        window.browser.showNotification(` Sign-in failed: ${error.message}`, 'error');
     }
 };
 
@@ -319,12 +319,12 @@ window.createNewZkDid = async function() {
     
     // Validate inputs
     if (!displayName) {
-        window.browser.showNotification('❌ Please enter a display name', 'error');
+        window.browser.showNotification(' Please enter a display name', 'error');
         return;
     }
     
     if (passphrase && passphrase !== confirmPassphrase) {
-        window.browser.showNotification('❌ Passphrases do not match', 'error');
+        window.browser.showNotification(' Passphrases do not match', 'error');
         return;
     }
     
@@ -365,7 +365,7 @@ window.createNewZkDid = async function() {
         
     } catch (error) {
         console.error('ZK-DID creation failed:', error);
-        window.browser.showNotification(`❌ Identity creation failed: ${error.message}`, 'error');
+        window.browser.showNotification(` Identity creation failed: ${error.message}`, 'error');
     }
 };
 
@@ -381,7 +381,7 @@ window.executeRecovery = async function() {
     const newPassphrase = document.getElementById('seedRecoveryPassphrase')?.value;
     
     if (!seedPhrase) {
-        window.browser.showNotification('❌ Please enter your seed phrase', 'error');
+        window.browser.showNotification(' Please enter your seed phrase', 'error');
         return;
     }
     
@@ -401,7 +401,7 @@ window.executeRecovery = async function() {
         
     } catch (error) {
         console.error('Recovery failed:', error);
-        window.browser.showNotification(`❌ Recovery failed: ${error.message}`, 'error');
+        window.browser.showNotification(` Recovery failed: ${error.message}`, 'error');
     }
 };
 
@@ -493,7 +493,7 @@ window.pasteFromClipboard = async function(inputId) {
         }
     } catch (error) {
         console.warn('Cannot access clipboard:', error);
-        window.browser?.showNotification('❌ Cannot access clipboard', 'error');
+        window.browser?.showNotification(' Cannot access clipboard', 'error');
     }
 };
 
@@ -640,7 +640,7 @@ class ZkDidManager {
             return identity;
             
         } catch (error) {
-            console.error('❌ ZK-DID creation failed:', error);
+            console.error(' ZK-DID creation failed:', error);
             throw error;
         }
     }
@@ -682,7 +682,7 @@ class ZkDidManager {
             return identity;
             
         } catch (error) {
-            console.error('❌ DID sign-in failed:', error);
+            console.error(' DID sign-in failed:', error);
             throw error;
         }
     }
@@ -702,7 +702,7 @@ class ZkDidManager {
             throw new Error('Seed phrase recovery not yet implemented in ZHTP API');
             
         } catch (error) {
-            console.error('❌ Seed phrase recovery failed:', error);
+            console.error(' Seed phrase recovery failed:', error);
             throw error;
         }
     }
@@ -743,8 +743,8 @@ class DaoManager {
 // Main Application Class
 class Web4Browser {
     constructor() {
-        console.log('🚀 Creating Native ZHTP Web4 Browser...');
-        console.log('⚡ PURE ZHTP PROTOCOL - NO HTTP, NO WASM ⚡');
+        console.log(' Creating Native ZHTP Web4 Browser...');
+        console.log(' PURE ZHTP PROTOCOL - NO HTTP, NO WASM ');
         
         this.api = new ZhtpApi();
         this.zkDid = new ZkDidManager(this.api);
@@ -769,8 +769,8 @@ class Web4Browser {
     }
 
     async initialize() {
-        console.log('🚀 Initializing Native ZHTP Web4 Desktop App...');
-        console.log('⚡ CONNECTING VIA PURE ZHTP PROTOCOL ⚡');
+        console.log(' Initializing Native ZHTP Web4 Desktop App...');
+        console.log(' CONNECTING VIA PURE ZHTP PROTOCOL ');
         
         try {
             // Setup Electron IPC listeners for menu commands
@@ -780,7 +780,7 @@ class Web4Browser {
             this.updateLoadingProgress(0, 'Initializing native ZHTP protocol...');
             
             // Initialize Native ZHTP API connection
-            console.log('🌐 Connecting to ZHTP network via native protocol...');
+            console.log(' Connecting to ZHTP network via native protocol...');
             await this.api.initialize();
             this.updateLoadingProgress(25, 'Native ZHTP connection established...');
             
@@ -790,7 +790,7 @@ class Web4Browser {
                 await this.zkdht.initialize();
                 this.updateLoadingProgress(35, 'zkDHT blockchain DNS connected...');
             } catch (error) {
-                console.warn('⚠️ zkDHT initialization failed, will use mock data:', error);
+                console.warn(' zkDHT initialization failed, will use mock data:', error);
                 this.updateLoadingProgress(35, 'zkDHT unavailable, using mock data...');
                 // Don't fail the entire initialization - zkDHT is optional for development
             }
@@ -834,12 +834,12 @@ class Web4Browser {
                 this.isInitialized = true;
                 console.log(' Native ZHTP Web4 Desktop App initialized successfully!');
                 console.log('🌍 Connected to Web4 via native ZHTP protocol');
-                console.log('🔒 Quantum-resistant •  Zero-knowledge • 💰 UBI-enabled');
+                console.log(' Quantum-resistant •  Zero-knowledge • 💰 UBI-enabled');
                 console.log('🧪 DHT testing available: window.dhtTest.*');
             }, 1000);
             
         } catch (error) {
-            console.error('❌ Native ZHTP initialization failed:', error);
+            console.error(' Native ZHTP initialization failed:', error);
             this.showError('Failed to initialize Native ZHTP Web4 App: ' + error.message);
         }
     }
@@ -875,7 +875,7 @@ class Web4Browser {
             console.log(' Smart contract testing available: window.contractTest.*');
             
         } catch (error) {
-            console.error('❌ DHT testing initialization failed:', error);
+            console.error(' DHT testing initialization failed:', error);
             // Don't fail the app if DHT testing fails
         }
     }
@@ -948,12 +948,12 @@ class Web4Browser {
             // Test contract deployment via DHT
             deploy: async (wasmBytes, metadata = {}) => {
                 try {
-                    console.log('🚀 Testing smart contract deployment via DHT...');
+                    console.log(' Testing smart contract deployment via DHT...');
                     const result = await window.contractsDht.deployContract(wasmBytes, metadata);
                     console.log(' Contract deployed successfully:', result);
                     return result;
                 } catch (error) {
-                    console.error('❌ Contract deployment failed:', error);
+                    console.error(' Contract deployment failed:', error);
                     throw error;
                 }
             },
@@ -966,7 +966,7 @@ class Web4Browser {
                     console.log(' Contract query successful:', result);
                     return result;
                 } catch (error) {
-                    console.error('❌ Contract query failed:', error);
+                    console.error(' Contract query failed:', error);
                     throw error;
                 }
             },
@@ -974,12 +974,12 @@ class Web4Browser {
             // Test contract execution via DHT
             execute: async (contractId, method, params = {}) => {
                 try {
-                    console.log(`⚡ Testing smart contract execution via DHT: ${contractId}/${method}`);
+                    console.log(` Testing smart contract execution via DHT: ${contractId}/${method}`);
                     const result = await window.contractsDht.executeContract(contractId, method, params);
                     console.log(' Contract execution successful:', result);
                     return result;
                 } catch (error) {
-                    console.error('❌ Contract execution failed:', error);
+                    console.error(' Contract execution failed:', error);
                     throw error;
                 }
             },
@@ -992,7 +992,7 @@ class Web4Browser {
                     console.log(' Contract discovery successful:', result);
                     return result;
                 } catch (error) {
-                    console.error('❌ Contract discovery failed:', error);
+                    console.error(' Contract discovery failed:', error);
                     throw error;
                 }
             },
@@ -1015,7 +1015,7 @@ class Web4Browser {
                     
                     return await window.contractTest.deploy(simpleWasm, metadata);
                 } catch (error) {
-                    console.error('❌ Simple test deployment failed:', error);
+                    console.error(' Simple test deployment failed:', error);
                     throw error;
                 }
             },
@@ -1209,7 +1209,7 @@ Examples:
             const identityIndicator = document.getElementById('identityIndicator');
             
             if (!identityStatus) {
-                console.warn('⚠️ identityStatus element not found, retrying in 100ms...');
+                console.warn(' identityStatus element not found, retrying in 100ms...');
                 setTimeout(updateIndicator, 100);
                 return;
             }
@@ -1239,7 +1239,7 @@ Examples:
                     identityIndicator.classList.remove('authenticated');
                     identityIndicator.title = 'Click to sign in or create ZK-DID identity';
                 }
-                console.log('❌ Identity indicator set to anonymous state');
+                console.log(' Identity indicator set to anonymous state');
             }
         };
         
@@ -1359,7 +1359,7 @@ Examples:
         if (window.dhtDashboard) {
             window.dhtDashboard.showTestingInterface();
         } else {
-            console.error('❌ DHT Dashboard not initialized');
+            console.error(' DHT Dashboard not initialized');
         }
     }
 
@@ -1369,7 +1369,7 @@ Examples:
         modals.forEach(modal => {
             if (modal) {
                 modal.style.display = 'none';
-                console.log('🔒 Modal closed:', modal.id || 'modal');
+                console.log(' Modal closed:', modal.id || 'modal');
             }
         });
     }
@@ -1381,7 +1381,7 @@ Examples:
             modal.style.display = 'flex';
             console.log('📂 Modal opened:', modalId);
         } else {
-            console.warn('⚠️ Modal not found:', modalId);
+            console.warn(' Modal not found:', modalId);
         }
     }
 
@@ -1537,14 +1537,14 @@ Examples:
         try {
             // Use real zkDHT client if available and connected
             if (this.zkdht && this.zkdht.isConnected) {
-                console.log('🌐 Using live zkDHT blockchain DNS...');
+                console.log(' Using live zkDHT blockchain DNS...');
                 return await this.zkdht.loadPage(url);
             } else {
-                console.log('⚠️ zkDHT not connected, using mock data for development...');
+                console.log(' zkDHT not connected, using mock data for development...');
                 return this.generateMockZhtpPage(url);
             }
         } catch (error) {
-            console.error('❌ zkDHT load failed, falling back to mock data:', error);
+            console.error(' zkDHT load failed, falling back to mock data:', error);
             return this.generateMockZhtpPage(url);
         }
     }
@@ -1689,7 +1689,7 @@ Examples:
         if (pageContent) {
             pageContent.innerHTML = `
                 <div class="error-page">
-                    <h1>❌ Navigation Error</h1>
+                    <h1> Navigation Error</h1>
                     <p>Failed to load: <code>${url}</code></p>
                     <p>Error: ${error.message}</p>
                     <div class="error-actions">
@@ -1754,7 +1754,7 @@ Examples:
         return `
             <div class="dashboard-page">
                 <div class="welcome-section">
-                    <h2>🌐 Welcome to Web4</h2>
+                    <h2> Welcome to Web4</h2>
                     <p>The next generation of decentralized internet powered by ZHTP protocol</p>
                 </div>
 
@@ -2035,7 +2035,7 @@ Examples:
                             <h3>🛡️ Treasury Protection</h3>
                             <div class="safeguard-info">
                                 <div class="safeguard-item">
-                                    <span class="safeguard-icon">🔒</span>
+                                    <span class="safeguard-icon"></span>
                                     <div class="safeguard-details">
                                         <strong>Consensus Protection</strong>
                                         <p>Treasury proposals require 60% approval (vs 50% for regular proposals)</p>
@@ -2104,7 +2104,7 @@ Examples:
 
                     <div class="dao-actions">
                         <button class="dao-btn primary" onclick="delegateVotes()">🗳️ Delegate Votes</button>
-                        <button class="dao-btn secondary" onclick="revokeDelegation()">❌ Revoke Delegation</button>
+                        <button class="dao-btn secondary" onclick="revokeDelegation()"> Revoke Delegation</button>
                         <button class="dao-btn secondary" onclick="becomeDeligate()">👤 Become Delegate</button>
                     </div>
 
@@ -2135,7 +2135,7 @@ Examples:
                             <button class="composer-btn" onclick="addPoll()">📊</button>
                             <button class="composer-btn" onclick="addLocation()"></button>
                         </div>
-                        <button class="post-btn" onclick="publishPost()">🚀 Post</button>
+                        <button class="post-btn" onclick="publishPost()"> Post</button>
                     </div>
                 </div>
 
@@ -2148,7 +2148,7 @@ Examples:
                                 <div class="post-time">2 hours ago</div>
                             </div>
                         </div>
-                        <div class="post-content">Just deployed my first Web4 dApp! The zero-knowledge privacy is incredible! 🚀 #Web4 #ZHTP</div>
+                        <div class="post-content">Just deployed my first Web4 dApp! The zero-knowledge privacy is incredible!  #Web4 #ZHTP</div>
                         <div class="post-actions">
                             <button class="post-action" onclick="likePost('1')">❤️ 47</button>
                             <button class="post-action" onclick="sharePost('1')"> 12</button>
@@ -2165,7 +2165,7 @@ Examples:
                                 <div class="post-time">4 hours ago</div>
                             </div>
                         </div>
-                        <div class="post-content">New protocol update is live! Quantum-resistant signatures now 40% faster. ⚡</div>
+                        <div class="post-content">New protocol update is live! Quantum-resistant signatures now 40% faster. </div>
                         <div class="post-actions">
                             <button class="post-action" onclick="likePost('2')">❤️ 156</button>
                             <button class="post-action" onclick="sharePost('2')"> 34</button>
@@ -2187,9 +2187,9 @@ Examples:
                 </div>
 
                 <div class="marketplace-nav">
-                    <button class="category-btn active" onclick="showCategory('apps')">🚀 Apps</button>
+                    <button class="category-btn active" onclick="showCategory('apps')"> Apps</button>
                     <button class="category-btn" onclick="showCategory('nfts')">🎨 NFTs</button>
-                    <button class="category-btn" onclick="showCategory('domains')">🌐 Domains</button>
+                    <button class="category-btn" onclick="showCategory('domains')"> Domains</button>
                     <button class="category-btn" onclick="showCategory('data')">📊 Data</button>
                 </div>
 
@@ -2280,7 +2280,7 @@ Examples:
                                 <div class="message-time">2:30 PM</div>
                             </div>
                             <div class="message sent">
-                                <div class="message-content">Going great! Just deployed the new features 🚀</div>
+                                <div class="message-content">Going great! Just deployed the new features </div>
                                 <div class="message-time">2:31 PM</div>
                             </div>
                         </div>
@@ -2354,7 +2354,7 @@ Examples:
                             <input type="password" id="signinPassphrase" class="form-input" placeholder="Passphrase">
                         </div>
                         
-                        <button class="btn-primary full-width" onclick="signInWithZkDid()">🚀 Sign In</button>
+                        <button class="btn-primary full-width" onclick="signInWithZkDid()"> Sign In</button>
                     </div>
                 </div>
 
@@ -2369,7 +2369,7 @@ Examples:
                                 <option value="citizen">🏛️ Citizen (UBI Eligible)</option>
                                 <option value="organization">🏢 Organization</option>
                                 <option value="developer">👨‍💻 Developer</option>
-                                <option value="validator">⚡ Validator Node</option>
+                                <option value="validator"> Validator Node</option>
                             </select>
                         </div>
                         
@@ -2411,7 +2411,7 @@ Examples:
                             <p><strong>Quantum-Resistant:</strong> Uses CRYSTALS-Dilithium post-quantum cryptography</p>
                             <p><strong>Soulbound:</strong> Permanently tied to you - cannot be transferred or stolen</p>
                             <p><strong>Zero-Knowledge:</strong> Privacy-preserving proofs protect your personal data</p>
-                            <p><strong>⚠️ IMPORTANT:</strong> Write down your seed phrase when generated - it's your only recovery method!</p>
+                            <p><strong> IMPORTANT:</strong> Write down your seed phrase when generated - it's your only recovery method!</p>
                         </div>
                     </div>
                 </div>
@@ -2524,7 +2524,7 @@ Examples:
                         <input type="password" id="signinPassphrase" class="form-input" placeholder="Passphrase">
                     </div>
                     
-                    <button class="btn-primary full-width" onclick="signInWithZkDid()">🚀 Sign In</button>
+                    <button class="btn-primary full-width" onclick="signInWithZkDid()"> Sign In</button>
                     
                     <div style="text-align: center; margin-top: 2rem;">
                         <p>Don't have an identity? <a href="javascript:window.browser.navigateToUrl('create.zhtp')" style="color: #00d4ff;">Create one here</a></p>
@@ -2561,7 +2561,7 @@ Examples:
                             <option value="citizen">🏛️ Citizen (UBI Eligible)</option>
                             <option value="organization">🏢 Organization</option>
                             <option value="developer">👨‍💻 Developer</option>
-                            <option value="validator">⚡ Validator Node</option>
+                            <option value="validator"> Validator Node</option>
                         </select>
                     </div>
                     
@@ -2748,7 +2748,7 @@ Examples:
                     break;
             }
         } else {
-            console.error('❌ Modal not found:', modalId);
+            console.error(' Modal not found:', modalId);
         }
     }
 
@@ -2757,7 +2757,7 @@ Examples:
         modals.forEach(modal => {
             modal.style.display = 'none';
         });
-        console.log('🔒 All modals closed');
+        console.log(' All modals closed');
     }
 
     closeModal(modalId = null) {
@@ -2765,7 +2765,7 @@ Examples:
             const modal = document.getElementById(modalId);
             if (modal) {
                 modal.style.display = 'none';
-                console.log('🔒 Modal closed:', modalId);
+                console.log(' Modal closed:', modalId);
             }
         } else {
             // Close all modals if no specific ID provided
@@ -2886,7 +2886,7 @@ Examples:
                 margin-bottom: 1.5rem;
             ">
                 <h3 style="margin: 0 0 1rem; color: #ef4444; display: flex; align-items: center; gap: 0.5rem;">
-                    ⚠️ CRITICAL: Save Your Recovery Seed Phrase
+                     CRITICAL: Save Your Recovery Seed Phrase
                 </h3>
                 <p style="color: #fca5a5; margin: 0 0 1rem; font-size: 0.9rem; line-height: 1.5;">
                     This 24-word seed phrase is your <strong>ONLY</strong> way to recover your identity. 
@@ -3020,7 +3020,7 @@ Examples:
                     <li>💰 Welcome Bonus: ${walletInfo?.initial_balance || 5000} ZHTP tokens</li>
                     <li>📅 Monthly UBI: ${walletInfo?.ubi_amount || 1000} ZHTP tokens</li>
                     <li>🏛️ DAO Voting Rights: Full participation</li>
-                    <li>🌐 Web4 Services: Access to all services</li>
+                    <li> Web4 Services: Access to all services</li>
                     <li>🛡️ Privacy Credentials: Zero-knowledge proofs</li>
                 </ul>
             </div>
@@ -3077,7 +3077,7 @@ Examples:
             this.showNotification('🌱 Seed phrase copied to clipboard!', 'success');
         }).catch(err => {
             console.error('Failed to copy seed phrase:', err);
-            this.showNotification('❌ Failed to copy seed phrase', 'error');
+            this.showNotification(' Failed to copy seed phrase', 'error');
         });
     }
 
@@ -3109,7 +3109,7 @@ Examples:
             console.log(' Copied normalized DID:', normalizedDid);
         }).catch(err => {
             console.error('Failed to copy DID:', err);
-            this.showNotification('❌ Failed to copy DID', 'error');
+            this.showNotification(' Failed to copy DID', 'error');
         });
     }
 
@@ -3168,7 +3168,7 @@ Web4 Decentralized Internet with Quantum-Resistant Privacy
         
         // Navigate to dashboard and ensure the identity is preserved
         setTimeout(() => {
-            console.log('🌐 Navigating to dashboard with identity:', this.currentIdentity);
+            console.log(' Navigating to dashboard with identity:', this.currentIdentity);
             this.navigateToUrl('zhtp://dashboard.zhtp');
             // Force another update after navigation
             setTimeout(() => {
@@ -3181,7 +3181,7 @@ Web4 Decentralized Internet with Quantum-Resistant Privacy
     async initializeIdentityModal() {
         const modal = document.getElementById('zkDidModal');
         if (!modal) {
-            console.error('❌ ZK-DID modal not found');
+            console.error(' ZK-DID modal not found');
             return;
         }
         
@@ -3375,7 +3375,7 @@ Web4 Decentralized Internet with Quantum-Resistant Privacy
     }
 
     async navigateToUrl(url, addToHistory = true) {
-        console.log('🌐 Navigating to:', url);
+        console.log(' Navigating to:', url);
 
         // Add to navigation history
         if (addToHistory) {
@@ -3421,7 +3421,7 @@ Web4 Decentralized Internet with Quantum-Resistant Privacy
                 return;
             }
         } catch (error) {
-            console.error('❌ Failed to load contract content:', error);
+            console.error(' Failed to load contract content:', error);
             this.showNavigationError(url, error);
             return;
         }
@@ -3470,7 +3470,7 @@ Web4 Decentralized Internet with Quantum-Resistant Privacy
 
         // For other URLs, use NavigationManager for proper Web4/ZHTP routing
         try {
-            console.log('🌐 Using NavigationManager for URL:', url);
+            console.log(' Using NavigationManager for URL:', url);
             const content = await this.navigationManager.navigate(url);
             this.renderWeb4Content(content);
         } catch (error) {
@@ -3494,7 +3494,7 @@ Web4 Decentralized Internet with Quantum-Resistant Privacy
 
     async updateNetworkStatus() {
         try {
-            console.log('🌐 Updating network status...');
+            console.log(' Updating network status...');
             
             // Get real blockchain data from API
             const [blockchainInfo, networkInfo, gasInfo] = await Promise.all([
@@ -3539,7 +3539,7 @@ Web4 Decentralized Internet with Quantum-Resistant Privacy
             console.log(' Network status updated');
 
         } catch (error) {
-            console.error('❌ Failed to update network status:', error);
+            console.error(' Failed to update network status:', error);
             
             // Update UI to show disconnected state
             const networkStatus = document.getElementById('networkStatus');
@@ -3601,11 +3601,11 @@ Web4 Decentralized Internet with Quantum-Resistant Privacy
     }
 
     renderWeb4Content(contractContent) {
-        console.log('🌐 Rendering Web4 contract content:', contractContent.contractId);
+        console.log(' Rendering Web4 contract content:', contractContent.contractId);
         
         // Handle individual file requests (like CSS, JS)
         if (contractContent.type === 'web4_file') {
-            console.log(`📄 Serving individual file: ${contractContent.fileName}`);
+            console.log(` Serving individual file: ${contractContent.fileName}`);
             
             // For CSS files, inject them as style elements
             if (contractContent.mimeType === 'text/css') {
@@ -3628,7 +3628,7 @@ Web4 Decentralized Internet with Quantum-Resistant Privacy
             }
             
             // For other files, we could return the content directly or handle differently
-            console.log(`📄 File ${contractContent.fileName} loaded:`, contractContent.content.length, 'bytes');
+            console.log(` File ${contractContent.fileName} loaded:`, contractContent.content.length, 'bytes');
             return;
         }
         
@@ -3656,7 +3656,7 @@ Web4 Decentralized Internet with Quantum-Resistant Privacy
                     document.head.insertBefore(baseElement, document.head.firstChild);
                 }
                 baseElement.href = baseUrl;
-                console.log(`📍 Set base URL to: ${baseUrl} for asset loading`);
+                console.log(` Set base URL to: ${baseUrl} for asset loading`);
                 
                 // Set innerHTML first
                 pageContent.innerHTML = contractContent.content;
@@ -3674,11 +3674,11 @@ Web4 Decentralized Internet with Quantum-Resistant Privacy
                     // Replace old script with new one
                     oldScript.parentNode.replaceChild(newScript, oldScript);
                 });
-                console.log(`✅ Executed ${scripts.length} script tag(s) from Web4 content`);
+                console.log(` Executed ${scripts.length} script tag(s) from Web4 content`);
             } else {
                 pageContent.innerHTML = `
                     <div style="padding: 2rem; text-align: center;">
-                        <h2>🌐 Web4 Site</h2>
+                        <h2> Web4 Site</h2>
                         <p><strong>Contract ID:</strong> ${contractContent.contractId}</p>
                         ${contractContent.blockchainHash ? `<p><strong>Blockchain Hash:</strong> ${contractContent.blockchainHash}</p>` : ''}
                         <div style="margin-top: 2rem;">
@@ -3696,7 +3696,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                 const metaDiv = document.createElement('div');
                 metaDiv.style.cssText = 'position: fixed; bottom: 10px; right: 10px; background: rgba(0,0,0,0.8); color: white; padding: 8px 12px; border-radius: 6px; font-size: 12px; z-index: 1000;';
                 metaDiv.innerHTML = `
-                    <div>📄 Web4 Site</div>
+                    <div> Web4 Site</div>
                     <div>Contract: ${contractContent.contractId}</div>
                     <div>Access: ${contractContent.metadata.accessMethod || 'contract'}</div>
                 `;
@@ -3778,7 +3778,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
             
             // Check if user is signed in
             if (!this.currentIdentity) {
-                console.log('⚠️ No identity found, showing sign-in prompt');
+                console.log(' No identity found, showing sign-in prompt');
                 this.showWalletSignInPrompt();
                 return;
             }
@@ -3787,7 +3787,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
             console.log(' Current identity details:', this.currentIdentity);
             
             // Force wallet balance API call for debugging
-            console.log('🚀 FORCING wallet balance API call for citizen DID...');
+            console.log(' FORCING wallet balance API call for citizen DID...');
             
             try {
                 console.log(' Making API call to get wallet balance...');
@@ -3826,7 +3826,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                         this.updateTransactionHistory(allTransactions);
                         console.log(' Transaction history updated with', allTransactions.length, 'transactions');
                     } else {
-                        console.log('⚠️ No transactions found in any wallet');
+                        console.log(' No transactions found in any wallet');
                         this.updateTransactionHistory([]);
                     }
                     
@@ -3840,12 +3840,12 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                     this.updateMultiWalletInterface(this.citizenWalletData);
                     
                 } else {
-                    console.log('❌ No citizen wallet data found in API response');
+                    console.log(' No citizen wallet data found in API response');
                     this.updateTransactionHistory([]);
                 }
                 
             } catch (apiError) {
-                console.error('❌ API call failed:', apiError);
+                console.error(' API call failed:', apiError);
                 this.updateTransactionHistory([]);
             }
             
@@ -3855,7 +3855,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
             console.log(' Wallet data loading completed');
 
         } catch (error) {
-            console.error('❌ Failed to load wallet data:', error);
+            console.error(' Failed to load wallet data:', error);
             this.showWalletError();
         }
     }
@@ -3985,13 +3985,13 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
         const transactionList = document.getElementById('transactionList');
         console.log(' Transaction list element:', transactionList);
         if (!transactionList) {
-            console.error('❌ Transaction list element not found!');
+            console.error(' Transaction list element not found!');
             return;
         }
 
         // Handle null/undefined data or empty arrays
         if (!transactionData || transactionData.length === 0) {
-            console.log('⚠️ No transaction data provided, showing placeholder');
+            console.log(' No transaction data provided, showing placeholder');
             transactionList.innerHTML = `
                 <div class="no-data-placeholder">
                     <div class="no-data-icon"></div>
@@ -4093,7 +4093,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
             console.log('📊 Loading public DAO statistics...');
             const [daoData] = await Promise.all([
                 this.api.getDaoData().catch(error => {
-                    console.warn('⚠️ API failed, using fallback DAO data:', error);
+                    console.warn(' API failed, using fallback DAO data:', error);
                     return {
                         total_proposals: 15,
                         active_proposals: 3,
@@ -4123,11 +4123,11 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
             try {
                 const [votingPowerData, userVotesData] = await Promise.all([
                     this.api.getVotingPower(this.currentIdentity.did).catch(error => {
-                        console.warn('⚠️ Voting power API failed:', error);
+                        console.warn(' Voting power API failed:', error);
                         return { totalPower: 0, baseVotingPower: 0 };
                     }),
                     this.api.getUserVotes(this.currentIdentity.did).catch(error => {
-                        console.warn('⚠️ User votes API failed:', error);
+                        console.warn(' User votes API failed:', error);
                         return { votes: [], total_votes: 0 };
                     })
                 ]);
@@ -4139,13 +4139,13 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                 console.log(' DAO data loaded successfully for authenticated user:', this.currentIdentity.displayName);
                 
             } catch (error) {
-                console.error('❌ Failed to load user-specific DAO data:', error);
+                console.error(' Failed to load user-specific DAO data:', error);
                 // Still show public data even if user data fails
                 this.updateVotingPower({ totalPower: 0, baseVotingPower: 0 });
             }
             
         } catch (error) {
-            console.error('❌ Failed to load DAO data:', error);
+            console.error(' Failed to load DAO data:', error);
             this.showDaoError();
         }
     }
@@ -4256,7 +4256,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
         const activeProposalsElement = document.getElementById('activeProposals');
         if (activeProposalsElement && daoData.active_proposals !== undefined) {
             activeProposalsElement.textContent = daoData.active_proposals;
-            console.log('🔥 Active proposals updated to:', daoData.active_proposals);
+            console.log(' Active proposals updated to:', daoData.active_proposals);
         }
 
         // Update DAO members count
@@ -4449,7 +4449,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
         if (daoContent) {
             daoContent.innerHTML = `
                 <div class="dao-error" style="text-align: center; padding: 40px; background: rgba(255, 107, 107, 0.1); border: 1px solid #ff6b6b; border-radius: 10px; margin: 20px;">
-                    <h3 style="color: #ff6b6b; margin-bottom: 15px;">❌ ${message}</h3>
+                    <h3 style="color: #ff6b6b; margin-bottom: 15px;"> ${message}</h3>
                     <p style="color: #8a9ba8; margin-bottom: 20px;">Unable to connect to the DAO governance system. Please try again.</p>
                     <div style="display: flex; gap: 10px; justify-content: center;">
                         <button onclick="browser.loadDaoData()" class="btn-primary"> Retry</button>
@@ -4463,7 +4463,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
             if (pageContent) {
                 pageContent.innerHTML = `
                     <div class="dao-error" style="text-align: center; padding: 40px;">
-                        <h2>❌ ${message}</h2>
+                        <h2> ${message}</h2>
                         <p>Unable to connect to the DAO governance system.</p>
                         <button onclick="browser.loadDaoData()" class="btn-primary">Retry</button>
                     </div>
@@ -4666,7 +4666,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
         console.log('💳 Loading wallet data...');
         
         if (!this.currentIdentity) {
-            console.warn('⚠️ No current identity found for wallet data loading');
+            console.warn(' No current identity found for wallet data loading');
             return;
         }
         
@@ -4720,7 +4720,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                         }
                     });
                 } else {
-                    console.warn('⚠️ No wallets array found in balance data');
+                    console.warn(' No wallets array found in balance data');
                 }
                 
                 console.log(' TOTAL EXTRACTED TRANSACTIONS:', allTransactions.length);
@@ -4731,7 +4731,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                     console.log(' Calling this.updateTransactionHistory...');
                     this.updateTransactionHistory(allTransactions);
                 } else {
-                    console.warn('⚠️ No transactions found to display');
+                    console.warn(' No transactions found to display');
                     this.updateTransactionHistory([]);
                 }
                 
@@ -4741,7 +4741,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                 console.log('📊 No citizenship data found - showing basic wallet');
             }
         } catch (error) {
-            console.error('❌ Failed to load wallet data:', error);
+            console.error(' Failed to load wallet data:', error);
         }
     }
 
@@ -4751,7 +4751,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
             
             // Check if user is signed in
             if (!this.currentIdentity) {
-                console.log('⚠️ No identity found, showing DAO sign-in prompt');
+                console.log(' No identity found, showing DAO sign-in prompt');
                 this.showDaoSignInPrompt();
                 return;
             }
@@ -4776,7 +4776,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
             console.log(' DAO data loaded successfully for', this.currentIdentity.displayName);
             
         } catch (error) {
-            console.error('❌ Failed to load DAO data:', error);
+            console.error(' Failed to load DAO data:', error);
             this.showDaoError();
         }
     }
@@ -4804,7 +4804,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
             const existingVote = userVotes.find(v => v.proposalId === proposalId);
             
             if (existingVote) {
-                this.showNotification(`❌ You have already voted "${existingVote.vote}" on this proposal`, 'error');
+                this.showNotification(` You have already voted "${existingVote.vote}" on this proposal`, 'error');
                 return;
             }
             
@@ -4822,28 +4822,28 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                 // Reload DAO data to show updated vote
                 setTimeout(() => this.loadDaoData(), 1000);
             } else {
-                this.showNotification(`❌ Vote failed: ${result.message || 'Unknown error'}`, 'error');
+                this.showNotification(` Vote failed: ${result.message || 'Unknown error'}`, 'error');
             }
             
         } catch (error) {
-            console.error('❌ Vote submission failed:', error);
+            console.error(' Vote submission failed:', error);
             if (error.message && error.message.includes('already voted')) {
-                this.showNotification('❌ You have already voted on this proposal', 'error');
+                this.showNotification(' You have already voted on this proposal', 'error');
             } else {
-                this.showNotification('❌ Vote submission failed: ' + error.message, 'error');
+                this.showNotification(' Vote submission failed: ' + error.message, 'error');
             }
         }
     }
 
     async viewProposalDetails(proposalId) {
-        console.log(`📄 Viewing proposal details: ${proposalId}`);
+        console.log(` Viewing proposal details: ${proposalId}`);
         try {
             const proposal = await this.api.getProposalDetails(proposalId);
             if (proposal) {
                 this.showProposalModal(proposal);
             }
         } catch (error) {
-            console.error('❌ Failed to load proposal details:', error);
+            console.error(' Failed to load proposal details:', error);
             this.showNotification('Failed to load proposal details', 'error');
         }
     }
@@ -4854,7 +4854,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
         try {
             const did = this.currentDid;
             if (!did) {
-                console.warn('⚠️ No DID available for DAO proposals');
+                console.warn(' No DID available for DAO proposals');
                 return;
             }
 
@@ -4888,10 +4888,10 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                     `;
                 }
             } else {
-                console.error('❌ Failed to load proposals:', data.error);
+                console.error(' Failed to load proposals:', data.error);
             }
         } catch (error) {
-            console.error('❌ Error loading DAO proposals:', error);
+            console.error(' Error loading DAO proposals:', error);
         }
     }
 
@@ -4917,7 +4917,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
             };
 
             console.log(' Sending proposal to backend via ZHTP...', proposalData);
-            console.log('🌐 Submitting proposal via native ZHTP protocol...');
+            console.log(' Submitting proposal via native ZHTP protocol...');
             
             // Submit via ZHTP protocol using the API's createProposal method
             const responseData = await this.api.createProposal(proposalData);
@@ -4931,21 +4931,21 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
             await this.loadDaoData();
             
         } catch (error) {
-            console.error('❌ Error creating proposal via ZHTP:', error);
+            console.error(' Error creating proposal via ZHTP:', error);
             
             // Provide more specific error messages for ZHTP protocol
             if (error.message.includes('Connection') || error.message.includes('ECONNREFUSED')) {
-                this.showNotification('❌ Cannot connect to ZHTP node. Please ensure the ZHTP node is running on port 33444.', 'error');
+                this.showNotification(' Cannot connect to ZHTP node. Please ensure the ZHTP node is running on port 33444.', 'error');
                 console.error(' To start the ZHTP node, run: cd packages/core && cargo run --bin zhtp-node');
             } else if (error.message.includes('timeout')) {
-                this.showNotification('❌ ZHTP request timeout. Node may be busy or unresponsive.', 'error');
+                this.showNotification(' ZHTP request timeout. Node may be busy or unresponsive.', 'error');
             } else if (error.message.includes('failed:')) {
                 // Extract error message from ZHTP response
                 const errorMatch = error.message.match(/failed: \d+ - (.+)/);
                 const errorMsg = errorMatch ? errorMatch[1] : error.message;
-                this.showNotification(`❌ Failed to create proposal: ${errorMsg}`, 'error');
+                this.showNotification(` Failed to create proposal: ${errorMsg}`, 'error');
             } else {
-                this.showNotification('❌ Error creating proposal via ZHTP protocol. Please try again.', 'error');
+                this.showNotification(' Error creating proposal via ZHTP protocol. Please try again.', 'error');
             }
         }
     }
@@ -4977,11 +4977,11 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                 this.showNotification(`Vote ${support ? 'FOR' : 'AGAINST'} recorded successfully!`, 'success');
                 await this.loadDaoProposals(); // Refresh proposals
             } else {
-                console.error('❌ Failed to submit vote:', data.error);
+                console.error(' Failed to submit vote:', data.error);
                 this.showNotification(`Failed to vote: ${data.error}`, 'error');
             }
         } catch (error) {
-            console.error('❌ Error submitting vote:', error);
+            console.error(' Error submitting vote:', error);
             this.showNotification('Error submitting vote. Please try again.', 'error');
         }
     }
@@ -5080,11 +5080,11 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                 this.showNotification(`Successfully delegated ${amount} voting power!`, 'success');
                 await this.loadDaoDelegates(); // Refresh delegates view
             } else {
-                console.error('❌ Failed to delegate voting power:', data.error);
+                console.error(' Failed to delegate voting power:', data.error);
                 this.showNotification(`Failed to delegate: ${data.error}`, 'error');
             }
         } catch (error) {
-            console.error('❌ Error delegating voting power:', error);
+            console.error(' Error delegating voting power:', error);
             this.showNotification('Error delegating voting power. Please try again.', 'error');
         }
     }
@@ -5095,7 +5095,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
         try {
             const did = this.currentIdentity?.did;
             if (!did) {
-                console.warn('⚠️ No DID available for DAO delegates');
+                console.warn(' No DID available for DAO delegates');
                 return;
             }
 
@@ -5143,10 +5143,10 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                     `;
                 }
             } else {
-                console.error('❌ Failed to load delegates:', data.error);
+                console.error(' Failed to load delegates:', data.error);
             }
         } catch (error) {
-            console.error('❌ Error loading DAO delegates:', error);
+            console.error(' Error loading DAO delegates:', error);
         }
     }
 
@@ -5247,11 +5247,11 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                 this.showNotification('Successfully registered as delegate!', 'success');
                 await this.loadDaoDelegates(); // Refresh delegates view
             } else {
-                console.error('❌ Failed to register as delegate:', data.error);
+                console.error(' Failed to register as delegate:', data.error);
                 this.showNotification(`Failed to register: ${data.error}`, 'error');
             }
         } catch (error) {
-            console.error('❌ Error registering as delegate:', error);
+            console.error(' Error registering as delegate:', error);
             this.showNotification('Error registering as delegate. Please try again.', 'error');
         }
     }
@@ -5272,7 +5272,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
             }
 
             const treasuryData = await this.api.getDaoTreasury().catch(error => {
-                console.warn('⚠️ Treasury API failed, using fallback data:', error);
+                console.warn(' Treasury API failed, using fallback data:', error);
                 return {
                     success: true,
                     treasury: {
@@ -5376,11 +5376,11 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                     `;
                 }
             } else {
-                console.error('❌ Failed to load treasury - invalid data format:', treasuryData);
+                console.error(' Failed to load treasury - invalid data format:', treasuryData);
                 this.showDaoError('Failed to load treasury data');
             }
         } catch (error) {
-            console.error('❌ Error loading DAO treasury:', error);
+            console.error(' Error loading DAO treasury:', error);
             this.showDaoError('Error loading treasury data');
         }
     }
@@ -5401,7 +5401,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
             }
 
             const delegatesData = await this.api.getDaoDelegates().catch(error => {
-                console.warn('⚠️ Delegates API failed, using fallback data:', error);
+                console.warn(' Delegates API failed, using fallback data:', error);
                 return {
                     success: true,
                     delegates: [
@@ -5475,7 +5475,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                             ` : `
                                 <button class="btn-secondary" disabled style="flex: 1;">Sign in to delegate</button>
                             `}
-                            <button onclick="browser.viewDelegateProfile('${delegate.did}')" class="btn-secondary">📄 View Profile</button>
+                            <button onclick="browser.viewDelegateProfile('${delegate.did}')" class="btn-secondary"> View Profile</button>
                         </div>
                     </div>
                 `).join('');
@@ -5502,7 +5502,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                                     </div>
                                     <div style="display: flex; gap: 10px;">
                                         <button onclick="browser.showDelegateModal()" class="btn-secondary">Become a Delegate</button>
-                                        <button onclick="browser.revokeDelegation()" class="btn-secondary">❌ Revoke Delegation</button>
+                                        <button onclick="browser.revokeDelegation()" class="btn-secondary"> Revoke Delegation</button>
                                     </div>
                                 </div>
                             ` : `
@@ -5514,11 +5514,11 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                     `;
                 }
             } else {
-                console.error('❌ Failed to load delegates:', delegatesData.error);
+                console.error(' Failed to load delegates:', delegatesData.error);
                 this.showDaoError('Failed to load delegates data');
             }
         } catch (error) {
-            console.error('❌ Error loading DAO delegates:', error);
+            console.error(' Error loading DAO delegates:', error);
             this.showDaoError('Error loading delegates data');
         }
     }
@@ -5527,14 +5527,14 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
         console.log('👥 Delegating voting power to:', targetDid);
         
         if (!targetDid || targetDid.trim() === '') {
-            this.showNotification('❌ Please enter a valid DID to delegate to', 'error');
+            this.showNotification(' Please enter a valid DID to delegate to', 'error');
             return;
         }
         
         try {
             const currentDid = this.currentIdentity?.did;
             if (!currentDid) {
-                this.showNotification('❌ No DID available for delegation', 'error');
+                this.showNotification(' No DID available for delegation', 'error');
                 return;
             }
             
@@ -5556,11 +5556,11 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                 // Reload delegates tab to show updated data
                 await this.loadDaoDelegates();
             } else {
-                this.showNotification(`❌ Delegation failed: ${data.error}`, 'error');
+                this.showNotification(` Delegation failed: ${data.error}`, 'error');
             }
         } catch (error) {
-            console.error('❌ Error delegating voting power:', error);
-            this.showNotification('❌ Delegation failed: ' + error.message, 'error');
+            console.error(' Error delegating voting power:', error);
+            this.showNotification(' Delegation failed: ' + error.message, 'error');
         }
     }
 
@@ -5622,7 +5622,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
 
             // Get proposals from API
             const proposalsData = await this.api.getDaoProposals().catch(error => {
-                console.warn('⚠️ Proposals API failed, using fallback data:', error);
+                console.warn(' Proposals API failed, using fallback data:', error);
                 return {
                     success: true,
                     proposals: [
@@ -5656,7 +5656,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
             this.renderProposals(proposalsData.proposals || []);
             
         } catch (error) {
-            console.error('❌ Error loading DAO proposals:', error);
+            console.error(' Error loading DAO proposals:', error);
             this.showDaoError('Failed to load proposals');
         }
     }
@@ -5715,7 +5715,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                         ` : `
                             <button class="vote-btn disabled" disabled>Sign in to vote</button>
                         `}
-                        <button class="vote-btn details" onclick="viewProposal('${proposal.id}')">📄 Details</button>
+                        <button class="vote-btn details" onclick="viewProposal('${proposal.id}')"> Details</button>
                     </div>
                     <div class="proposal-deadline">Voting ends ${timeLeft}</div>
                 </div>
@@ -5742,7 +5742,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
         console.log(`🗳️ Submitting vote: ${vote ? 'YES' : 'NO'} on proposal ${proposalId}`);
         
         if (!this.currentIdentity) {
-            this.showNotification('❌ Please sign in to vote on proposals', 'error');
+            this.showNotification(' Please sign in to vote on proposals', 'error');
             return;
         }
         
@@ -5765,16 +5765,16 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                 await this.loadDaoProposals();
                 
             } else {
-                console.error('❌ Vote submission failed:', voteResult.message);
-                this.showNotification(`❌ Vote failed: ${voteResult.message}`, 'error');
+                console.error(' Vote submission failed:', voteResult.message);
+                this.showNotification(` Vote failed: ${voteResult.message}`, 'error');
                 
                 // Restore original buttons
                 this.renderProposalActions(proposalElement, proposalId);
             }
             
         } catch (error) {
-            console.error('❌ Error submitting vote:', error);
-            this.showNotification('❌ Failed to submit vote. Please try again.', 'error');
+            console.error(' Error submitting vote:', error);
+            this.showNotification(' Failed to submit vote. Please try again.', 'error');
             
             // Restore original buttons
             const proposalElement = document.querySelector(`[data-proposal-id="${proposalId}"]`);
@@ -5794,13 +5794,13 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                 ` : `
                     <button class="vote-btn disabled" disabled>Sign in to vote</button>
                 `}
-                <button class="vote-btn details" onclick="viewProposal('${proposalId}')">📄 Details</button>
+                <button class="vote-btn details" onclick="viewProposal('${proposalId}')"> Details</button>
             `;
         }
     }
 
     async showProposalDetails(proposalId) {
-        console.log(`📄 Showing details for proposal: ${proposalId}`);
+        console.log(` Showing details for proposal: ${proposalId}`);
         
         try {
             // For now, show a modal with available info
@@ -5855,8 +5855,8 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
             }
             
         } catch (error) {
-            console.error('❌ Error showing proposal details:', error);
-            this.showNotification('❌ Failed to load proposal details', 'error');
+            console.error(' Error showing proposal details:', error);
+            this.showNotification(' Failed to load proposal details', 'error');
         }
     }
 
@@ -5927,11 +5927,11 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
             `;
             
         } catch (error) {
-            console.error('❌ Error loading delegate profile:', error);
+            console.error(' Error loading delegate profile:', error);
             const modalBody = modal.querySelector('.modal-body');
             modalBody.innerHTML = `
                 <div style="text-align: center; padding: 20px;">
-                    <p>❌ Failed to load delegate profile</p>
+                    <p> Failed to load delegate profile</p>
                     <button onclick="this.closest('.modal-overlay').remove();" class="btn-secondary">Close</button>
                 </div>
             `;
@@ -5944,7 +5944,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
         
         try {
             const proposalsData = await this.api.getDaoProposals().catch(error => {
-                console.warn('⚠️ Proposals API failed, using fallback data:', error);
+                console.warn(' Proposals API failed, using fallback data:', error);
                 return {
                     success: true,
                     proposals: [],
@@ -5978,7 +5978,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
             }
             
         } catch (error) {
-            console.error('❌ Error loading DAO proposals:', error);
+            console.error(' Error loading DAO proposals:', error);
         }
     }
 
@@ -5987,7 +5987,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
         
         try {
             const treasuryData = await this.api.getDaoTreasury().catch(error => {
-                console.warn('⚠️ Treasury API failed, using fallback data:', error);
+                console.warn(' Treasury API failed, using fallback data:', error);
                 return {
                     total_funds: 25000000000,
                     available_funds: 12500000000,
@@ -6003,7 +6003,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
             this.updateTreasuryPageElements(treasuryData);
             
         } catch (error) {
-            console.error('❌ Error loading DAO treasury:', error);
+            console.error(' Error loading DAO treasury:', error);
         }
     }
 
@@ -6063,7 +6063,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
         
         try {
             const delegatesData = await this.api.getDaoDelegates().catch(error => {
-                console.warn('⚠️ Delegates API failed, using fallback data:', error);
+                console.warn(' Delegates API failed, using fallback data:', error);
                 return {
                     success: true,
                     delegates: [
@@ -6145,15 +6145,15 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
             }
             
         } catch (error) {
-            console.error('❌ Error loading DAO delegates:', error);
+            console.error(' Error loading DAO delegates:', error);
         }
     }
 
     async revokeDelegation() {
-        console.log('❌ Revoking vote delegation...');
+        console.log(' Revoking vote delegation...');
         
         if (!this.currentIdentity) {
-            this.showNotification('❌ Please sign in to revoke delegation', 'error');
+            this.showNotification(' Please sign in to revoke delegation', 'error');
             return;
         }
         
@@ -6168,12 +6168,12 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                 // Refresh delegates view
                 await this.loadDaoDelegates();
             } else {
-                this.showNotification(`❌ Failed to revoke delegation: ${result.message}`, 'error');
+                this.showNotification(` Failed to revoke delegation: ${result.message}`, 'error');
             }
             
         } catch (error) {
-            console.error('❌ Error revoking delegation:', error);
-            this.showNotification('❌ Failed to revoke delegation', 'error');
+            console.error(' Error revoking delegation:', error);
+            this.showNotification(' Failed to revoke delegation', 'error');
         }
     }
 
@@ -6181,7 +6181,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
         console.log('Showing delegate registration modal...');
         
         if (!this.currentIdentity) {
-            this.showNotification('❌ Please sign in to become a delegate', 'error');
+            this.showNotification(' Please sign in to become a delegate', 'error');
             return;
         }
         
@@ -6251,12 +6251,12 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                     // Refresh delegates view
                     await this.loadDaoDelegates();
                 } else {
-                    this.showNotification(`❌ Registration failed: ${result.message}`, 'error');
+                    this.showNotification(` Registration failed: ${result.message}`, 'error');
                 }
                 
             } catch (error) {
-                console.error('❌ Error registering as delegate:', error);
-                this.showNotification('❌ Failed to register as delegate', 'error');
+                console.error(' Error registering as delegate:', error);
+                this.showNotification(' Failed to register as delegate', 'error');
             }
         });
     }
@@ -6293,7 +6293,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
             }
 
             const historyData = await this.api.getTreasuryHistory().catch(error => {
-                console.warn('⚠️ Treasury history API failed, using fallback data:', error);
+                console.warn(' Treasury history API failed, using fallback data:', error);
                 return {
                     success: true,
                     transactions: [
@@ -6376,11 +6376,11 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                     `;
                 }
             } else {
-                console.error('❌ Failed to load treasury history:', historyData.error);
+                console.error(' Failed to load treasury history:', historyData.error);
                 this.showDaoError('Failed to load treasury history');
             }
         } catch (error) {
-            console.error('❌ Error loading treasury history:', error);
+            console.error(' Error loading treasury history:', error);
             this.showDaoError('Error loading treasury history');
         }
     }
@@ -6389,7 +6389,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
         console.log('💸 Showing spending proposal modal...');
         
         if (!this.currentIdentity) {
-            this.showNotification('❌ Please sign in to propose treasury spending', 'error');
+            this.showNotification(' Please sign in to propose treasury spending', 'error');
             return;
         }
         
@@ -6433,7 +6433,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                             </select>
                         </div>
                         <div style="background: rgba(255, 193, 7, 0.1); border: 1px solid #ffc107; border-radius: 8px; padding: 15px; margin-bottom: 20px;">
-                            <h4 style="margin-bottom: 10px; color: #ffc107;">⚠️ Treasury Spending Guidelines</h4>
+                            <h4 style="margin-bottom: 10px; color: #ffc107;"> Treasury Spending Guidelines</h4>
                             <ul style="margin: 0; padding-left: 20px; color: #8a9ba8; font-size: 0.9rem;">
                                 <li>Proposals must benefit the ZHTP ecosystem</li>
                                 <li>Provide detailed budget breakdown</li>
@@ -6480,12 +6480,12 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                     // Switch to proposals tab to show the new proposal
                     window.switchDaoTab('proposals');
                 } else {
-                    this.showNotification(`❌ Proposal submission failed: ${result.message}`, 'error');
+                    this.showNotification(` Proposal submission failed: ${result.message}`, 'error');
                 }
                 
             } catch (error) {
-                console.error('❌ Error submitting spending proposal:', error);
-                this.showNotification('❌ Failed to submit spending proposal', 'error');
+                console.error(' Error submitting spending proposal:', error);
+                this.showNotification(' Failed to submit spending proposal', 'error');
             }
         });
     }
@@ -6514,8 +6514,8 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
             this.showNotification(' Treasury data exported successfully!', 'success');
             
         } catch (error) {
-            console.error('❌ Error exporting treasury data:', error);
-            this.showNotification('❌ Failed to export treasury data', 'error');
+            console.error(' Error exporting treasury data:', error);
+            this.showNotification(' Failed to export treasury data', 'error');
         }
     }
 
@@ -6525,7 +6525,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
         try {
             const did = this.currentIdentity?.did;
             if (!did) {
-                console.warn('⚠️ No DID available for treasury history');
+                console.warn(' No DID available for treasury history');
                 return;
             }
 
@@ -6565,11 +6565,11 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                     `;
                 }
             } else {
-                console.error('❌ Failed to load treasury history:', data.error);
+                console.error(' Failed to load treasury history:', data.error);
                 this.showNotification('Failed to load treasury history', 'error');
             }
         } catch (error) {
-            console.error('❌ Error loading treasury history:', error);
+            console.error(' Error loading treasury history:', error);
             this.showNotification('Error loading treasury history', 'error');
         }
     }
@@ -6799,7 +6799,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                                 margin-bottom: 20px;
                                 color: #ffcc00;
                             ">
-                                <h4 style="margin: 0 0 10px 0; color: #ffa500;">⚠️ Treasury Safeguards Active</h4>
+                                <h4 style="margin: 0 0 10px 0; color: #ffa500;"> Treasury Safeguards Active</h4>
                                 <ul style="margin: 0; padding-left: 20px;">
                                     <li>Treasury proposals require majority consensus (51%+ votes)</li>
                                     <li>Maximum single allocation: 10% of total treasury</li>
@@ -6898,7 +6898,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
             const isVisible = modal.offsetWidth > 0 && modal.offsetHeight > 0;
             console.log('🕐 Modal visibility check after 100ms:', isVisible);
             if (!isVisible) {
-                console.error('❌ Modal still not visible! Forcing display...');
+                console.error(' Modal still not visible! Forcing display...');
                 modal.style.display = 'flex';
                 modal.style.visibility = 'visible';
                 modal.style.opacity = '1';
@@ -7026,7 +7026,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
             document.getElementById('modalDaoFeesCollected').textContent = formatCurrency(treasuryData.total_dao_fees_collected || 0);
             
         } catch (error) {
-            console.error('❌ Failed to load treasury modal data:', error);
+            console.error(' Failed to load treasury modal data:', error);
         }
     }
 
@@ -7049,7 +7049,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                         </p>
                         
                         <div class="safeguard-section">
-                            <h3>🔒 Consensus Requirements</h3>
+                            <h3> Consensus Requirements</h3>
                             <div class="safeguard-details">
                                 <div class="safeguard-rule">
                                     <strong>60% Approval Threshold:</strong> Treasury proposals require 60% approval 
@@ -7123,7 +7123,7 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                 </div>
                 <div class="modal-footer">
                     <button onclick="this.parentElement.parentElement.parentElement.remove()" class="dao-btn primary">
-                        🔒 Close Safeguards
+                         Close Safeguards
                     </button>
                 </div>
             </div>
@@ -7189,42 +7189,42 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
         
         // Basic validation
         if (!title || !type || !description) {
-            console.error('❌ Missing required fields:', { title: !!title, type: !!type, description: !!description });
-            this.showNotification('❌ Please fill in all required fields: title, type, and description', 'error');
+            console.error(' Missing required fields:', { title: !!title, type: !!type, description: !!description });
+            this.showNotification(' Please fill in all required fields: title, type, and description', 'error');
             return;
         }
         
         // Type-specific validation
         if (type === 'TreasuryManagement') {
             if (!treasuryAmount || !recipientAddress) {
-                console.error('❌ Treasury proposal missing required fields:', { treasuryAmount: !!treasuryAmount, recipientAddress: !!recipientAddress });
-                this.showNotification('❌ Treasury proposals require amount and recipient address', 'error');
+                console.error(' Treasury proposal missing required fields:', { treasuryAmount: !!treasuryAmount, recipientAddress: !!recipientAddress });
+                this.showNotification(' Treasury proposals require amount and recipient address', 'error');
                 return;
             }
             
             const amount = parseFloat(treasuryAmount);
             if (isNaN(amount) || amount <= 0) {
-                this.showNotification('❌ Please enter a valid treasury amount greater than 0', 'error');
+                this.showNotification(' Please enter a valid treasury amount greater than 0', 'error');
                 return;
             }
             
             // Validate recipient address format (basic check)
             if (recipientAddress.length < 10) {
-                this.showNotification('❌ Please enter a valid recipient address', 'error');
+                this.showNotification(' Please enter a valid recipient address', 'error');
                 return;
             }
         }
         
         if (type === 'UbiRateChange') {
             if (!newUbiRate) {
-                console.error('❌ UBI rate change missing required fields:', { newUbiRate: !!newUbiRate });
-                this.showNotification('❌ UBI rate change proposals require a new rate value', 'error');
+                console.error(' UBI rate change missing required fields:', { newUbiRate: !!newUbiRate });
+                this.showNotification(' UBI rate change proposals require a new rate value', 'error');
                 return;
             }
             
             const rate = parseFloat(newUbiRate);
             if (isNaN(rate) || rate < 0) {
-                this.showNotification('❌ Please enter a valid UBI rate (0 or greater)', 'error');
+                this.showNotification(' Please enter a valid UBI rate (0 or greater)', 'error');
                 return;
             }
         }
@@ -7242,22 +7242,22 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                 
                 // Treasury Protection: Check if requested amount exceeds available funds
                 if (requestedAmount > availableFunds) {
-                    this.showNotification(`❌ Treasury Protection: Requested ${requestedAmount.toLocaleString()} ZHTP exceeds available treasury funds (${availableFunds.toLocaleString()} ZHTP)`, 'error');
+                    this.showNotification(` Treasury Protection: Requested ${requestedAmount.toLocaleString()} ZHTP exceeds available treasury funds (${availableFunds.toLocaleString()} ZHTP)`, 'error');
                     return;
                 }
                 
                 // Treasury Protection: Warn for large allocations (>25% of treasury)
                 const treasuryPercentage = (requestedAmount / availableFunds) * 100;
                 if (treasuryPercentage > 25) {
-                    const confirmed = confirm(`⚠️ Treasury Protection Warning:\n\nThis proposal requests ${treasuryPercentage.toFixed(1)}% of available treasury funds.\n\nLarge treasury allocations require community consensus and will need 60% approval instead of the usual 50%.\n\nContinue with proposal submission?`);
+                    const confirmed = confirm(` Treasury Protection Warning:\n\nThis proposal requests ${treasuryPercentage.toFixed(1)}% of available treasury funds.\n\nLarge treasury allocations require community consensus and will need 60% approval instead of the usual 50%.\n\nContinue with proposal submission?`);
                     if (!confirmed) {
-                        console.log('❌ User cancelled large treasury allocation proposal');
+                        console.log(' User cancelled large treasury allocation proposal');
                         return;
                     }
                 }
                 
                 // Treasury Protection: Add safeguard notice to description
-                const safeguardNotice = `\n\n🔒 TREASURY SAFEGUARDS APPLIED:\n• Amount: ${requestedAmount.toLocaleString()} ZHTP (${treasuryPercentage.toFixed(1)}% of treasury)\n• Recipient: ${recipientAddress}\n• Requires 60% approval for execution\n• Funds will only be released upon majority consensus\n• Treasury balance verified at time of proposal`;
+                const safeguardNotice = `\n\n TREASURY SAFEGUARDS APPLIED:\n• Amount: ${requestedAmount.toLocaleString()} ZHTP (${treasuryPercentage.toFixed(1)}% of treasury)\n• Recipient: ${recipientAddress}\n• Requires 60% approval for execution\n• Funds will only be released upon majority consensus\n• Treasury balance verified at time of proposal`;
                 
                 // Update description with safeguard information
                 const enhancedDescription = description + safeguardNotice;
@@ -7290,8 +7290,8 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                 await this.submitNewProposal(proposal);
                 
             } catch (error) {
-                console.error('❌ Failed to validate treasury proposal:', error);
-                this.showNotification('❌ Failed to validate treasury proposal: ' + error.message, 'error');
+                console.error(' Failed to validate treasury proposal:', error);
+                this.showNotification(' Failed to validate treasury proposal: ' + error.message, 'error');
                 return;
             }
             
@@ -7309,12 +7309,12 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                     ubi_rate: parseFloat(newUbiRate)
                 };
                 
-                console.log('🚀 Calling submitNewProposal with UBI rate change:', proposal);
+                console.log(' Calling submitNewProposal with UBI rate change:', proposal);
                 await this.submitNewProposal(proposal);
                 
             } catch (error) {
-                console.error('❌ Failed to submit UBI rate change proposal:', error);
-                this.showNotification('❌ Failed to submit UBI rate change proposal: ' + error.message, 'error');
+                console.error(' Failed to submit UBI rate change proposal:', error);
+                this.showNotification(' Failed to submit UBI rate change proposal: ' + error.message, 'error');
                 return;
             }
             
@@ -7332,12 +7332,12 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
                     amount: 0 // Regular proposals don't have amounts
                 };
                 
-                console.log('🚀 Calling submitNewProposal with:', proposal);
+                console.log(' Calling submitNewProposal with:', proposal);
                 await this.submitNewProposal(proposal);
                 
             } catch (error) {
-                console.error('❌ Failed to submit proposal:', error);
-                this.showNotification('❌ Failed to submit proposal: ' + error.message, 'error');
+                console.error(' Failed to submit proposal:', error);
+                this.showNotification(' Failed to submit proposal: ' + error.message, 'error');
                 return;
             }
         }
@@ -7374,12 +7374,12 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
         const amount = document.getElementById('delegateAmount').value;
         
         if (!delegateTo || !amount) {
-            this.showNotification('❌ Please fill in all fields', 'error');
+            this.showNotification(' Please fill in all fields', 'error');
             return;
         }
         
         if (!delegateTo.startsWith('did:zhtp:')) {
-            this.showNotification('❌ Invalid DID format', 'error');
+            this.showNotification(' Invalid DID format', 'error');
             return;
         }
         
@@ -7388,8 +7388,8 @@ ${contractContent.metadata?.availableFiles?.join('\n') || 'No files available'}
             this.showNotification(' Votes delegated successfully', 'success');
             // In real implementation, would submit to blockchain
         } catch (error) {
-            console.error('❌ Failed to delegate votes:', error);
-            this.showNotification('❌ Failed to delegate votes', 'error');
+            console.error(' Failed to delegate votes:', error);
+            this.showNotification(' Failed to delegate votes', 'error');
         }
     }
 
@@ -7481,7 +7481,7 @@ function executeSignIn() {
 }
 
 function executeSignInProcess(did, method) {
-    console.log(`🚀 Signing in with DID: ${did}, Method: ${method}`);
+    console.log(` Signing in with DID: ${did}, Method: ${method}`);
     
     showZkDidStatus(`Authenticating with ${method}...`, 'pending');
     
@@ -7605,12 +7605,12 @@ async function executeSeedRecovery() {
                 window.browser.navigateToUrl('zhtp://dashboard.zhtp');
             }, 2000);
         } else {
-            window.browser?.showNotification('❌ Seed recovery failed: ' + result.error, 'error');
+            window.browser?.showNotification(' Seed recovery failed: ' + result.error, 'error');
         }
         
     } catch (error) {
-        console.error('❌ Seed recovery failed:', error);
-        window.browser?.showNotification('❌ Seed recovery failed: ' + error.message, 'error');
+        console.error(' Seed recovery failed:', error);
+        window.browser?.showNotification(' Seed recovery failed: ' + error.message, 'error');
     }
 }
 
@@ -7657,12 +7657,12 @@ async function executeBackupRecovery() {
                 window.browser.navigateToUrl('zhtp://dashboard.zhtp');
             }, 2000);
         } else {
-            window.browser?.showNotification('❌ Backup recovery failed: ' + result.error, 'error');
+            window.browser?.showNotification(' Backup recovery failed: ' + result.error, 'error');
         }
         
     } catch (error) {
-        console.error('❌ Backup recovery failed:', error);
-        window.browser?.showNotification('❌ Backup recovery failed: ' + error.message, 'error');
+        console.error(' Backup recovery failed:', error);
+        window.browser?.showNotification(' Backup recovery failed: ' + error.message, 'error');
     }
 }
 
@@ -7701,12 +7701,12 @@ async function executeSocialRecovery() {
                 }, 2000);
             }
         } else {
-            window.browser?.showNotification('❌ Social recovery failed: ' + result.error, 'error');
+            window.browser?.showNotification(' Social recovery failed: ' + result.error, 'error');
         }
         
     } catch (error) {
-        console.error('❌ Social recovery failed:', error);
-        window.browser?.showNotification('❌ Social recovery failed: ' + error.message, 'error');
+        console.error(' Social recovery failed:', error);
+        window.browser?.showNotification(' Social recovery failed: ' + error.message, 'error');
     }
 }
 
@@ -7835,7 +7835,7 @@ function closeModal(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
         modal.style.display = 'none';
-        console.log('🔒 Modal closed:', modalId);
+        console.log(' Modal closed:', modalId);
     }
     
     // Also call the browser's closeModal method to close any other modals
@@ -7880,7 +7880,7 @@ function createProposal() {
     if (window.browser) {
         window.browser.showCreateProposalModal();
     } else {
-        console.error('❌ Browser instance not available');
+        console.error(' Browser instance not available');
     }
 }
 
@@ -7901,7 +7901,7 @@ function voteYes(proposalId) {
     if (window.browser) {
         window.browser.voteOnProposal(proposalId, 'yes');
     } else {
-        console.error('❌ Browser instance not available');
+        console.error(' Browser instance not available');
     }
 }
 
@@ -7910,7 +7910,7 @@ function proposeSpending() {
     if (window.browser) {
         window.browser.showSpendingProposalModal();
     } else {
-        console.error('❌ Browser instance not available');
+        console.error(' Browser instance not available');
     }
 }
 
@@ -7920,7 +7920,7 @@ function viewTreasuryHistory() {
         // For now, just show a notification
         window.browser.showNotification('Treasury history feature coming soon!', 'info');
     } else {
-        console.error('❌ Browser instance not available');
+        console.error(' Browser instance not available');
     }
 }
 
@@ -7929,16 +7929,16 @@ function voteNo(proposalId) {
     if (window.browser) {
         window.browser.voteOnProposal(proposalId, 'no');
     } else {
-        console.error('❌ Browser instance not available');
+        console.error(' Browser instance not available');
     }
 }
 
 function viewProposal(proposalId) {
-    console.log(`📄 Viewing details for ${proposalId}...`);
+    console.log(` Viewing details for ${proposalId}...`);
     if (window.browser) {
         window.browser.viewProposalDetails(proposalId);
     } else {
-        console.error('❌ Browser instance not available');
+        console.error(' Browser instance not available');
     }
 }
 
@@ -8017,8 +8017,8 @@ async function submitProposal() {
         console.log('👤 Current identity:', window.browser.currentIdentity);
         
         if (!window.browser.currentIdentity) {
-            console.error('❌ No identity found - user must sign in first');
-            window.browser.showNotification('❌ Please sign in to create proposals', 'error');
+            console.error(' No identity found - user must sign in first');
+            window.browser.showNotification(' Please sign in to create proposals', 'error');
             return;
         }
         
@@ -8026,12 +8026,12 @@ async function submitProposal() {
         // Call the browser's submitProposal method which will handle form data collection
         await window.browser.submitProposal();
     } else {
-        console.error('❌ Browser instance not available');
+        console.error(' Browser instance not available');
     }
 }
 
 function cancelProposal() {
-    console.log('❌ Cancelling proposal creation...');
+    console.log(' Cancelling proposal creation...');
     if (window.browser) {
         window.browser.closeModal();
     } else {
@@ -8132,7 +8132,7 @@ function publishPost() {
         return;
     }
     
-    console.log('🚀 Publishing post...', content);
+    console.log(' Publishing post...', content);
     window.browser?.showNotification('Post published to Web4 network!', 'success');
     document.getElementById('postContent').value = '';
 }
@@ -8223,7 +8223,7 @@ function searchDomains() {
 }
 
 function buyDomain(domain) {
-    console.log(`🌐 Buying domain: ${domain}...`);
+    console.log(` Buying domain: ${domain}...`);
     window.browser?.showNotification(`Purchasing ${domain}...`, 'pending');
     
     setTimeout(() => {
@@ -8341,12 +8341,12 @@ async function signInWithZkDid() {
         console.log(' Debug - Passphrase value length:', passphraseInput?.value?.length);
         
         if (!identityInput) {
-            window.browser?.showNotification('❌ Identity input field not found! Please refresh the page.', 'error');
+            window.browser?.showNotification(' Identity input field not found! Please refresh the page.', 'error');
             return;
         }
         
         if (!passphraseInput) {
-            window.browser?.showNotification('❌ Passphrase input field not found! Please refresh the page.', 'error');
+            window.browser?.showNotification(' Passphrase input field not found! Please refresh the page.', 'error');
             return;
         }
         
@@ -8380,19 +8380,19 @@ async function signInWithZkDid() {
                     
                     // Check if it's just the ZHTP protocol response
                     if (parsedData.status === 'success' && parsedData.message === 'ZHTP mesh connection established') {
-                        console.warn('⚠️ Received ZHTP protocol response instead of signin response');
+                        console.warn(' Received ZHTP protocol response instead of signin response');
                         throw new Error('Sign-in endpoint returned protocol response instead of identity data');
                     }
                     
                     identityData = parsedData;
                 } catch (e) {
-                    console.error('📄 Failed to parse signin response:', e);
+                    console.error(' Failed to parse signin response:', e);
                     throw new Error('Invalid signin response format');
                 }
             } else if (result.data && typeof result.data === 'object') {
                 identityData = result.data;
             } else {
-                console.error('❌ No signin data in response');
+                console.error(' No signin data in response');
                 throw new Error('No signin data received from server');
             }
             
@@ -8418,7 +8418,7 @@ async function signInWithZkDid() {
             try {
                 await window.browser.loadWalletData();
             } catch (error) {
-                console.warn('⚠️ Could not load wallet data after sign-in:', error);
+                console.warn(' Could not load wallet data after sign-in:', error);
             }
             
             // Show success message
@@ -8439,7 +8439,7 @@ async function signInWithZkDid() {
         } else {
             // Handle error response
             const errorMsg = result.message || result.error || 'Authentication failed';
-            window.browser?.showNotification('❌ Authentication failed: ' + errorMsg, 'error');
+            window.browser?.showNotification(' Authentication failed: ' + errorMsg, 'error');
             
             // If identity not found, suggest creating one
             if (errorMsg.includes('not found') || errorMsg.includes('invalid')) {
@@ -8450,7 +8450,7 @@ async function signInWithZkDid() {
         }
         
     } catch (error) {
-        console.error('❌ ZK-DID sign in failed:', error);
+        console.error(' ZK-DID sign in failed:', error);
         const errorMessage = error.message;
         window.browser?.showNotification('Sign in failed: ' + errorMessage, 'error');
         
@@ -8527,19 +8527,19 @@ async function createNewZkDid() {
                     
                     // If it's just the ZHTP protocol response, we need to look elsewhere
                     if (parsedData.status === 'success' && parsedData.message === 'ZHTP mesh connection established') {
-                        console.warn('⚠️ Received ZHTP protocol response instead of API response - identity endpoint may not be working');
+                        console.warn(' Received ZHTP protocol response instead of API response - identity endpoint may not be working');
                         throw new Error('Identity creation endpoint returned protocol response instead of identity data');
                     }
                     
                     identityData = parsedData;
                 } catch (e) {
-                    console.error('📄 Failed to parse response data as JSON:', e);
+                    console.error(' Failed to parse response data as JSON:', e);
                     throw new Error('Invalid response format from identity creation');
                 }
             } else if (result.data && typeof result.data === 'object') {
                 identityData = result.data;
             } else {
-                console.error('❌ No identity data in response, checking for body field...');
+                console.error(' No identity data in response, checking for body field...');
                 
                 // Check if there's a body field (new server format)
                 if (result.body) {
@@ -8555,11 +8555,11 @@ async function createNewZkDid() {
                         }
                         console.log(' Successfully parsed identity data from body field');
                     } catch (bodyParseError) {
-                        console.error('❌ Failed to parse body field:', bodyParseError);
+                        console.error(' Failed to parse body field:', bodyParseError);
                         throw new Error('Failed to parse identity response body');
                     }
                 } else {
-                    console.error('❌ No identity data found in response fields');
+                    console.error(' No identity data found in response fields');
                     console.log(' Full response structure:', JSON.stringify(result, null, 2));
                     throw new Error('Server response missing identity data - check server logs for actual identity creation');
                 }
@@ -8661,7 +8661,7 @@ async function createNewZkDid() {
                     await window.browser.loadWalletData();
                     console.log(' Wallet data loaded successfully for new citizen');
                 } catch (error) {
-                    console.warn('⚠️ Could not update wallet UI after identity creation:', error);
+                    console.warn(' Could not update wallet UI after identity creation:', error);
                 }
             } else {
                 // Fallback: Try to load wallet data from API
@@ -8669,7 +8669,7 @@ async function createNewZkDid() {
                     await window.browser.loadWalletData();
                     console.log(' Wallet data loaded via API fallback');
                 } catch (error) {
-                    console.warn('⚠️ Could not load wallet data after identity creation:', error);
+                    console.warn(' Could not load wallet data after identity creation:', error);
                 }
             }
             
@@ -8700,12 +8700,12 @@ async function createNewZkDid() {
         } else {
             // Handle error response
             const errorMessage = result.message || result.error || 'Unknown error occurred';
-            window.browser?.showNotification('❌ Identity creation failed: ' + errorMessage, 'error');
+            window.browser?.showNotification(' Identity creation failed: ' + errorMessage, 'error');
         }
         
     } catch (error) {
-        console.error('❌ ZK-DID creation failed:', error);
-        window.browser?.showNotification('❌ Identity creation failed: ' + error.message, 'error');
+        console.error(' ZK-DID creation failed:', error);
+        window.browser?.showNotification(' Identity creation failed: ' + error.message, 'error');
     }
 }
 
@@ -8742,7 +8742,7 @@ async function recoverZkDid() {
         }
         
     } catch (error) {
-        console.error('❌ ZK-DID recovery failed:', error);
+        console.error(' ZK-DID recovery failed:', error);
         window.browser?.showNotification('Recovery failed: ' + error.message, 'error');
     }
 }
@@ -8785,7 +8785,7 @@ function switchWalletTab(walletType) {
 // Load wallet data for specific wallet type
 async function loadWalletDataForType(walletType) {
     if (!window.browser?.currentIdentity) {
-        console.warn('⚠️ No current identity found for wallet data loading');
+        console.warn(' No current identity found for wallet data loading');
         return;
     }
 
@@ -8838,7 +8838,7 @@ async function loadDaoDataForType(daoType) {
                 console.warn(`Unknown DAO tab type: ${daoType}`);
         }
     } catch (error) {
-        console.error(`❌ Failed to load ${daoType} DAO data:`, error);
+        console.error(` Failed to load ${daoType} DAO data:`, error);
         window.browser?.showNotification(`Failed to load ${daoType} data`, 'error');
     }
 }
@@ -8850,7 +8850,7 @@ async function loadDaoProposals() {
     try {
         const did = window.browser?.currentDid;
         if (!did) {
-            console.warn('⚠️ No DID available for DAO proposals');
+            console.warn(' No DID available for DAO proposals');
             return;
         }
 
@@ -8884,10 +8884,10 @@ async function loadDaoProposals() {
                 `;
             }
         } else {
-            console.error('❌ Failed to load proposals:', data.error);
+            console.error(' Failed to load proposals:', data.error);
         }
     } catch (error) {
-        console.error('❌ Error loading DAO proposals:', error);
+        console.error(' Error loading DAO proposals:', error);
     }
 }
 
@@ -8897,7 +8897,7 @@ async function loadDaoTreasury() {
     try {
         const did = window.browser?.currentDid;
         if (!did) {
-            console.warn('⚠️ No DID available for DAO treasury');
+            console.warn(' No DID available for DAO treasury');
             return;
         }
 
@@ -8942,10 +8942,10 @@ async function loadDaoTreasury() {
                 `;
             }
         } else {
-            console.error('❌ Failed to load treasury:', data.error);
+            console.error(' Failed to load treasury:', data.error);
         }
     } catch (error) {
-        console.error('❌ Error loading DAO treasury:', error);
+        console.error(' Error loading DAO treasury:', error);
     }
 }
 
@@ -8955,7 +8955,7 @@ async function loadDaoDelegates() {
     try {
         const did = window.browser?.currentDid;
         if (!did) {
-            console.warn('⚠️ No DID available for DAO delegates');
+            console.warn(' No DID available for DAO delegates');
             return;
         }
 
@@ -8989,10 +8989,10 @@ async function loadDaoDelegates() {
                 `;
             }
         } else {
-            console.error('❌ Failed to load delegates:', data.error);
+            console.error(' Failed to load delegates:', data.error);
         }
     } catch (error) {
-        console.error('❌ Error loading DAO delegates:', error);
+        console.error(' Error loading DAO delegates:', error);
     }
 }
     
@@ -9003,12 +9003,12 @@ async function loadDaoDelegates() {
         const citizenData = window.browser.citizenWalletData;
         
         if (!citizenData) {
-            console.warn('⚠️ No citizenWalletData found - user may not be a citizen');
+            console.warn(' No citizenWalletData found - user may not be a citizen');
             return;
         }
         
         if (!citizenData.citizenship || !citizenData.wallets) {
-            console.warn('⚠️ Invalid citizenship wallet data structure:', citizenData);
+            console.warn(' Invalid citizenship wallet data structure:', citizenData);
             return;
         }
         
@@ -9024,7 +9024,7 @@ async function loadDaoDelegates() {
         const walletInfo = wallets.find(w => w.type === walletType);
         
         if (!walletInfo) {
-            console.warn(`⚠️ Wallet type ${walletType} not found in citizen data`);
+            console.warn(` Wallet type ${walletType} not found in citizen data`);
             return;
         }
         
@@ -9140,7 +9140,7 @@ async function loadDaoDelegates() {
                 console.log(' Calling window.browser.updateTransactionHistory with all transactions...');
                 window.browser.updateTransactionHistory(allTransactions);
             } else {
-                console.warn('⚠️ window.browser.updateTransactionHistory method not found');
+                console.warn(' window.browser.updateTransactionHistory method not found');
             }
         }
         
@@ -9160,7 +9160,7 @@ async function loadDaoDelegates() {
         console.log(` ${walletType} wallet data loaded successfully`);
         
     } catch (error) {
-        console.error(`❌ Failed to load ${walletType} wallet data:`, error);
+        console.error(` Failed to load ${walletType} wallet data:`, error);
     }
 }
 
@@ -9175,7 +9175,7 @@ async function pasteFromClipboard(inputId) {
         }
     } catch (err) {
         console.error('Failed to paste from clipboard:', err);
-        window.browser?.showNotification('❌ Failed to paste from clipboard', 'error');
+        window.browser?.showNotification(' Failed to paste from clipboard', 'error');
     }
 }
 
@@ -9183,7 +9183,7 @@ async function pasteFromClipboard(inputId) {
 function updateTransactionDisplay(walletType, transactions) {
     const transactionList = document.getElementById('transactionList');
     if (!transactionList) {
-        console.warn('⚠️ Transaction list element not found');
+        console.warn(' Transaction list element not found');
         return;
     }
     
@@ -9218,7 +9218,7 @@ function updateTransactionDisplay(walletType, transactions) {
 function updateAssetDisplay(walletType, assets) {
     const assetList = document.getElementById('assetList');
     if (!assetList) {
-        console.warn('⚠️ Asset list element not found');
+        console.warn(' Asset list element not found');
         return;
     }
     
@@ -9320,7 +9320,7 @@ async function executeWalletTransfer(fromWallet) {
         // Get current wallet balances
         const citizenData = window.browser.citizenWalletData;
         if (!citizenData || !citizenData.wallets) {
-            window.browser?.showNotification('❌ Wallet data not available', 'error');
+            window.browser?.showNotification(' Wallet data not available', 'error');
             return;
         }
         
@@ -9328,7 +9328,7 @@ async function executeWalletTransfer(fromWallet) {
         const toWalletInfo = citizenData.wallets.find(w => w.type === toWallet);
         
         if (!fromWalletInfo || !toWalletInfo) {
-            window.browser?.showNotification('❌ Wallet not found', 'error');
+            window.browser?.showNotification(' Wallet not found', 'error');
             return;
         }
         
@@ -9338,7 +9338,7 @@ async function executeWalletTransfer(fromWallet) {
         }
         
         if (fromBalance < amount) {
-            window.browser?.showNotification(`❌ Insufficient balance in ${fromWallet} wallet`, 'error');
+            window.browser?.showNotification(` Insufficient balance in ${fromWallet} wallet`, 'error');
             return;
         }
         
@@ -9385,7 +9385,7 @@ async function executeWalletTransfer(fromWallet) {
         }, 1500);
         
     } catch (error) {
-        console.error('❌ Wallet transfer failed:', error);
+        console.error(' Wallet transfer failed:', error);
         window.browser?.showNotification('Transfer failed: ' + error.message, 'error');
     }
 }
@@ -9399,7 +9399,7 @@ async function claimUBI() {
     
     const citizenData = window.browser.citizenWalletData;
     if (!citizenData || !citizenData.citizenship || !citizenData.citizenship.ubi_eligibility) {
-        window.browser?.showNotification('❌ UBI eligibility not found', 'error');
+        window.browser?.showNotification(' UBI eligibility not found', 'error');
         return;
     }
     
@@ -9499,14 +9499,14 @@ async function checkUsernameAvailability(displayName) {
             if (identityExists) {
                 // Username is taken
                 statusElements.forEach(status => {
-                    status.textContent = '❌ This display name is already taken';
+                    status.textContent = ' This display name is already taken';
                     status.className = 'validation-status taken';
                 });
                 inputElements.forEach(input => {
                     input.classList.remove('valid');
                     input.classList.add('invalid');
                 });
-                console.log('❌ Display name already taken:', displayName);
+                console.log(' Display name already taken:', displayName);
             } else {
                 // Username is available
                 statusElements.forEach(status => {
@@ -9520,9 +9520,9 @@ async function checkUsernameAvailability(displayName) {
                 console.log(' Display name available:', displayName);
             }
         } catch (error) {
-            console.error('❌ Error checking username availability:', error);
+            console.error(' Error checking username availability:', error);
             statusElements.forEach(status => {
-                status.textContent = '⚠️ Unable to check availability';
+                status.textContent = ' Unable to check availability';
                 status.className = 'validation-status';
             });
             inputElements.forEach(input => {
@@ -9535,7 +9535,7 @@ async function checkUsernameAvailability(displayName) {
 // Wallet functions
 async function sendTokens() {
     if (!window.browser?.currentIdentity) {
-        window.browser?.showNotification('❌ Please sign in to send tokens', 'error');
+        window.browser?.showNotification(' Please sign in to send tokens', 'error');
         return;
     }
 
@@ -9585,7 +9585,7 @@ async function executeSendTokens() {
         const usePrivate = document.getElementById('sendPrivate').checked;
 
         if (!recipient || !amount || amount <= 0) {
-            window.browser?.showNotification('❌ Please fill in all required fields', 'error');
+            window.browser?.showNotification(' Please fill in all required fields', 'error');
             return;
         }
 
@@ -9607,17 +9607,17 @@ async function executeSendTokens() {
                 setTimeout(() => window.browser.loadWalletData(), 1000);
             }
         } else {
-            window.browser?.showNotification(`❌ Transfer failed: ${result.error}`, 'error');
+            window.browser?.showNotification(` Transfer failed: ${result.error}`, 'error');
         }
     } catch (error) {
-        console.error('❌ Send tokens error:', error);
-        window.browser?.showNotification('❌ Failed to send tokens', 'error');
+        console.error(' Send tokens error:', error);
+        window.browser?.showNotification(' Failed to send tokens', 'error');
     }
 }
 
 async function receiveTokens() {
     if (!window.browser?.currentIdentity) {
-        window.browser?.showNotification('❌ Please sign in to receive tokens', 'error');
+        window.browser?.showNotification(' Please sign in to receive tokens', 'error');
         return;
     }
 
@@ -9674,7 +9674,7 @@ function generatePaymentLink() {
 
 async function swapTokens() {
     if (!window.browser?.currentIdentity) {
-        window.browser?.showNotification('❌ Please sign in to swap tokens', 'error');
+        window.browser?.showNotification(' Please sign in to swap tokens', 'error');
         return;
     }
 
@@ -9759,7 +9759,7 @@ async function executeSwap() {
         const toAmount = parseFloat(document.getElementById('swapToAmount').value);
 
         if (!fromAmount || fromAmount <= 0) {
-            window.browser?.showNotification('❌ Please enter a valid amount', 'error');
+            window.browser?.showNotification(' Please enter a valid amount', 'error');
             return;
         }
 
@@ -9781,17 +9781,17 @@ async function executeSwap() {
                 setTimeout(() => window.browser.loadWalletData(), 1000);
             }
         } else {
-            window.browser?.showNotification(`❌ Swap failed: ${result.error}`, 'error');
+            window.browser?.showNotification(` Swap failed: ${result.error}`, 'error');
         }
     } catch (error) {
-        console.error('❌ Swap error:', error);
-        window.browser?.showNotification('❌ Failed to swap tokens', 'error');
+        console.error(' Swap error:', error);
+        window.browser?.showNotification(' Failed to swap tokens', 'error');
     }
 }
 
 async function stakeTokens() {
     if (!window.browser?.currentIdentity) {
-        window.browser?.showNotification('❌ Please sign in to stake tokens', 'error');
+        window.browser?.showNotification(' Please sign in to stake tokens', 'error');
         return;
     }
 
@@ -9866,7 +9866,7 @@ async function loadStakeBalance() {
             availableElement.textContent = `${parseFloat(balanceData.balance).toFixed(4)} ZHTP`;
         }
     } catch (error) {
-        console.error('❌ Failed to load balance:', error);
+        console.error(' Failed to load balance:', error);
     }
 }
 
@@ -9896,7 +9896,7 @@ async function executeStake() {
         const period = parseInt(document.getElementById('stakePeriod').value);
 
         if (!amount || amount <= 0) {
-            window.browser?.showNotification('❌ Please enter a valid amount', 'error');
+            window.browser?.showNotification(' Please enter a valid amount', 'error');
             return;
         }
 
@@ -9916,11 +9916,11 @@ async function executeStake() {
                 setTimeout(() => window.browser.loadWalletData(), 1000);
             }
         } else {
-            window.browser?.showNotification(`❌ Staking failed: ${result.error}`, 'error');
+            window.browser?.showNotification(` Staking failed: ${result.error}`, 'error');
         }
     } catch (error) {
-        console.error('❌ Staking error:', error);
-        window.browser?.showNotification('❌ Failed to stake tokens', 'error');
+        console.error(' Staking error:', error);
+        window.browser?.showNotification(' Failed to stake tokens', 'error');
     }
 }
 
@@ -9962,7 +9962,7 @@ window.voteOnProposal = function(proposalId, vote) {
     if (window.browser) {
         window.browser.voteOnProposal(proposalId, vote);
     } else {
-        console.error('❌ Browser instance not available');
+        console.error(' Browser instance not available');
     }
 };
 
@@ -9970,7 +9970,7 @@ window.delegateVotingPower = function(targetDid) {
     if (window.browser) {
         window.browser.delegateVotingPower(targetDid);
     } else {
-        console.error('❌ Browser instance not available');
+        console.error(' Browser instance not available');
     }
 };
 
@@ -10009,7 +10009,7 @@ window.switchDaoTab = function(tabName) {
                 console.warn('Unknown DAO tab:', tabName);
         }
     } else {
-        console.error('❌ Browser instance not available - will retry when ready');
+        console.error(' Browser instance not available - will retry when ready');
     }
 };
 
@@ -10018,7 +10018,7 @@ window.createProposal = function() {
     if (window.browser) {
         window.browser.showCreateProposalModal();
     } else {
-        console.error('❌ Browser instance not available - will retry when ready');
+        console.error(' Browser instance not available - will retry when ready');
     }
 };
 
@@ -10035,7 +10035,7 @@ window.proposeSpending = function() {
     if (window.browser) {
         window.browser.showSpendingProposalModal();
     } else {
-        console.error('❌ Browser instance not available - will retry when ready');
+        console.error(' Browser instance not available - will retry when ready');
     }
 };
 
@@ -10044,7 +10044,7 @@ window.viewTreasuryHistory = function() {
     if (window.browser) {
         window.browser.loadTreasuryHistory();
     } else {
-        console.error('❌ Browser instance not available - will retry when ready');
+        console.error(' Browser instance not available - will retry when ready');
     }
 };
 
@@ -10054,11 +10054,11 @@ window.delegateVotes = function() {
 };
 
 window.revokeDelegation = function() {
-    console.log('❌ Revoking vote delegation...');
+    console.log(' Revoking vote delegation...');
     if (window.browser) {
         window.browser.revokeDelegation();
     } else {
-        console.error('❌ Browser instance not available - will retry when ready');
+        console.error(' Browser instance not available - will retry when ready');
     }
 };
 
@@ -10067,7 +10067,7 @@ window.becomeDeligate = function() {
     if (window.browser) {
         window.browser.showDelegateRegistrationModal();
     } else {
-        console.error('❌ Browser instance not available - will retry when ready');
+        console.error(' Browser instance not available - will retry when ready');
     }
 };
 
@@ -10076,7 +10076,7 @@ window.voteOnProposal = function(proposalId, voteChoice) {
     if (window.browser) {
         window.browser.submitVote(proposalId, voteChoice);
     } else {
-        console.error('❌ Browser instance not available - will retry when ready');
+        console.error(' Browser instance not available - will retry when ready');
     }
 };
 
@@ -10085,7 +10085,7 @@ window.delegateVotingPower = function(delegateId) {
     if (window.browser) {
         window.browser.delegateVotingPower(delegateId);
     } else {
-        console.error('❌ Browser instance not available - will retry when ready');
+        console.error(' Browser instance not available - will retry when ready');
     }
 };
 
@@ -10100,7 +10100,7 @@ window.openSettings = function() {
     if (window.browser) {
         window.browser.openSettings();
     } else {
-        console.error('❌ Browser instance not available - will retry when ready');
+        console.error(' Browser instance not available - will retry when ready');
     }
 };
 
@@ -10111,12 +10111,12 @@ window.openDhtTesting = function() {
     } else if (window.browser) {
         window.browser.openDhtTesting();
     } else {
-        console.error('❌ DHT Dashboard not initialized - will retry when ready');
+        console.error(' DHT Dashboard not initialized - will retry when ready');
     }
 };
 
 window.closeModal = function(modalId) {
-    console.log(`❌ Closing modal: ${modalId}`);
+    console.log(` Closing modal: ${modalId}`);
     const modal = document.getElementById(modalId);
     if (modal) {
         modal.style.display = 'none';
@@ -10139,7 +10139,7 @@ window.switchZkDidTab = function(tabName) {
     if (window.browser) {
         window.browser.switchZkDidTab(tabName);
     } else {
-        console.error('❌ Browser instance not available - will retry when ready');
+        console.error(' Browser instance not available - will retry when ready');
     }
 };
 
@@ -10149,7 +10149,7 @@ window.signInWithZkDid = function() {
     if (window.browser) {
         window.browser.signInWithZkDid();
     } else {
-        console.error('❌ Browser instance not available - will retry when ready');
+        console.error(' Browser instance not available - will retry when ready');
     }
 };
 
@@ -10158,7 +10158,7 @@ window.signInWithPassphrase = function() {
     if (window.browser) {
         window.browser.signInWithPassphrase();
     } else {
-        console.error('❌ Browser instance not available - will retry when ready');
+        console.error(' Browser instance not available - will retry when ready');
     }
 };
 
@@ -10167,7 +10167,7 @@ window.signInWithBiometric = function() {
     if (window.browser) {
         window.browser.signInWithBiometric();
     } else {
-        console.error('❌ Browser instance not available - will retry when ready');
+        console.error(' Browser instance not available - will retry when ready');
     }
 };
 
@@ -10176,7 +10176,7 @@ window.signInWithQR = function() {
     if (window.browser) {
         window.browser.signInWithQR();
     } else {
-        console.error('❌ Browser instance not available - will retry when ready');
+        console.error(' Browser instance not available - will retry when ready');
     }
 };
 
@@ -10185,7 +10185,7 @@ window.createNewZkDid = function() {
     if (window.browser) {
         window.browser.createNewZkDid();
     } else {
-        console.error('❌ Browser instance not available - will retry when ready');
+        console.error(' Browser instance not available - will retry when ready');
     }
 };
 
@@ -10194,7 +10194,7 @@ window.setupBiometrics = function() {
     if (window.browser) {
         window.browser.setupBiometrics();
     } else {
-        console.error('❌ Browser instance not available - will retry when ready');
+        console.error(' Browser instance not available - will retry when ready');
     }
 };
 
@@ -10204,7 +10204,7 @@ window.recoverWithSeed = function() {
     if (window.browser) {
         window.browser.recoverWithSeed();
     } else {
-        console.error('❌ Browser instance not available - will retry when ready');
+        console.error(' Browser instance not available - will retry when ready');
     }
 };
 
@@ -10213,7 +10213,7 @@ window.recoverWithBackup = function() {
     if (window.browser) {
         window.browser.recoverWithBackup();
     } else {
-        console.error('❌ Browser instance not available - will retry when ready');
+        console.error(' Browser instance not available - will retry when ready');
     }
 };
 
@@ -10222,7 +10222,7 @@ window.recoverWithSocial = function() {
     if (window.browser) {
         window.browser.recoverWithSocial();
     } else {
-        console.error('❌ Browser instance not available - will retry when ready');
+        console.error(' Browser instance not available - will retry when ready');
     }
 };
 
@@ -10231,7 +10231,7 @@ window.executeRecovery = function() {
     if (window.browser) {
         window.browser.executeRecovery();
     } else {
-        console.error('❌ Browser instance not available - will retry when ready');
+        console.error(' Browser instance not available - will retry when ready');
     }
 };
 
@@ -10241,7 +10241,7 @@ window.sendTokens = function() {
     if (window.browser) {
         window.browser.sendTokens();
     } else {
-        console.error('❌ Browser instance not available - will retry when ready');
+        console.error(' Browser instance not available - will retry when ready');
     }
 };
 
@@ -10250,7 +10250,7 @@ window.receiveTokens = function() {
     if (window.browser) {
         window.browser.receiveTokens();
     } else {
-        console.error('❌ Browser instance not available - will retry when ready');
+        console.error(' Browser instance not available - will retry when ready');
     }
 };
 
@@ -10259,7 +10259,7 @@ window.swapTokens = function() {
     if (window.browser) {
         window.browser.swapTokens();
     } else {
-        console.error('❌ Browser instance not available - will retry when ready');
+        console.error(' Browser instance not available - will retry when ready');
     }
 };
 
@@ -10268,7 +10268,7 @@ window.stakeTokens = function() {
     if (window.browser) {
         window.browser.stakeTokens();
     } else {
-        console.error('❌ Browser instance not available - will retry when ready');
+        console.error(' Browser instance not available - will retry when ready');
     }
 };
 
@@ -10363,7 +10363,7 @@ window.voteYes = function(proposalId) {
 };
 
 window.voteNo = function(proposalId) {
-    console.log(`❌ Voting NO on proposal: ${proposalId}`);
+    console.log(` Voting NO on proposal: ${proposalId}`);
     if (window.browser && window.browser.isInitialized) {
         window.browser.voteOnProposal(proposalId, false);
     } else {
@@ -10372,7 +10372,7 @@ window.voteNo = function(proposalId) {
 };
 
 window.viewProposal = function(proposalId) {
-    console.log(`📄 Viewing proposal details: ${proposalId}`);
+    console.log(` Viewing proposal details: ${proposalId}`);
     if (window.browser && window.browser.isInitialized) {
         window.browser.showProposalDetails(proposalId);
     } else {
@@ -10383,7 +10383,7 @@ window.viewProposal = function(proposalId) {
 // Initialize the browser instance when DOM is ready
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        console.log('🚀 Starting Web4 Browser initialization...');
+        console.log(' Starting Web4 Browser initialization...');
         window.browser = new Web4Browser();
         await window.browser.initialize();
         
@@ -10396,7 +10396,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         
         console.log(' Web4 Browser ready! All DAO functions now fully operational.');
     } catch (error) {
-        console.error('❌ Failed to initialize Web4 Browser:', error);
+        console.error(' Failed to initialize Web4 Browser:', error);
     }
 });
 

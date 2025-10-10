@@ -283,7 +283,7 @@ class ZhtpUrlUtils {
             };
 
             if (logResults) {
-                console.error(`❌ DHT routing test [${testId}] failed:`, error.message);
+                console.error(` DHT routing test [${testId}] failed:`, error.message);
             }
 
             return errorResult;
@@ -368,13 +368,13 @@ class ZhtpUrlUtils {
         console.log(`   Content Key: ${results.contentKey.substring(0, 32)}...`);
         console.log(`   Duration: ${results.duration}ms`);
         console.log(`   Nodes: ${results.nodesDiscovered} discovered, ${results.successfulQueries}/${results.nodesQueried} responsive`);
-        console.log(`   Content: ${results.contentFound ? ' FOUND' : '❌ NOT FOUND'}`);
+        console.log(`   Content: ${results.contentFound ? ' FOUND' : ' NOT FOUND'}`);
         console.log(`   Avg Response: ${results.averageResponseTime}ms`);
         
         if (results.nodes.length > 0) {
             console.log('   Node Details:');
             results.nodes.forEach((node, idx) => {
-                const status = results.queryResults[idx]?.success ? '' : '❌';
+                const status = results.queryResults[idx]?.success ? '' : '';
                 console.log(`     ${idx + 1}. ${node.id}... (${node.protocol}) ${status} dist:${node.distance}`);
             });
         }
@@ -384,7 +384,7 @@ class ZhtpUrlUtils {
      * Run comprehensive DHT routing test suite
      */
     async runTestSuite() {
-        console.log('🚀 Starting DHT Routing Test Suite...\n');
+        console.log(' Starting DHT Routing Test Suite...\n');
         
         const scenarios = this.generateTestScenarios();
         const results = [];
@@ -439,7 +439,7 @@ class ZhtpUrlUtils {
 
         console.log('\nDetailed Results:');
         results.forEach((result, idx) => {
-            const status = result.error ? '❌' : '';
+            const status = result.error ? '' : '';
             const duration = result.duration || 0;
             const nodes = result.nodesDiscovered || 0;
             

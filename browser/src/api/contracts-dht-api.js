@@ -89,7 +89,7 @@ class ContractsDhtApi {
             console.log(` Contract ${contractId} deployment initiated via DHT`);
             return result;
         } catch (error) {
-            console.error(`❌ Contract deployment failed:`, error);
+            console.error(` Contract deployment failed:`, error);
             throw error;
         }
     }
@@ -123,7 +123,7 @@ class ContractsDhtApi {
             console.log(` Contract query sent via DHT`);
             return result;
         } catch (error) {
-            console.error(`❌ Contract query failed:`, error);
+            console.error(` Contract query failed:`, error);
             throw error;
         }
     }
@@ -132,7 +132,7 @@ class ContractsDhtApi {
      * Execute smart contract function via DHT
      */
     async executeContract(contractId, functionName, args = [], options = {}) {
-        console.log(`⚡ Executing contract ${contractId}.${functionName} via DHT...`);
+        console.log(` Executing contract ${contractId}.${functionName} via DHT...`);
 
         const contractData = {
             contract_id: contractId,
@@ -157,7 +157,7 @@ class ContractsDhtApi {
             console.log(` Contract execution initiated via DHT`);
             return result;
         } catch (error) {
-            console.error(`❌ Contract execution failed:`, error);
+            console.error(` Contract execution failed:`, error);
             throw error;
         }
     }
@@ -188,7 +188,7 @@ class ContractsDhtApi {
             console.log(` Contract search initiated via DHT`);
             return result;
         } catch (error) {
-            console.error(`❌ Contract search failed:`, error);
+            console.error(` Contract search failed:`, error);
             throw error;
         }
     }
@@ -225,7 +225,7 @@ class ContractsDhtApi {
      * Deploy and execute contract in one operation
      */
     async deployAndExecute(contractId, bytecode, metadata, functionName, args = [], options = {}) {
-        console.log(`🚀 Deploy and execute ${contractId}.${functionName} via DHT...`);
+        console.log(` Deploy and execute ${contractId}.${functionName} via DHT...`);
 
         // First deploy the contract
         await this.deployContract(contractId, bytecode, metadata, options);
@@ -257,7 +257,7 @@ class ContractsDhtApi {
             
             return null;
         } catch (error) {
-            console.error(`❌ Failed to get contract info:`, error);
+            console.error(` Failed to get contract info:`, error);
             return null;
         }
     }
@@ -284,7 +284,7 @@ class ContractsDhtApi {
             console.log(` Found ${contracts.length} contracts in DHT`);
             return contracts;
         } catch (error) {
-            console.error(`❌ Contract listing failed:`, error);
+            console.error(` Contract listing failed:`, error);
             return [];
         }
     }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌐 Web4 Website Creator & Tester</title>
+    <title> Web4 Website Creator & Tester</title>
     <style>
         body {
             font-family: 'Segoe UI', sans-serif;
@@ -87,7 +87,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>🌐 Web4 Website Creator & Tester</h1>
+        <h1> Web4 Website Creator & Tester</h1>
         <p style="text-align: center;">Create and deploy decentralized websites using smart contracts + DHT storage</p>
 
         <!-- Step 1: Configure Website -->
@@ -102,7 +102,7 @@
             </div>
             
             <div class="file-section">
-                <h4>📄 Index Page (index.html)</h4>
+                <h4> Index Page (index.html)</h4>
                 <textarea class="content-editor" id="indexContent"><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -113,7 +113,7 @@
 </head>
 <body>
     <header>
-        <h1>🌐 Welcome to My Web4 Website!</h1>
+        <h1> Welcome to My Web4 Website!</h1>
         <nav>
             <a href="/">Home</a>
             <a href="/about">About</a>
@@ -127,10 +127,10 @@
         </section>
         
         <section class="features">
-            <h3>🚀 Web4 Features:</h3>
+            <h3> Web4 Features:</h3>
             <div class="feature-grid">
                 <div class="feature">
-                    <h4>🔒 Quantum-Resistant</h4>
+                    <h4> Quantum-Resistant</h4>
                     <p>Advanced cryptographic security</p>
                 </div>
                 <div class="feature">
@@ -138,7 +138,7 @@
                     <p>No single point of failure</p>
                 </div>
                 <div class="feature">
-                    <h4>⚡ Zero-Knowledge</h4>
+                    <h4> Zero-Knowledge</h4>
                     <p>Privacy by design</p>
                 </div>
                 <div class="feature">
@@ -279,8 +279,8 @@ footer {
             </div>
 
             <div class="file-section">
-                <h4>⚡ JavaScript (app.js)</h4>
-                <textarea class="content-editor" id="scriptContent">console.log('🌐 Web4 website loaded!');
+                <h4> JavaScript (app.js)</h4>
+                <textarea class="content-editor" id="scriptContent">console.log(' Web4 website loaded!');
 console.log(' Running on ZHTP protocol');
 console.log('💎 Content stored in DHT network');
 
@@ -309,13 +309,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add Web4 network indicators
     console.log(' ZHTP Network Status: Connected');
     console.log('⛓️ Smart Contract: Active');
-    console.log('🌐 DHT Storage: Distributed');
+    console.log(' DHT Storage: Distributed');
     
     // Simulate Web4 network interaction
     setTimeout(() => {
         console.log('📊 Network stats updated');
         console.log('👥 Connected to', Math.floor(Math.random() * 50 + 10), 'peers');
-        console.log('⚡ Transaction fee: 0.001 ZHTP');
+        console.log(' Transaction fee: 0.001 ZHTP');
     }, 2000);
 });
 
@@ -335,7 +335,7 @@ function navigateWeb4(path) {
 
         <!-- Step 2: Deploy Smart Contract -->
         <div class="step-section">
-            <h3>🚀 Step 2: Deploy Smart Contract</h3>
+            <h3> Step 2: Deploy Smart Contract</h3>
             <p>Deploy the Web4 smart contract to the ZHTP blockchain:</p>
             <button onclick="deployWebsiteContract()">⛓️ Deploy Smart Contract</button>
             <div id="deployOutput" class="output" style="display: none;"></div>
@@ -354,7 +354,7 @@ function navigateWeb4(path) {
             <h3>🧪 Step 4: Test Your Website</h3>
             <p>Navigate to your deployed Web4 website:</p>
             <input type="text" id="testUrl" value="mysite.zhtp" placeholder="yoursite.zhtp">
-            <button onclick="testWebsite()" id="testBtn" disabled>🌐 Visit Website</button>
+            <button onclick="testWebsite()" id="testBtn" disabled> Visit Website</button>
             <button onclick="openInWeb4Browser()">🖥️ Open Web4 Browser</button>
             <div id="testOutput" class="output" style="display: none;"></div>
         </div>
@@ -414,10 +414,10 @@ function navigateWeb4(path) {
         async function deployWebsiteContract() {
             const output = document.getElementById('deployOutput');
             output.style.display = 'block';
-            output.innerHTML = '<span class="info">🚀 Deploying smart contract to ZHTP blockchain...</span>\n';
+            output.innerHTML = '<span class="info"> Deploying smart contract to ZHTP blockchain...</span>\n';
 
             if (!websiteData.domain) {
-                output.innerHTML = '<span class="error">❌ Please package website files first!</span>\n';
+                output.innerHTML = '<span class="error"> Please package website files first!</span>\n';
                 return;
             }
 
@@ -484,8 +484,8 @@ function navigateWeb4(path) {
                 }
 
             } catch (error) {
-                output.innerHTML += `<span class="error">❌ Deployment failed: ${error.message}</span>\n`;
-                output.innerHTML += '<span class="warning">⚠️ Make sure ZHTP node is running on localhost:9333</span>\n';
+                output.innerHTML += `<span class="error"> Deployment failed: ${error.message}</span>\n`;
+                output.innerHTML += '<span class="warning"> Make sure ZHTP node is running on localhost:9333</span>\n';
             }
         }
 
@@ -506,11 +506,11 @@ function navigateWeb4(path) {
                     output.innerHTML += `<span class="success"> ${filename} stored at ${contentHash}</span>\n`;
                 }
 
-                output.innerHTML += '<span class="success">🌐 All content distributed across DHT network!</span>\n';
+                output.innerHTML += '<span class="success"> All content distributed across DHT network!</span>\n';
                 output.innerHTML += '<span class="info"> Content is now accessible via ZHTP protocol</span>\n';
 
             } catch (error) {
-                output.innerHTML += `<span class="error">❌ DHT storage failed: ${error.message}</span>\n`;
+                output.innerHTML += `<span class="error"> DHT storage failed: ${error.message}</span>\n`;
             }
         }
 
@@ -522,11 +522,11 @@ function navigateWeb4(path) {
             output.innerHTML = '<span class="info">🧪 Testing Web4 website...</span>\n';
 
             if (!contractId) {
-                output.innerHTML = '<span class="error">❌ Please deploy smart contract first!</span>\n';
+                output.innerHTML = '<span class="error"> Please deploy smart contract first!</span>\n';
                 return;
             }
 
-            output.innerHTML += `<span class="info">🌐 Resolving: zhtp://${testUrl}</span>\n`;
+            output.innerHTML += `<span class="info"> Resolving: zhtp://${testUrl}</span>\n`;
             output.innerHTML += `<span class="info"> Looking up smart contract...</span>\n`;
             output.innerHTML += `<span class="success"> Contract found: ${contractId}</span>\n`;
             output.innerHTML += `<span class="info">📦 Fetching content from DHT...</span>\n`;
@@ -534,7 +534,7 @@ function navigateWeb4(path) {
             output.innerHTML += `<span class="success"> Website is live and accessible!</span>\n`;
             output.innerHTML += `\n<span class="info"> Access your website at: zhtp://${testUrl}</span>\n`;
             output.innerHTML += `<span class="info">📊 Smart Contract: Active on blockchain</span>\n`;
-            output.innerHTML += `<span class="info">🌐 DHT Storage: Distributed across network</span>\n`;
+            output.innerHTML += `<span class="info"> DHT Storage: Distributed across network</span>\n`;
         }
 
         function openInWeb4Browser() {
@@ -574,8 +574,8 @@ function navigateWeb4(path) {
         }
 
         // Initialize
-        console.log('🌐 Web4 Website Creator loaded');
-        console.log('🚀 Ready to create decentralized websites!');
+        console.log(' Web4 Website Creator loaded');
+        console.log(' Ready to create decentralized websites!');
     </script>
 </body>
 </html>
