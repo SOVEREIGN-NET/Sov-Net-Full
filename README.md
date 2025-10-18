@@ -52,13 +52,16 @@ The ZHTP network supports **mainnet**, **testnet**, and **dev** networks with sp
 ./target/release/zhtp node start --network mainnet --config configs/mainnet-full-node.toml
 
 # Validator Node - Block production and consensus (Maximum Security)
-./target/release/zhtp node start --network mainnet --config configs/validator-node.toml
+./target/release/zhtp node start --network mainnet --config configs/mainnet-validator-node.toml
 
 # Storage Node - Distributed storage and DHT participation
-./target/release/zhtp node start --network mainnet --config configs/storage-node.toml
+./target/release/zhtp node start --network mainnet --config configs/mainnet-storage-node.toml
 
 # Edge Node - Mesh networking and ISP bypass (Pure Mesh Mode)
-./target/release/zhtp node start --network mainnet --config configs/edge-node.toml
+./target/release/zhtp node start --network mainnet --config configs/mainnet-edge-node.toml
+
+# Bootstrap Node - Network seed and discovery
+./target/release/zhtp node start --network mainnet --config configs/mainnet-bootstrap-node.toml
 ```
 
 #### **TESTNET Nodes** (Testing Network - Chain ID: 2)
@@ -75,6 +78,9 @@ The ZHTP network supports **mainnet**, **testnet**, and **dev** networks with sp
 
 # Edge Node - Mesh networking testing (IoT/Mobile)
 ./target/release/zhtp node start --network testnet --config configs/testnet-edge-node.toml
+
+# Bootstrap Node - Testnet seed and discovery
+./target/release/zhtp node start --network testnet --config configs/testnet-bootstrap-node.toml
 ```
 
 #### **DEV/LOCAL Nodes** (Development - Chain ID: 99)
@@ -110,6 +116,7 @@ On Windows, use `.exe` extension:
 | **Validator** | Block production & consensus | Hybrid | Staking, security, governance |
 | **Storage** | Distributed storage (IPFS-like) | Hybrid | Data providers, DHT participation |
 | **Edge** | Mesh networking & ISP bypass | Pure Mesh | Rural connectivity, censorship resistance |
+| **Bootstrap** | Network seed & peer discovery | Hybrid | Network infrastructure, seed nodes |
 
 ### Network Isolation
 
