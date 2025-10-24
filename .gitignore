@@ -6,6 +6,9 @@ zhtp-dev/
 hello_world/
 data/
 sovereign_site/
+Desktop-Browser/
+browser/
+browser (1)/
 
 # Build artifacts
 target/

@@ -6,6 +6,10 @@ A distributed post-quantum blockchain network with advanced privacy features and
 
 This repository contains multiple interconnected libraries and services:
 
+### node download
+
+git clone --recurse-submodules https://github.com/SOVEREIGN-NET/Sov-Net-Full.git
+
 ### Core Libraries
 - **`lib-blockchain/`** - Core blockchain implementation with UTXO model and smart contracts
 - **`lib-consensus/`** - Byzantine fault-tolerant consensus mechanisms with DAO governance
